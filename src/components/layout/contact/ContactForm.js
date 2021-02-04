@@ -84,7 +84,7 @@ function Contact() {
               <textarea
                 name="message"
                 id="message"
-                rows="5"
+                rows="4"
                 className={`form__control ${
                   errors.message ? "is-invalid" : ""
                 }`}

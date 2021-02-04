@@ -74,5 +74,5 @@ export default function Enquiries() {
     }
   }
 
-  return <List enquiries={enquiries} fallback={"Can't fetch Enquiries..."} />;
+  return <List enquiries={enquiries} fallback={"No Enquiries..."} />;
 }

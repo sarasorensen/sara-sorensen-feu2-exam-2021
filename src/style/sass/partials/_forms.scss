@@ -36,6 +36,7 @@
   font-size: 1rem;
   margin-top: 5%;
   box-shadow: $box__shadow;
+  @include flex__row;
   & .form__label {
     width: 90%;
     color: $color__black;
@@ -43,7 +44,6 @@
   }
   & .form__control {
     width: 95%;
-    height: 25px;
     padding: 20px 20px 20px 10px;
     display: block;
     border: none;
@@ -74,8 +74,12 @@
 .form__col--1 {
   width: 50%;
   float: left;
+  padding-left: 5em;
+  padding-right: 5em;
   background-color: $color__grey;
   text-align: center;
+  @include flex__column;
+  justify-content: center;
 }
 .form__col--2 {
   margin: 0 auto;
@@ -84,81 +88,54 @@
   font-size: 1em;
   color: $color__white;
 }
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 @media (max-width: 595px) {
   .search {
     width: 100%;
   }
-  .row {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
   .form__container {
     width: 100%;
-    & .form__col--1 {
-      width: 100%;
-      flex: 100%;
-    }
-    & .form__col--2 {
-      width: 100%;
-    }
-    & .form__control {
-      width: 100%;
-    }
+  }
+  .form__col--1 {
+    width: 100%;
+    flex: 100%;
+  }
+  .form__col--2 {
+    width: 100%;
+  }
+  .form__control {
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
   .search {
     width: 100%;
   }
-  .row {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
   .form__container {
     width: 100%;
-    & .form__col--1 {
-      width: 100%;
-    }
-    & .form__col--2 {
-      width: 100%;
-      margin: 0 auto;
-    }
-    & .form__control {
-      width: 100%;
-    }
+  }
+  .form__col--1 {
+    width: 100%;
+    flex: 100%;
+  }
+  .form__col--2 {
+    width: 100%;
+  }
+  .form__control {
+    width: 100%;
   }
 }
 @media all and (max-width: 992px) {
-  .row {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
   .form__container {
     width: 100%;
-    & .form__col--1 {
-      width: 100%;
-    }
-    & .form__col--2 {
-      width: 100%;
-    }
-    & .form__control {
-      width: 100%;
-    }
   }
-}
-@media all and (max-width: 1024px) {
-  .row {
+  .form__col--1 {
+    width: 100%;
+    flex: 100%;
+  }
+  .form__col--2 {
+    width: 100%;
+  }
+  .form__control {
     width: 100%;
   }
 }

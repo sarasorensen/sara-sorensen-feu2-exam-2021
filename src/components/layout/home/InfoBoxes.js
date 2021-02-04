@@ -10,13 +10,14 @@ import { Map, Message, Pencil } from "../../constants/icons";
 const InfoBoxes = () => {
   return (
     <Row className="infoBoxes">
-      <Col xs={12} md={6} lg={2}>
+      <Col className="col-sm-12 col-md-6 col-lg-4">
         <Card className="infoBoxes__card">
           <Card.Img
             variant="top"
             className="infoBoxes__img"
             src={Hotel}
             alt="Light stone buildings"
+            width="238px"
           />
           <Card.Body>
             <Card.Text>
@@ -28,13 +29,14 @@ const InfoBoxes = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col xs={12} md={6} lg={2}>
+      <Col className="col-sm-12 col-md-6 col-lg-4">
         <Card className="infoBoxes__card">
           <Card.Img
             variant="top"
             className="infoBoxes__img"
             src={Contact}
             alt="Person with hat on in pool"
+            width="238px"
           />
           <Card.Body>
             <Card.Text>
@@ -46,13 +48,14 @@ const InfoBoxes = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col xs={12} md={6} lg={2}>
+      <Col>
         <Card className="infoBoxes__card">
           <Card.Img
             variant="top"
             className="IinfoBoxes__img"
             src={Book}
             alt="Books with beach in background"
+            width="238px"
           />
           <Card.Body>
             <Card.Text>

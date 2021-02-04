@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../../images/header2.jpg";
+import Header from "../../../images/header22.jpg";
 
 function HomeHeader() {
   return (

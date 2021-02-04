@@ -22,12 +22,12 @@ function Enquiry() {
 
   const history = useHistory();
 
-  async function onSubmit(data) {
-    console.log("enq", data);
+  async function onSubmit(enquiry) {
+    console.log("enq", enquiry);
 
     const url = BASE_URL + "enquiries";
 
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
+    const options = { headers, method: "POST", body: JSON.stringify(enquiry) };
 
     await fetch(url, options);
 
@@ -91,6 +91,7 @@ function Enquiry() {
                 id="checkin"
                 label="Next appointment"
                 type="date"
+                ref={register}
                 className={`form__control ${
                   errors.checkin ? "is-invalid" : ""
                 }`}
@@ -107,6 +108,7 @@ function Enquiry() {
                 id="checkout"
                 label="Next appointment"
                 type="date"
+                ref={register}
                 className={`form__control ${
                   errors.checkout ? "is-invalid" : ""
                 }`}
