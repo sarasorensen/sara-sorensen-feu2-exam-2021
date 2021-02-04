@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -77,7 +76,9 @@ function Login() {
             <div className="invalid-feedback">{errors.password?.message}</div>
           </Form.Group>
 
-          <Button type="submit">Submit</Button>
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </Form>
       </Col>
     </Row>

@@ -7,7 +7,6 @@ import Form from "react-bootstrap/Form";
 import { BASE_URL, headers } from "../../constants/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Envelope } from "../../constants/icons";
 
 function AddHotel() {
   const validationSchema = Yup.object().shape({
@@ -39,13 +38,6 @@ function AddHotel() {
 
   return (
     <Row className="form">
-      <Col className="form__col--1 col-sm-11 col-lg-6">
-        <Envelope />
-        <p className="form__info">
-          Here you can add new hotels, please make sure that the input is
-          correct, to ensure a user friendly experience for our customers.
-        </p>
-      </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
           <h2>Add Hotel</h2>

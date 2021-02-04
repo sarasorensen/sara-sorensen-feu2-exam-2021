@@ -22,7 +22,6 @@
     @include hover;
   }
 }
-
 .btn {
   @include button;
   margin-right: 0.5em;
@@ -31,6 +30,7 @@
   float: right;
 }
 .form {
+  width: 100%;
   background-color: $color__white;
   color: $color__black;
   margin: 32px auto 37px;
@@ -80,8 +80,7 @@ textarea::placeholder {
 .form__col--1 {
   background-color: $color__grey;
   text-align: center;
-  margin: 0 auto;
-  min-height: 100%;
+  padding: 6em;
 }
 .form__col--2 {
   margin: 0 auto;
