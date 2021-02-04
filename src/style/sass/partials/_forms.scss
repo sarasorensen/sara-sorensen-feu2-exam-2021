@@ -22,6 +22,7 @@
     @include hover;
   }
 }
+
 .btn {
   @include button;
   margin-right: 0.5em;
@@ -37,23 +38,28 @@
   margin-top: 5%;
   box-shadow: $box__shadow;
   @include flex__row;
-  & .form__label {
-    width: 90%;
-    color: $color__black;
-    @include transition;
+}
+.form__label {
+  width: 100%;
+  color: $color__black;
+  @include transition;
+}
+.form__control {
+  width: 100%;
+  padding: 20px 20px 20px 10px;
+  height: 25px;
+  display: block;
+  border: none;
+  outline: none;
+  border: 1px solid $color__lightGrey;
+  justify-content: center;
+  @include transition;
+  &:hover {
+    border: 1px solid $color__main;
   }
-  & .form__control {
-    width: 95%;
-    padding: 20px 20px 20px 10px;
-    display: block;
-    border: none;
-    outline: none;
-    border: 1px solid $color__lightGrey;
-    @include transition;
-    &:hover {
-      border: 1px solid $color__main;
-    }
-  }
+}
+textarea::placeholder {
+  transform: translateY(-10px);
 }
 .form__error {
   color: $error;
@@ -72,14 +78,10 @@
   }
 }
 .form__col--1 {
-  width: 50%;
-  float: left;
-  padding-left: 5em;
-  padding-right: 5em;
   background-color: $color__grey;
   text-align: center;
-  @include flex__column;
-  justify-content: center;
+  margin: 0 auto;
+  min-height: 100%;
 }
 .form__col--2 {
   margin: 0 auto;
