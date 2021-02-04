@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 
 export default function Enquiries() {
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const options = { headers };
+
   useEffect(() => {
     const url = BASE_URL + "enquiries";
-    fetch(url, FETCH_OPTIONS)
+    fetch(url, options)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -18,12 +20,12 @@ export default function Enquiries() {
         }
       })
       .then(function (json) {
-        setEnquiries(json);
+        console.log(json);
         setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  }, []);
+  });
 
   if (loading) {
     return (

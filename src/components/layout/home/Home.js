@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import Heading from "../Heading";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HomeHeader from "./HomeHeader";
-import Search from "./Search";
-import HomeCard from "./HomeCard";
-import InfoBoxes from "./InfoBoxes";
+
+const Heading = lazy(() => import("../Heading"));
+const HomeHeader = lazy(() => import("./HomeHeader"));
+const HomeCard = lazy(() => import("./HomeCard"));
+const InfoBoxes = lazy(() => import("./InfoBoxes"));
+const Search = lazy(() => import("../Search"));
 
 export function Home() {
   <Heading title="Home" />;
@@ -101,15 +102,26 @@ export function Home() {
     return <div className="error">{error}</div>;
   }
 
+  const renderLoader = () => (
+    <div className="spinner">
+      <Spinner role="status" className="spinner__animation" />
+      <span className="sr-only">Loading content...</span>
+    </div>
+  );
+
   return (
     <Container>
-      <HomeHeader />
+      <Suspense fallback={renderLoader()}>
+        <HomeHeader />
+      </Suspense>
       <Row className="home">
         <Col className="home__col">
           <h1>Find your dream hotel in Bergen</h1>
 
           <div>
-            <Search handleSearch={filterHotels} onChange={toggling} />
+            <Suspense fallback={renderLoader()}>
+              <Search handleSearch={filterHotels} onChange={toggling} />
+            </Suspense>
 
             <div
               ref={node}
@@ -124,20 +136,24 @@ export function Home() {
                 return (
                   <Col className="col-sm-12 col-md-8 col-lg-6" key={id}>
                     {" "}
-                    <HomeCard
-                      className="dropdown__card "
-                      id={id}
-                      image={image}
-                      name={name}
-                      price={price}
-                    />{" "}
+                    <Suspense fallback={renderLoader()}>
+                      <HomeCard
+                        className="dropdown__card "
+                        id={id}
+                        image={image}
+                        name={name}
+                        price={price}
+                      />{" "}
+                    </Suspense>
                   </Col>
                 );
               })}
             </div>
           </div>
         </Col>
-        <InfoBoxes />
+        <Suspense fallback={renderLoader()}>
+          <InfoBoxes />
+        </Suspense>
       </Row>
     </Container>
   );

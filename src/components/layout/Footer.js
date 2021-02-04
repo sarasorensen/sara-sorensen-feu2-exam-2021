@@ -1,5 +1,6 @@
 import React from "react";
-import Logo from "../../images/logo-y.png";
+import { NavLink } from "react-router-dom";
+import Logo from "../../images/logoOfficial.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Facebook, Twitter, LinkedIn } from "../../components/constants/icons";
@@ -18,10 +19,14 @@ function Footer() {
           </p>
         </Col>
         <Col className="footer__col">
-          <a href="/">
-            {" "}
-            <img src={Logo} className="logo footer__logo" alt="company logo " />
-          </a>
+          <NavLink to="/" exact>
+            <img
+              src={Logo}
+              width="105px"
+              height="25px"
+              alt="company logo Holidaze"
+            />
+          </NavLink>
 
           <p>Bergen street 1</p>
 

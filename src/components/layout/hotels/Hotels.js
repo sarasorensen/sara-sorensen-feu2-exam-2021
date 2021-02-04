@@ -1,15 +1,17 @@
-import Heading from "../Heading";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import HotelCard from "../hotels/HotelCard";
-import Search from "../home/Search";
+
+const Heading = lazy(() => import("../Heading"));
+const Search = lazy(() => import("../Search"));
+const HotelCard = lazy(() => import("./HotelCard"));
 
 function Hotels() {
   <Heading title="Hotels" />;
+
   window.localStorage.removeItem("email");
 
   const [hotels, setHotels] = useState([]);
@@ -65,23 +67,34 @@ function Hotels() {
     return <div className="error">{error}</div>;
   }
 
+  const renderLoader = () => (
+    <div className="spinner">
+      <Spinner role="status" className="spinner__animation" />
+      <span className="sr-only">Loading content...</span>
+    </div>
+  );
+
   return (
     <Container>
       <h1 className="main__title">Our Hotels</h1>
-      <Search handleSearch={filterHotels} />
+      <Suspense fallback={renderLoader()}>
+        <Search handleSearch={filterHotels} />
+      </Suspense>
       <Row className="hotel">
         {filteredHotels.map((hotel) => {
           const { id, name, image, price, email } = hotel;
 
           return (
             <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
-              <HotelCard
-                id={id}
-                name={name}
-                image={image}
-                price={price}
-                email={email}
-              />
+              <Suspense fallback={renderLoader()}>
+                <HotelCard
+                  id={id}
+                  name={name}
+                  image={image}
+                  price={price}
+                  email={email}
+                />
+              </Suspense>
             </Col>
           );
         })}

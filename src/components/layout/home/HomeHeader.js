@@ -1,10 +1,16 @@
 import React from "react";
-import Header from "../../../images/header22.jpg";
+import Header from "../../../images/header2.jpg";
 
 function HomeHeader() {
   return (
     <>
-      <img src={Header} className="home__header" alt="company header " />
+      <img
+        src={Header}
+        width="1414"
+        height="826"
+        className="home__header"
+        alt="company header "
+      />
     </>
   );
 }

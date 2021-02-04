@@ -45,6 +45,8 @@ function AddHotel() {
             <Form.Label className="form__label">Hotel Name</Form.Label>
             <Form.Control
               name="name"
+              type="text"
+              id="name"
               ref={register}
               className={`form__control ${errors.name ? "is-invalid" : ""}`}
               placeholder="Enter a name for the hotel"
@@ -56,6 +58,8 @@ function AddHotel() {
             <Form.Label className="form__label">Image Url</Form.Label>
             <Form.Control
               name="imageurl"
+              type="text"
+              id="imageUrl"
               ref={register}
               className={`form__control ${errors.imageurl ? "is-invalid" : ""}`}
               placeholder="http://example.com"
@@ -67,6 +71,8 @@ function AddHotel() {
             <Form.Label className="form__label">Email</Form.Label>
             <Form.Control
               name="email"
+              type="email"
+              id="email"
               className={`form__control ${errors.email ? "is-invalid" : ""}`}
               placeholder="Enter an email address"
               ref={register}
@@ -78,6 +84,8 @@ function AddHotel() {
             <Form.Label className="form__label">Adress</Form.Label>
             <Form.Control
               name="address"
+              type="text"
+              id="address"
               className={`form__control ${errors.address ? "is-invalid" : ""}`}
               placeholder="Enter an address"
               ref={register}
@@ -89,6 +97,8 @@ function AddHotel() {
             <Form.Label className="form__label">Price per night</Form.Label>
             <Form.Control
               name="price"
+              type="number"
+              id="price"
               className={`form__control ${errors.price ? "is-invalid" : ""}`}
               placeholder="Enter an number"
               ref={register}
@@ -100,6 +110,8 @@ function AddHotel() {
             <Form.Label className="form__label">Max Guests</Form.Label>
             <Form.Control
               name="maxGuests"
+              type="number"
+              id="maxGuests"
               className={`form__control ${
                 errors.maxGuests ? "is-invalid" : ""
               }`}

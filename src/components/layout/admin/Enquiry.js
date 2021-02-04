@@ -22,15 +22,26 @@ function Enquiry() {
   const history = useHistory();
 
   async function onSubmit(enquiry) {
-    console.log("enq", enquiry);
+    const enquiryInput = {
+      name: enquiry.name,
+      email: enquiry.email,
+      checkin: enquiry.checkin,
+      checkout: enquiry.checkout,
+    };
 
     const url = BASE_URL + "enquiries";
 
-    const options = { headers, method: "POST", body: JSON.stringify(enquiry) };
+    const options = {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(enquiryInput),
+    };
+
+    console.log(options);
 
     await fetch(url, options);
 
-    history.push("/admin/hotels");
+    //history.push("/admin/hotels");
   }
 
   const name = localStorage.getItem("name");
@@ -48,7 +59,7 @@ function Enquiry() {
         </p>
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
-        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset} method="POST">
           <h2 className="main__title">Enquiry</h2>
           <Form.Group>
             <Form.Label htmlFor="name" className="form__label">

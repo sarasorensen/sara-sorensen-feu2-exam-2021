@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
-import { SearchIcon } from "../../constants/icons";
+import { SearchIcon } from "../constants/icons";
 
 export default function Search({ handleSearch }) {
   return (

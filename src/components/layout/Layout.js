@@ -16,14 +16,20 @@ import HotelSpecific from "./hotels/HotelSpecific";
 import Enquiry from "./admin/Enquiry";
 import Admin from "./admin/Admin";
 import Footer from "./Footer";
-import Logo from "../../images/logo-y.png";
+import Logo from "../../images/logo.png";
 import { Person } from "../constants/icons";
 
 const Layout = () => (
   <Router>
     <Navbar expand="lg">
-      <NavLink className="logo left-align" to="/" exact>
-        <img src={Logo} alt="company logo " />
+      <NavLink className="left-align" to="/" exact>
+        <img
+          src={Logo}
+          className="logo"
+          width="105px"
+          height="25px"
+          alt="company logo Holidaze"
+        />
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
       <Navbar.Collapse id="basic-navbar-nav">
