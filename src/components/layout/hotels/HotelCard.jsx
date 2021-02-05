@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function HotelItem({ id, name, image, price, email }) {
   return (

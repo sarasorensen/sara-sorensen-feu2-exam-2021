@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
-import DeleteHotel from "../admin/btnDeleteHotel";
+import DeleteHotel from "./DeleteHotel";
 
 function HotelDelete({ id, name, image, price, email }) {
   return (
@@ -29,7 +29,7 @@ function HotelDelete({ id, name, image, price, email }) {
           </ul>
 
           <Link to={"hotelSpecific/" + id}>
-            <button className="btn btn__card">View</button>
+            <button className="btn btn__card">Details</button>
           </Link>
           <DeleteHotel id={id} />
         </Card.Body>

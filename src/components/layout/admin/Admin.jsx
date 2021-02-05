@@ -46,6 +46,16 @@ export default function Admin() {
           <LoginData />
         </div>
 
+        <div className="admin__col">
+          <div className="admin__box text-center">
+            <p>
+              <span className="form__error"> NB!</span> All deletions are final.
+              To ensure a good user experience, do not delete anything that have
+              not been authorized.{" "}
+            </p>
+          </div>
+        </div>
+
         <div id="messages" className="admin__col">
           <Messages />
         </div>

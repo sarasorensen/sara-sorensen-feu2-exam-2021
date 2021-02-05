@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, headers } from "../../constants/api";
-import HotelCardDelete from "../hotels/HotelCardDelete";
+import HotelCardDelete from "./EditHotelCard";
 import NewHotelForm from "./NewHotelForm";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { Lock, House, Admin } from "../../constants/icons";
 
 function EditHotel() {
   const [hotels, setHotels] = useState([]);
@@ -49,8 +51,6 @@ function EditHotel() {
     } else {
       return (
         <>
-          <h2>Delete Hotels</h2>
-
           {hotels.map((hotel) => {
             const { id, name, image, price, email } = hotel;
 
@@ -75,6 +75,23 @@ function EditHotel() {
     <Container className="admin">
       <h1 className="main__title">Edit Hotels</h1>
       <Row>
+        <div className="admin__col">
+          <div className="sidenav">
+            <Link to="/admin">
+              <Admin />
+              Admin
+            </Link>
+            <a href="#newHotel">
+              <House />
+              Create New Hotel
+            </a>
+            <a href="/login">
+              {" "}
+              <Lock />
+              Log Out
+            </a>
+          </div>
+        </div>
         <div className="admin__hotels">
           <div className="admin__box text-center">
             <p>
@@ -85,8 +102,8 @@ function EditHotel() {
           </div>
           <List hotels={hotels} fallback={"Loading..."} />
         </div>
-        <div className="admin__col">
-          <NewHotelForm fallback={"Loading..."} />
+        <div id="newHotel" className="admin__col">
+          <NewHotelForm />
         </div>
       </Row>
     </Container>
