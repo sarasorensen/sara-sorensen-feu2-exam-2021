@@ -12,8 +12,6 @@ const HotelCard = lazy(() => import("./HotelCard"));
 function Hotels() {
   <Heading title="Hotels" />;
 
-  window.localStorage.removeItem("email");
-
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);

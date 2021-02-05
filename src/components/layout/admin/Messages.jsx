@@ -76,5 +76,10 @@ export default function Messages() {
     }
   }
 
-  return <List messages={messages} fallback={"Can't fetch Messages..."} />;
+  return (
+    <List
+      messages={messages}
+      fallback={"Can't fetch Messages...Try to refresh."}
+    />
+  );
 }

@@ -34,7 +34,7 @@ function AddHotel() {
 
     await fetch(url, options);
 
-    history.push("/admin/hotels");
+    history.push("/success");
   }
 
   return (

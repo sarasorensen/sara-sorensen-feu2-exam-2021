@@ -3,7 +3,8 @@ import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, headers } from "../../constants/api";
 
 export default function Enquiries() {
-  const [enquiries, setEnquiries] = useState([]);
+  const [enquiries] = useState([]);
+  //setEnquiries
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -76,5 +77,10 @@ export default function Enquiries() {
     }
   }
 
-  return <List enquiries={enquiries} fallback={"No Enquiries..."} />;
+  return (
+    <List
+      enquiries={enquiries}
+      fallback={"Cant fetch Enquiries... Try to refresh."}
+    />
+  );
 }

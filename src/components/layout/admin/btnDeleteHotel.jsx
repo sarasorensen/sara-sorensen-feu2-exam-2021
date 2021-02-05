@@ -28,7 +28,7 @@ function DeleteHotel(props) {
     const options = { headers, method: DELETE };
     await fetch(url, options);
 
-    history.push("/admin/hotels");
+    history.push("success");
   }
 
   return (

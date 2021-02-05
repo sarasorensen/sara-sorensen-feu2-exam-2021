@@ -9,10 +9,11 @@ import Col from "react-bootstrap/Col";
 import { Email, Lock, PersonFill } from "../../constants/icons";
 
 function LoginForm() {
-  window.localStorage.removeItem("email");
-
   const validationSchema = Yup.object().shape({
-    password: Yup.string().required("Password is required"),
+    password: Yup.string()
+      .min(8, "Password is too short - should be 8 chars minimum.")
+      .matches(/(?=.*[0-9])/, "Password must contain a number.")
+      .required("Password is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
   });
 
@@ -23,7 +24,7 @@ function LoginForm() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    localStorage.setItem("email", data.email);
+    localStorage.setItem("loginInfo", data.email);
 
     history.push("/admin");
   }

@@ -1,7 +1,7 @@
 import { LogedIn } from "../../constants/icons";
 
 export default function LogIn() {
-  const loginInfo = localStorage.getItem("email");
+  const loginInfo = localStorage.getItem("loginInfo");
 
   return (
     <div className="admin__logInfo">

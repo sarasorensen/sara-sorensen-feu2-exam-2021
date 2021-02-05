@@ -10,8 +10,6 @@ import Col from "react-bootstrap/Col";
 import { Person, Email, Message, Envelope } from "../../constants/icons";
 
 export default function ContactForm() {
-  window.localStorage.removeItem("email");
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),

@@ -18,9 +18,9 @@ export function HotelSpecific() {
 
   const { id } = useParams();
 
-  const url = BASE_URL + "establishments/" + id;
-
   useEffect(() => {
+    const url = BASE_URL + "establishments/" + id;
+
     fetch(url, FETCH_OPTIONS)
       .then((response) => {
         if (response.status === 200) {
@@ -33,9 +33,9 @@ export function HotelSpecific() {
         setDetail(json);
         setError(null);
       })
-      .catch((error) => console.log("error hotel specific" + error))
+      .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  });
+  }, [id]);
 
   if (loading) {
     return (

@@ -23,6 +23,7 @@ function Enquiry() {
 
   async function onSubmit(data) {
     console.log(data);
+
     const enquiryInput = {
       name: data.name,
       email: data.email,
@@ -38,11 +39,7 @@ function Enquiry() {
       body: JSON.stringify(enquiryInput),
     };
 
-    console.log(options);
-
-    fetch(url, options)
-      .then((r) => r.json())
-      .then((j) => console.log(j));
+    await fetch(url, options);
 
     //history.push("/admin/hotels");
   }
@@ -128,6 +125,7 @@ function Enquiry() {
             />
             <div className="invalid-feedback">{errors.checkout?.message}</div>
           </Form.Group>
+
           <button className="btn" type="submit">
             Submit
           </button>
