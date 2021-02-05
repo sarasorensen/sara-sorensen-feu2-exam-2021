@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, headers } from "../../constants/api";
+import Moment from "react-moment";
+import DeleteEnquiry from "./DeleteEnquiry";
 
 export default function Enquiries() {
   const [enquiries, setEnquiries] = useState([]);
@@ -62,12 +64,27 @@ export default function Enquiries() {
                   </li>
                   <li>
                     {" "}
-                    <p>Check in: {item.checkIn}</p>
+                    <p>
+                      Check in:{" "}
+                      <Moment format="YYYY/MM/DD">{item.checkIn}</Moment>
+                    </p>
                   </li>
                   <li>
-                    <p>Check Out: {item.checkOut}</p>
+                    <p>
+                      Check Out:{" "}
+                      <Moment format="YYYY/MM/DD">{item.checkOut}</Moment>
+                    </p>
+                  </li>
+                  <li>
+                    <p>Hotel id: {item.establishmentId}</p>
                   </li>
                 </ul>
+
+                <a className="btn" href={"mailto:" + item.email}>
+                  Reply
+                </a>
+
+                <DeleteEnquiry id={item.id} />
               </div>
             );
           })}

@@ -4,17 +4,17 @@ import { confirmAlert } from "react-confirm-alert";
 import { BASE_URL, headers, DELETE } from "../../constants/api";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-function DeleteHotel(props) {
+function DeleteEnquiry(props) {
   const history = useHistory();
 
-  function checkDelete() {
+  function deleteBtn() {
     confirmAlert({
       title: "Confirm deletion",
-      message: "If you click confirm you delete this hotel.",
+      message: "If you click confirm you delete this enquiry.",
       buttons: [
         {
           label: "Confirm",
-          onClick: () => deleteHotel(),
+          onClick: () => deleteEnquiry(),
         },
         {
           label: "Cancel",
@@ -23,8 +23,8 @@ function DeleteHotel(props) {
     });
   }
 
-  async function deleteHotel() {
-    const url = BASE_URL + "establishments/" + props.id;
+  async function deleteEnquiry() {
+    const url = BASE_URL + "enquiries/" + props.id;
     const options = { headers, method: DELETE };
     await fetch(url, options);
 
@@ -32,10 +32,10 @@ function DeleteHotel(props) {
   }
 
   return (
-    <button className="btn btn__danger" onClick={checkDelete}>
+    <button className="btn btn__danger" onClick={deleteBtn}>
       Delete
     </button>
   );
 }
 
-export default DeleteHotel;
+export default DeleteEnquiry;

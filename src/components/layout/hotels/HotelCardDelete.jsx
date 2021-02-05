@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -26,6 +27,10 @@ function HotelDelete({ id, name, image, price, email }) {
               <p>{email}</p>
             </li>
           </ul>
+
+          <Link to={"hotelSpecific/" + id}>
+            <button className="btn btn__card">View</button>
+          </Link>
           <DeleteHotel id={id} />
         </Card.Body>
       </Card>

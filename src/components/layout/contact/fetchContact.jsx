@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { Message } from "../../constants/icons";
+import DeleteContact from "./DeleteContact";
 
 export default function Messages() {
   const [messages, setMessages] = useState([]);
@@ -69,6 +70,7 @@ export default function Messages() {
               <a className="btn" href={"mailto:" + item.email}>
                 Reply
               </a>
+              <DeleteContact id={item.id} />
             </div>
           ))}
         </div>

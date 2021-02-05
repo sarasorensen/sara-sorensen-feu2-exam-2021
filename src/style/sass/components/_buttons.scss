@@ -1,0 +1,10 @@
+.btn {
+  @include button;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  float: right;
+}
+.btn__danger {
+  background-color: $error;
+}

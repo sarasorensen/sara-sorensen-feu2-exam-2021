@@ -16,18 +16,24 @@ export default function Success() {
             <h1 className="main__title">Success!</h1>
             <p>
               Your changes have been added to the main page. They can be viewed
-              now.
+              now. Use the links below.
             </p>
             <ul>
               <li>
                 {" "}
                 <NavLink to="/hotels" className="success__link">
-                  See changes
+                  Hotels
+                </NavLink>
+              </li>
+              <li>
+                {" "}
+                <NavLink to="/admin" className="success__link">
+                  Admin
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/" className="success__link">
-                  Back to Homepage
+                  Homepage
                 </NavLink>
               </li>
             </ul>
