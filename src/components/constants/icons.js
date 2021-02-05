@@ -1,6 +1,6 @@
 import React from "react";
-//Icons for form
-const Envelope = (props) => (
+
+const Envelope = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -13,7 +13,7 @@ const Envelope = (props) => (
 
 export { Envelope };
 
-const PersonFill = (props) => (
+const PersonFill = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -31,8 +31,7 @@ const PersonFill = (props) => (
 
 export { PersonFill };
 
-//Icon Success page
-const CheckMark = (props) => (
+const CheckMark = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -45,7 +44,7 @@ const CheckMark = (props) => (
 
 export { CheckMark };
 
-const Access = (props) => (
+const Access = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -59,8 +58,7 @@ const Access = (props) => (
 
 export { Access };
 
-//Icon Search
-const SearchIcon = (props) => (
+const SearchIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -73,8 +71,7 @@ const SearchIcon = (props) => (
 
 export { SearchIcon };
 
-//Icon Admin Page
-const LogedIn = (props) => (
+const LogedIn = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -91,8 +88,7 @@ const LogedIn = (props) => (
 
 export { LogedIn };
 
-//Icons specific hotel page
-const Wifi = (props) => (
+const Wifi = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -106,7 +102,7 @@ const Wifi = (props) => (
 
 export { Wifi };
 
-const Cup = (props) => (
+const Cup = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -119,7 +115,7 @@ const Cup = (props) => (
 
 export { Cup };
 
-const Location = (props) => (
+const Location = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -135,8 +131,7 @@ const Location = (props) => (
 
 export { Location };
 
-//Regular Icons
-const Person = (props) => (
+const Person = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -149,7 +144,7 @@ const Person = (props) => (
 
 export { Person };
 
-const Map = (props) => (
+const Map = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -162,7 +157,7 @@ const Map = (props) => (
 
 export { Map };
 
-const Message = (props) => (
+const Message = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -175,7 +170,7 @@ const Message = (props) => (
 
 export { Message };
 
-const Pencil = (props) => (
+const Pencil = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -188,11 +183,9 @@ const Pencil = (props) => (
 
 export { Pencil };
 
-const Lock = (props) => (
+const Lock = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
     fill="currentColor"
     className="icon bi bi-lock-fill"
     viewBox="0 0 16 16"
@@ -203,11 +196,9 @@ const Lock = (props) => (
 
 export { Lock };
 
-const Email = (props) => (
+const Email = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
     fill="currentColor"
     className="icon bi bi-inbox-fill"
     viewBox="0 0 16 16"
@@ -218,11 +209,9 @@ const Email = (props) => (
 
 export { Email };
 
-const Facebook = (props) => (
+const Facebook = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
     fill="currentColor"
     className="icon bi bi-facebook"
     viewBox="0 0 16 16"
@@ -233,11 +222,9 @@ const Facebook = (props) => (
 
 export { Facebook };
 
-const Twitter = (props) => (
+const Twitter = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
     fill="currentColor"
     className="icon bi bi-twitter"
     viewBox="0 0 16 16"
@@ -248,11 +235,9 @@ const Twitter = (props) => (
 
 export { Twitter };
 
-const LinkedIn = (props) => (
+const LinkedIn = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
     fill="currentColor"
     className="icon bi bi-linkedin"
     viewBox="0 0 16 16"
@@ -263,7 +248,7 @@ const LinkedIn = (props) => (
 
 export { LinkedIn };
 
-const House = (props) => (
+const House = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"

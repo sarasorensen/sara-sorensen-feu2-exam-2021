@@ -4,7 +4,7 @@ export default function LogIn() {
   const loginInfo = localStorage.getItem("email");
 
   return (
-    <div id="user" className="admin__logInfo">
+    <div className="admin__logInfo">
       <LogedIn />
       <div>
         <p>You are logged in as:</p>

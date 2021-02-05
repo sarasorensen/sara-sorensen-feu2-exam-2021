@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Loader from "../Loader";
 
 const Heading = lazy(() => import("../Heading"));
 const HomeHeader = lazy(() => import("./HomeHeader"));
@@ -89,25 +89,15 @@ export function Home() {
     setFilteredHotels(filteredArray);
   };
 
+  const renderLoader = () => <Loader />;
+
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
     return <div className="error">{error}</div>;
   }
-
-  const renderLoader = () => (
-    <div className="spinner">
-      <Spinner role="status" className="spinner__animation" />
-      <span className="sr-only">Loading content...</span>
-    </div>
-  );
 
   return (
     <Container>

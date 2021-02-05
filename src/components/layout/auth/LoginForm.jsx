@@ -4,18 +4,16 @@ import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers } from "../../constants/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Person, Email, Message, Envelope } from "../../constants/icons";
+import { Email, Lock, PersonFill } from "../../constants/icons";
 
-export default function Contact() {
+function LoginForm() {
   window.localStorage.removeItem("email");
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Hotel Name is required"),
+    password: Yup.string().required("Password is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
-    message: Yup.string().required("Message is required"),
   });
 
   const { register, handleSubmit, reset, errors } = useForm({
@@ -25,45 +23,23 @@ export default function Contact() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    const url = BASE_URL + "contacts";
+    localStorage.setItem("email", data.email);
 
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
-
-    await fetch(url, options);
-
-    history.push("/admin/hotels");
+    history.push("/admin");
   }
 
   return (
     <Row className="form">
       <Col className="form__col--1 col-sm-11   col-lg-6">
-        <Envelope />
+        <PersonFill />
         <p className="form__info">
-          If you have any questions or just want to get in touch, use the
-          contact form. We look forward to hearing from you!
+          If you have an existing admin user, please enter your email and
+          password in this form.
         </p>
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h2 className="main__title">Contact Us</h2>
-          <Form.Group>
-            <Form.Label htmlFor="name" className="form__label">
-              {" "}
-              <Person />
-              Name
-            </Form.Label>
-            <Form.Control
-              name="name"
-              id="name"
-              type="text"
-              className={`form__control ${errors.name ? "is-invalid" : ""}`}
-              placeholder="Enter a name"
-              ref={register}
-              required={true}
-            />
-            <div className="invalid-feedback">{errors.name?.message}</div>
-          </Form.Group>
-
+          <h2 className="main__title">Log in</h2>
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
               {" "}
@@ -72,10 +48,10 @@ export default function Contact() {
             </Form.Label>
             <Form.Control
               name="email"
-              type="email"
               id="email"
+              type="text"
               className={`form__control ${errors.email ? "is-invalid" : ""}`}
-              placeholder="Enter an email"
+              placeholder="Enter an email address"
               ref={register}
               required={true}
             />
@@ -83,20 +59,21 @@ export default function Contact() {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label htmlFor="message" className="form__label">
-              <Message />
-              Message:
+            <Form.Label htmlFor="password" className="form__label">
+              {" "}
+              <Lock />
+              Password
             </Form.Label>
-            <textarea
-              name="message"
-              id="message"
-              type="text"
-              className={`form__control ${errors.message ? "is-invalid" : ""}`}
-              placeholder="Enter a message"
+            <Form.Control
+              name="password"
+              type="password"
+              id="password"
+              className={`form__control ${errors.password ? "is-invalid" : ""}`}
+              placeholder="Enter a password"
               ref={register}
               required={true}
             />
-            <div className="invalid-feedback">{errors.message?.message}</div>
+            <div className="invalid-feedback">{errors.password?.message}</div>
           </Form.Group>
 
           <button className="btn" type="submit">
@@ -107,3 +84,5 @@ export default function Contact() {
     </Row>
   );
 }
+
+export default LoginForm;

@@ -4,6 +4,7 @@ export const headers = {
   key: KEY,
 };
 export const PATCH = "PATCH";
+export const POST = "POST";
 export const DELETE = "DELETE";
 export const BASE_URL =
   "https://noroffcors.herokuapp.com/https://us-central1-noroff-final-exam.cloudfunctions.net/api/v1/";

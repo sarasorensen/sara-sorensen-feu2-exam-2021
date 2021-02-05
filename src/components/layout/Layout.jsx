@@ -11,25 +11,20 @@ import Container from "react-bootstrap/Container";
 import Home from "./home/Home";
 import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
-import Login from "../layout/admin/Login";
+import Login from "./auth/Login";
 import HotelSpecific from "./hotels/HotelSpecific";
-import Enquiry from "./admin/Enquiry";
+import Enquiry from "./enquiry/Enquiry";
 import Admin from "./admin/Admin";
+import EditHotels from "./admin/EditHotel";
 import Footer from "./Footer";
-import Logo from "../../images/logo.png";
+import Logo from "../../images/logo-y.png";
 import { Person } from "../constants/icons";
 
 const Layout = () => (
   <Router>
     <Navbar expand="lg">
       <NavLink className="left-align" to="/" exact>
-        <img
-          src={Logo}
-          className="logo"
-          width="105px"
-          height="25px"
-          alt="company logo Holidaze"
-        />
+        <img src={Logo} className="logo" alt="company logo Holidaze" />
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -67,6 +62,7 @@ const Layout = () => (
         <Route path="/hotelSpecific/:id" component={HotelSpecific} />
         <Route path="/enquiry/:id" component={Enquiry} />
         <Route path="/admin" component={Admin} />
+        <Route path="/editHotels" component={EditHotels} />
       </Switch>
     </Container>
     <Footer />

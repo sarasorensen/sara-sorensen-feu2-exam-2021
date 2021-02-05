@@ -7,12 +7,15 @@ import Form from "react-bootstrap/Form";
 import { BASE_URL, headers } from "../../constants/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Person, Email } from "../../constants/icons";
+import { Person, Email, Message, Envelope } from "../../constants/icons";
 
-function Enquiry() {
+export default function ContactForm() {
+  window.localStorage.removeItem("email");
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
+    message: Yup.string().required("Message is required"),
   });
 
   const { register, handleSubmit, reset, errors } = useForm({
@@ -21,46 +24,28 @@ function Enquiry() {
 
   const history = useHistory();
 
-  async function onSubmit(enquiry) {
-    const enquiryInput = {
-      name: enquiry.name,
-      email: enquiry.email,
-      checkin: enquiry.checkin,
-      checkout: enquiry.checkout,
-    };
+  async function onSubmit(data) {
+    const url = BASE_URL + "contacts";
 
-    const url = BASE_URL + "enquiries";
-
-    const options = {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(enquiryInput),
-    };
-
-    console.log(options);
+    const options = { headers, method: "POST", body: JSON.stringify(data) };
 
     await fetch(url, options);
 
-    //history.push("/admin/hotels");
+    history.push("/admin/hotels");
   }
-
-  const name = localStorage.getItem("name");
-  const image = localStorage.getItem("image");
 
   return (
     <Row className="form">
-      <Col className="form__col--1 col-sm-11 col-lg-6">
-        <h1 className="enquiry__name">{name}</h1>
-        <img className="enquiry__hotel" src={image} alt={name} />
+      <Col className="form__col--1 col-sm-11   col-lg-6">
+        <Envelope />
         <p className="form__info">
-          Thank you for choosing Holidaze to book your hotel with. Don't worry
-          about making any mistakes when booking your hotel, as this can be
-          changed later via email support.
+          If you have any questions or just want to get in touch, use the
+          contact form. We look forward to hearing from you!
         </p>
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
-        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset} method="POST">
-          <h2 className="main__title">Enquiry</h2>
+        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+          <h2 className="main__title">Contact Us</h2>
           <Form.Group>
             <Form.Label htmlFor="name" className="form__label">
               {" "}
@@ -71,13 +56,14 @@ function Enquiry() {
               name="name"
               id="name"
               type="text"
-              ref={register}
               className={`form__control ${errors.name ? "is-invalid" : ""}`}
               placeholder="Enter a name"
+              ref={register}
               required={true}
             />
             <div className="invalid-feedback">{errors.name?.message}</div>
           </Form.Group>
+
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
               {" "}
@@ -86,45 +72,33 @@ function Enquiry() {
             </Form.Label>
             <Form.Control
               name="email"
+              type="email"
               id="email"
-              type="text"
               className={`form__control ${errors.email ? "is-invalid" : ""}`}
-              placeholder="Enter an email address"
+              placeholder="Enter an email"
               ref={register}
               required={true}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
           </Form.Group>
+
           <Form.Group>
-            <Form.Label htmlFor="checkin" className="form__label">
-              Check In
+            <Form.Label htmlFor="message" className="form__label">
+              <Message />
+              Message:
             </Form.Label>
-            <input
-              name="checkin"
-              id="checkin"
-              label="Next appointment"
-              type="date"
+            <textarea
+              name="message"
+              id="message"
+              type="text"
+              className={`form__control ${errors.message ? "is-invalid" : ""}`}
+              placeholder="Enter a message"
               ref={register}
-              className={`form__control ${errors.checkin ? "is-invalid" : ""}`}
               required={true}
             />
-            <div className="invalid-feedback">{errors.checkin?.message}</div>
+            <div className="invalid-feedback">{errors.message?.message}</div>
           </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="checkout" className="form__label">
-              Check Out
-            </Form.Label>
-            <input
-              name="checkout"
-              id="checkout"
-              label="Next appointment"
-              type="date"
-              ref={register}
-              className={`form__control ${errors.checkout ? "is-invalid" : ""}`}
-              required={true}
-            />
-            <div className="invalid-feedback">{errors.checkout?.message}</div>
-          </Form.Group>
+
           <button className="btn" type="submit">
             Submit
           </button>
@@ -133,5 +107,3 @@ function Enquiry() {
     </Row>
   );
 }
-
-export default Enquiry;

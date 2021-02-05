@@ -1,9 +1,9 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import Spinner from "react-bootstrap/Spinner";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import Loader from "../Loader";
 
 const Heading = lazy(() => import("../Heading"));
 const Search = lazy(() => import("../Search"));
@@ -54,25 +54,15 @@ function Hotels() {
     setFilteredHotels(filteredArray);
   };
 
+  const renderLoader = () => <Loader />;
+
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
     return <div className="error">{error}</div>;
   }
-
-  const renderLoader = () => (
-    <div className="spinner">
-      <Spinner role="status" className="spinner__animation" />
-      <span className="sr-only">Loading content...</span>
-    </div>
-  );
 
   return (
     <Container>

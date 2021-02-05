@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../../images/logoOfficial.png";
+import Logo from "../../images/rel-icon.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Facebook, Twitter, LinkedIn } from "../../components/constants/icons";
+import { Facebook, Twitter, LinkedIn } from "../constants/icons";
 
 function Footer() {
   return (
@@ -22,8 +22,9 @@ function Footer() {
           <NavLink to="/" exact>
             <img
               src={Logo}
-              width="105px"
-              height="25px"
+              className="footer__logo"
+              width="35px"
+              height="43px"
               alt="company logo Holidaze"
             />
           </NavLink>

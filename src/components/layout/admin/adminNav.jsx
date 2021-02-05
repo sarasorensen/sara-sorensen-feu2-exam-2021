@@ -1,21 +1,14 @@
 import React from "react";
-import { Message, Pencil, Lock, Person, House } from "../../constants/icons";
+import { Link } from "react-router-dom";
+import { Message, Pencil, Lock, House } from "../../constants/icons";
 
-export default function SideNav(props) {
+export default function adminNav() {
   return (
     <div className="sidenav">
-      <a href="#user">
-        <Person />
-        User
-      </a>
-      <a href="#hotels">
+      <Link to="/editHotels">
         <House />
-        All Hotels
-      </a>
-      <a href="#newHotel">
-        <House />
-        New Hotel
-      </a>
+        Edit Hotels
+      </Link>
       <a href="#messages">
         <Message />
         Messages
