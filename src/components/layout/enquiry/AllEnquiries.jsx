@@ -3,8 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { BASE_URL, headers } from "../../constants/api";
 
 export default function Enquiries() {
-  const [enquiries] = useState([]);
-  //setEnquiries
+  const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,7 +20,7 @@ export default function Enquiries() {
         }
       })
       .then(function (json) {
-        console.log(json);
+        setEnquiries(json);
         setError(null);
       })
       .catch((error) => console.log(error))
@@ -63,10 +62,10 @@ export default function Enquiries() {
                   </li>
                   <li>
                     {" "}
-                    <p>Check in: {item.checkin}</p>
+                    <p>Check in: {item.checkIn}</p>
                   </li>
                   <li>
-                    <p>Check Out: {item.checkout}</p>
+                    <p>Check Out: {item.checkOut}</p>
                   </li>
                 </ul>
               </div>

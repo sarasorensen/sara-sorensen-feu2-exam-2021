@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-//import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Form from "react-bootstrap/Form";
@@ -13,13 +13,17 @@ function Enquiry() {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
+    cehckIn: Yup.boolean().oneOf([true], "Must Select Check In date"),
+    cehckOut: Yup.boolean().oneOf([true], "Must Select Check Out date"),
   });
 
   const { register, handleSubmit, reset, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
-  //const history = useHistory();
+  const { id } = useParams();
+
+  const history = useHistory();
 
   async function onSubmit(data) {
     console.log(data);
@@ -27,8 +31,9 @@ function Enquiry() {
     const enquiryInput = {
       name: data.name,
       email: data.email,
-      checkIn: data.checkin,
-      checkOut: data.checkout,
+      checkIn: data.checkIn,
+      checkOut: data.checkOut,
+      establishmentId: data.establishmentId,
     };
 
     const url = BASE_URL + "enquiries";
@@ -41,7 +46,7 @@ function Enquiry() {
 
     await fetch(url, options);
 
-    //history.push("/admin/hotels");
+    history.push("/admin/hotels");
   }
 
   const name = localStorage.getItem("name");
@@ -96,34 +101,55 @@ function Enquiry() {
             <div className="invalid-feedback">{errors.email?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor="checkin" className="form__label">
+            <Form.Label htmlFor="checkIn" className="form__label">
               Check In
             </Form.Label>
-            <input
-              name="checkin"
-              id="checkin"
+            <Form.Control
+              name="checkIn"
+              id="checkIn"
               label="Next appointment"
               type="date"
               ref={register}
-              className={`form__control ${errors.checkin ? "is-invalid" : ""}`}
+              className={`form__control ${errors.checkIn ? "is-invalid" : ""}`}
               required={true}
             />
-            <div className="invalid-feedback">{errors.checkin?.message}</div>
+            <div className="invalid-feedback">{errors.checkIn?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor="checkout" className="form__label">
+            <Form.Label htmlFor="checkOut" className="form__label">
               Check Out
             </Form.Label>
-            <input
-              name="checkout"
-              id="checkout"
+            <Form.Control
+              name="checkOut"
+              id="checkOut"
               label="Next appointment"
               type="date"
               ref={register}
-              className={`form__control ${errors.checkout ? "is-invalid" : ""}`}
+              className={`form__control ${errors.checkOut ? "is-invalid" : ""}`}
               required={true}
             />
-            <div className="invalid-feedback">{errors.checkout?.message}</div>
+            <div className="invalid-feedback">{errors.checkOut?.message}</div>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label htmlFor="establishmentId" className="form__label">
+              Hotel ID
+            </Form.Label>
+            <Form.Control
+              name="establishmentId"
+              id="establishmentId"
+              label="Hotel Id"
+              value={id}
+              readOnly
+              ref={register}
+              className={`form__control ${
+                errors.establishmentId ? "is-invalid" : ""
+              }`}
+              required={true}
+            />
+            <div className="invalid-feedback">
+              {errors.establishmentId?.message}
+            </div>
           </Form.Group>
 
           <button className="btn" type="submit">
