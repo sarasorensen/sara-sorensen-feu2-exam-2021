@@ -17,8 +17,8 @@ import Enquiry from "./enquiry/EnquiryForm";
 import Admin from "./admin/Admin";
 import EditHotels from "./admin/EditHotel";
 import Success from "./admin/Success";
-import Footer from "./Footer";
 import Logo from "../../images/logo-y2.png";
+import Footer from "./Footer";
 import { Person } from "../constants/icons";
 
 const Layout = () => (
@@ -29,8 +29,8 @@ const Layout = () => (
           src={Logo}
           className="logo"
           alt="Holidaze Logo"
-          width="346"
-          height="81"
+          width="1946"
+          height="689"
         />
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
