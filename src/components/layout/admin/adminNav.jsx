@@ -4,7 +4,7 @@ import { Message, Pencil, Lock, House } from "../../constants/icons";
 
 export default function adminNav() {
   return (
-    <div className="sidenav">
+    <div className="adminNav">
       <Link to="/editHotels">
         <House />
         Edit Hotels

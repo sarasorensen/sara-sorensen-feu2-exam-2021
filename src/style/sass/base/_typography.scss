@@ -1,12 +1,6 @@
 //Font variables
 $main-heading: "arial", sans-serif;
 
-a {
-  color: $color__black;
-  &:hover {
-    color: inherit;
-  }
-}
 h1 {
   font-family: $main-heading;
   color: $color__white;

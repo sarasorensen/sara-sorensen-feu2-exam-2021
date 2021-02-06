@@ -21,18 +21,18 @@ export default function Success() {
             <ul>
               <li>
                 {" "}
-                <NavLink to="/hotels" className="success__link">
+                <NavLink to="/hotels" className="link">
                   Hotels
                 </NavLink>
               </li>
               <li>
                 {" "}
-                <NavLink to="/admin" className="success__link">
+                <NavLink to="/admin" className="link">
                   Admin
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" className="success__link">
+                <NavLink to="/" className="link">
                   Homepage
                 </NavLink>
               </li>

@@ -30,9 +30,6 @@
     color: $color__blue;
     @include line;
   }
-  & .specific__link {
-    @include link;
-  }
 }
 .specific__icons {
   @include line;

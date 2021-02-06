@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, headers } from "../../constants/api";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Moment from "react-moment";
 import DeleteEnquiry from "./DeleteEnquiry";
 
@@ -9,11 +9,9 @@ export default function Enquiries() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const options = { headers };
-
   useEffect(() => {
     const url = BASE_URL + "enquiries";
-    fetch(url, options)
+    fetch(url, FETCH_OPTIONS)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -27,7 +25,7 @@ export default function Enquiries() {
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   if (loading) {
     return (

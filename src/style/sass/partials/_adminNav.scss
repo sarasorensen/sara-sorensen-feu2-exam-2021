@@ -1,0 +1,24 @@
+.adminNav {
+  background-color: $color__white;
+  width: 100%;
+  font-weight: 400;
+  @include flex__row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+  & a {
+    color: $color__grey;
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  & a:hover {
+    @include hover;
+    color: $color__main;
+  }
+}
+@media (min-width: 200px) and (max-width: 350px) {
+  .adminNav {
+    flex-direction: column;
+  }
+}

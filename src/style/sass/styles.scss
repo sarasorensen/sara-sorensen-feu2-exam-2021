@@ -4,14 +4,15 @@
 @import "base/typography";
 
 @import "components/buttons";
+@import "components/links";
 
+@import "partials/adminNav";
 @import "partials/dropdown";
 @import "partials/footer";
 @import "partials/forms";
 @import "partials/grid";
 @import "partials/icons";
 @import "partials/navigation";
-@import "partials/sidenav";
 @import "partials/spinner";
 
 @import "pages/admin";

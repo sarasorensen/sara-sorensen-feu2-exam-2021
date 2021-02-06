@@ -17,14 +17,14 @@ const InfoBoxes = () => {
             className="infoBoxes__img"
             src={Hotel}
             alt="Light stone buildings"
-            width="340"
-            height="232"
+            width="640"
+            height="436"
           />
           <Card.Body>
             <Card.Text>
               <Map />
             </Card.Text>
-            <Card.Link className="infoBoxes__link" href="hotels">
+            <Card.Link className="link" href="hotels">
               Our Hotels
             </Card.Link>
           </Card.Body>
@@ -37,34 +37,34 @@ const InfoBoxes = () => {
             className="infoBoxes__img"
             src={Contact}
             alt="Person with hat on in pool"
-            width="340"
-            height="226"
+            width="640"
+            height="426"
           />
           <Card.Body>
             <Card.Text>
               <Message />
             </Card.Text>
-            <Card.Link className="infoBoxes__link" href="contact">
+            <Card.Link className="link" href="contact">
               Contact Us
             </Card.Link>
           </Card.Body>
         </Card>
       </Col>
-      <Col>
+      <Col className="col-sm-12 col-md-6 col-lg-4">
         <Card className="infoBoxes__card">
           <Card.Img
             variant="top"
-            className="IinfoBoxes__img"
+            className="infoBoxes__img"
             src={Book}
             alt="Books with beach in background"
-            width="340"
-            height="226"
+            width="640"
+            height="426"
           />
           <Card.Body>
             <Card.Text>
               <Pencil />
             </Card.Text>
-            <Card.Link className="infoBoxes__link" href="hotels">
+            <Card.Link className="link" href="hotels">
               Book Now
             </Card.Link>
           </Card.Body>

@@ -2,7 +2,7 @@ import React from "react";
 //import { Access } from "../../constants/icons";
 //import { Link } from "react-router-dom";
 import Heading from "../Heading";
-import Messages from "../contact/fetchContact";
+import Messages from "../contact/FetchContact";
 import AllEnquiries from "../enquiry/FetchEnquiries";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -12,6 +12,8 @@ import SideNav from "./adminNav";
 
 export default function Admin() {
   <Heading title="Administrator dashboard" />;
+
+  console.log(React.version);
 
   // const loginInfo = localStorage.getItem("email");
   //This will be active, when development is finished.

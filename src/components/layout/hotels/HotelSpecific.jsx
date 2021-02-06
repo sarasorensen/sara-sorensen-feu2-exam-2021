@@ -75,7 +75,7 @@ export function HotelSpecific() {
           <p>
             {" "}
             If you have any questions, please contact:{" "}
-            <a className="specific__link" href={"mailto:" + detail.email}>
+            <a className="link" href={"mailto:" + detail.email}>
               {detail.email}
             </a>
           </p>
