@@ -13,7 +13,7 @@ export default function Success() {
         <Col>
           <div>
             <CheckMark />
-            <h1 className="main__title">Success!</h1>
+            <h2 className="main__title">Success!</h2>
             <p>
               Your changes have been added to the main page. They can be viewed
               now. Use the links below.

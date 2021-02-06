@@ -4,6 +4,7 @@ import Logo from "../../images/rel-icon.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Facebook, Twitter, LinkedIn } from "../constants/icons";
+import LazyLoad from "react-lazyload";
 
 function Footer() {
   return (
@@ -19,22 +20,20 @@ function Footer() {
           </p>
         </Col>
         <Col className="footer__col">
-          <NavLink to="/" exact>
-            <img
-              src={Logo}
-              className="footer__logo"
-              width="35px"
-              height="43px"
-              alt="company logo Holidaze"
-            />
-          </NavLink>
-
+          <LazyLoad resize={true}>
+            <NavLink to="/" exact>
+              <img
+                src={Logo}
+                className="footer__logo"
+                width="35px"
+                height="43px"
+                alt="company logo Holidaze"
+              />
+            </NavLink>
+          </LazyLoad>
           <p>Bergen street 1</p>
-
           <p> (+47) 51 66 00 00</p>
-
           <a href="mailto: holidaze@company.com">holidaze@company.com</a>
-
           <p className="name"> Holidaze &copy; 2021</p>
         </Col>
         <Col className="footer__col">
@@ -50,7 +49,6 @@ function Footer() {
               <a href="contact"> Contact</a>
             </li>
           </ul>
-
           <div className="footer__icons">
             <a href="https://www.facebook.com/">
               {" "}
@@ -73,5 +71,4 @@ function Footer() {
     </div>
   );
 }
-
 export default Footer;

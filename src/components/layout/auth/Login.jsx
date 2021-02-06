@@ -14,10 +14,10 @@ function Login() {
         <Row>
           <Col>
             <CheckMark />
-            <h1 className="main__title">Log in</h1>
+            <h2 className="main__title">Log in</h2>
             <p>You are logged in as {loginInfo}.</p>
-            <NavLink to="/" className="success__link">
-              Back to Homepage
+            <NavLink to="/" className="link">
+              Home
             </NavLink>
           </Col>
         </Row>

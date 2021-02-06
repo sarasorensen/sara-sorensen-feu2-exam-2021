@@ -59,7 +59,12 @@ export default function Enquiries() {
                   </li>
                   <li>
                     {" "}
-                    <a href={"mailto:" + item.email}>{item.email}</a>
+                    <a
+                      className="link link__admin"
+                      href={"mailto:" + item.email}
+                    >
+                      {item.email}
+                    </a>
                   </li>
                   <li>
                     {" "}

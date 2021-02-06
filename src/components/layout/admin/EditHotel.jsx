@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
+import Heading from "../Heading";
 import { BASE_URL, headers } from "../../constants/api";
 import HotelCardDelete from "./EditHotelCard";
 import NewHotelForm from "./NewHotelForm";
@@ -9,6 +10,7 @@ import Row from "react-bootstrap/Row";
 import { Lock, House, Admin } from "../../constants/icons";
 
 function EditHotel() {
+  <Heading title="Admin Delete and Add Hotel" />;
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -73,7 +75,7 @@ function EditHotel() {
 
   return (
     <Container className="admin">
-      <h1 className="main__title">Edit Hotels</h1>
+      <h2 className="main__title">Edit Hotels</h2>
       <Row>
         <div className="admin__col">
           <div className="adminNav">

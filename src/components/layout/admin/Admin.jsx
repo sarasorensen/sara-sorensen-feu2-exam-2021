@@ -38,7 +38,7 @@ export default function Admin() {
 
   return (
     <Container id="admin" className="admin">
-      <h1 className="main__title">Admin</h1>
+      <h2 className="main__title">Admin</h2>
       <Row>
         <div className="admin__col">
           <SideNav />

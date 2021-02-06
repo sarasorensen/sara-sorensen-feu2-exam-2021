@@ -53,7 +53,7 @@ function EnquiryForm() {
   return (
     <Row className="form">
       <Col className="form__col--1 col-sm-11 col-lg-6">
-        <h1 className="enquiry__name">{name}</h1>
+        <h2 className="enquiry__name">{name}</h2>
         <img className="enquiry__hotel" src={image} alt={name} />
         <p className="form__info">
           Thank you for choosing Holidaze to book your hotel with. Don't worry

@@ -42,7 +42,9 @@ function AddHotel() {
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
           <h2>Add Hotel</h2>
           <Form.Group>
-            <Form.Label className="form__label">Hotel Name</Form.Label>
+            <Form.Label htmlFor="name" className="form__label">
+              Hotel Name
+            </Form.Label>
             <Form.Control
               name="name"
               type="text"
@@ -55,11 +57,13 @@ function AddHotel() {
             <div className="invalid-feedback">{errors.name?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="form__label">Image Url</Form.Label>
+            <Form.Label htmlFor="imageurl" className="form__label">
+              Image Url
+            </Form.Label>
             <Form.Control
               name="imageurl"
               type="text"
-              id="imageUrl"
+              id="imageurl"
               ref={register}
               className={`form__control ${errors.imageurl ? "is-invalid" : ""}`}
               placeholder="http://example.com"
@@ -68,7 +72,9 @@ function AddHotel() {
             <div className="invalid-feedback">{errors.imageurl?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="form__label">Email</Form.Label>
+            <Form.Label htmlFor="email" className="form__label">
+              Email
+            </Form.Label>
             <Form.Control
               name="email"
               type="email"
@@ -81,7 +87,9 @@ function AddHotel() {
             <div className="invalid-feedback">{errors.email?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="form__label">Adress</Form.Label>
+            <Form.Label htmlFor="address" className="form__label">
+              Adress
+            </Form.Label>
             <Form.Control
               name="address"
               type="text"
@@ -94,7 +102,9 @@ function AddHotel() {
             <div className="invalid-feedback">{errors.address?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="form__label">Price per night</Form.Label>
+            <Form.Label htmlFor="price" className="form__label">
+              Price per night
+            </Form.Label>
             <Form.Control
               name="price"
               type="number"
@@ -107,7 +117,9 @@ function AddHotel() {
             <div className="invalid-feedback">{errors.price?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="form__label">Max Guests</Form.Label>
+            <Form.Label htmlFor="maxGuests" className="form__label">
+              Max Guests
+            </Form.Label>
             <Form.Control
               name="maxGuests"
               type="number"

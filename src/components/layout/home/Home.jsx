@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from "react";
-import HomeDropdown from "./HomeDropdown";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loader from "../Loader";
 
+const HomeDropdown = lazy(() => import("./HomeDropdown"));
 const Heading = lazy(() => import("../Heading"));
 const HomeHeader = lazy(() => import("./HomeHeader"));
 
@@ -20,11 +20,13 @@ function Home() {
       </Suspense>
       <Row className="home">
         <Col className="home__col">
-          <h1>Find a place to stay</h1>
+          <h2 className="title__home">Find a place to stay</h2>
           <p className="home__sub">
             Explore and discover our Hotels, Spa's and more!
           </p>
-          <HomeDropdown />
+          <Suspense fallback={renderLoader()}>
+            <HomeDropdown />
+          </Suspense>
         </Col>
       </Row>
     </Container>

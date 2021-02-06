@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
+import Loader from "../Loader";
 import { Wifi, Cup, Location } from "../../constants/icons";
 
 const Heading = lazy(() => import("../Heading"));
@@ -38,12 +38,7 @@ export function HotelSpecific() {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
@@ -60,7 +55,7 @@ export function HotelSpecific() {
           <img src={detail.image} className="specific__img" alt={detail.name} />
         </Col>
         <Col className="specific__details col-sm-12 col-md-6 col-lg-4">
-          <h1 className="specific__title">{detail.name}</h1>
+          <h2 className="specific__title">{detail.name}</h2>
 
           <p>Max {detail.maxGuests} guests</p>
 
