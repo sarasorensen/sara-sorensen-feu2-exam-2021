@@ -28,7 +28,7 @@ function DeleteEnquiry(props) {
     const options = { headers, method: DELETE };
     await fetch(url, options);
 
-    history.push("success");
+    history.push("/success");
   }
 
   return (

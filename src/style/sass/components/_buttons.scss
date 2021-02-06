@@ -4,6 +4,7 @@
   margin-bottom: 0.5em;
   font-weight: 600;
   float: right;
+  @include transition;
 }
 .btn__danger {
   background-color: $error;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import Moment from "react-moment";
 import DeleteEnquiry from "./DeleteEnquiry";
 
@@ -11,7 +11,8 @@ export default function Enquiries() {
 
   useEffect(() => {
     const url = BASE_URL + "enquiries";
-    fetch(url, FETCH_OPTIONS)
+    const options = { headers };
+    fetch(url, options)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -58,7 +59,7 @@ export default function Enquiries() {
                   </li>
                   <li>
                     {" "}
-                    <p>Email: {item.email} </p>
+                    <a href={"mailto:" + item.email}>{item.email}</a>
                   </li>
                   <li>
                     {" "}

@@ -76,7 +76,7 @@ function EditHotel() {
       <h1 className="main__title">Edit Hotels</h1>
       <Row>
         <div className="admin__col">
-          <div className="sidenav">
+          <div className="adminNav">
             <Link to="/admin">
               <Admin />
               Admin

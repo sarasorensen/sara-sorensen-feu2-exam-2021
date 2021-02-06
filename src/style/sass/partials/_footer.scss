@@ -7,6 +7,9 @@
   text-align: center;
   @include flex__column;
 }
+.footer .row {
+  max-width: 100%;
+}
 .footer__col {
   margin-top: 1.5em;
   width: 20rem;

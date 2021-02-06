@@ -1,3 +1,6 @@
 .link {
   @include link;
 }
+.link__dropdown:hover {
+  text-decoration: none;
+}

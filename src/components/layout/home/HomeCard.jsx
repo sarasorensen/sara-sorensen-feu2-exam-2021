@@ -7,33 +7,32 @@ import CardDeck from "react-bootstrap/CardDeck";
 function HomeItem({ id, name, image, price, email }) {
   return (
     <CardDeck>
-      <Card className="home__card">
-        <Card.Body>
-          <Card.Img
-            variant="top"
-            className="home__img"
-            src={image}
-            alt={name}
-          />
-          <ul>
-            <li>
-              <Card.Title className="home__title">{name}</Card.Title>{" "}
-            </li>
-            <li>
-              <p className="home__price">
-                Price: <span className="hotel__price">{price}$</span>
-              </p>
-            </li>
-            <li>
-              <p>{email}</p>
-            </li>
+      <Link className="link link__dropdown" to={"hotelSpecific/" + id}>
+        <Card className="home__card">
+          <Card.Body>
+            <Card.Img
+              variant="top"
+              className="home__img"
+              src={image}
+              alt={name}
+            />
 
-            <Link to={"hotelSpecific/" + id}>
-              <button className="btn btn__card">View Hotel</button>
-            </Link>
-          </ul>
-        </Card.Body>
-      </Card>
+            <ul>
+              <li>
+                <Card.Title className="home__title">{name}</Card.Title>{" "}
+              </li>
+              <li>
+                <p className="home__price">
+                  Price: <span className="hotel__price">{price}$</span>
+                </p>
+              </li>
+              <li>
+                <p>{email}</p>
+              </li>
+            </ul>
+          </Card.Body>
+        </Card>
+      </Link>
     </CardDeck>
   );
 }

@@ -1,8 +1,9 @@
-.home__header {
+.header {
   z-index: -1;
   position: absolute;
   right: 0;
   left: 0;
+  max-width: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,47 +11,26 @@
   text-align: center;
   box-shadow: $box__shadow;
 }
+.header__home {
+  width: 100%;
+}
 .home {
   min-width: 100%;
-  min-height: 100%;
+  min-height: 75vh;
   text-align: center;
   @include flex__column;
 }
 .home__col {
-  margin-top: 5%;
+  margin-top: 10%;
 }
 .home__img {
-  min-width: 30vh;
-  min-height: 20vh;
-  max-height: 20vh;
-}
-.infoBoxes {
-  margin-top: 10%;
-  margin-bottom: 5%;
-  @include flex__row;
-}
-.infoBoxes__card {
-  color: $color__main;
+  border-radius: 50% !important;
   width: 100%;
   height: 100%;
-  margin-bottom: 1em;
-  box-shadow: $box__shadow;
-}
-.infoBoxes__img {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
 }
 @media (min-width: 200px) and (max-width: 450px) {
   .home {
     min-height: 170vh;
-  }
-  .infoBoxes {
-    flex-direction: column;
-  }
-  .infoBoxes__card {
-    width: 100%;
   }
   .home__content {
     top: 20%;
@@ -60,12 +40,6 @@
   .home {
     min-height: 200vh;
   }
-  .infoBoxes {
-    flex-direction: column;
-  }
-  .infoBoxes__card {
-    width: 100%;
-  }
   .home__content {
     top: 20%;
   }
@@ -74,12 +48,6 @@
   .home {
     min-height: 210vh;
   }
-  .infoBoxes {
-    flex-direction: column;
-  }
-  .infoBoxes__card {
-    width: 80%;
-  }
   .home__content {
     top: 20%;
   }
@@ -87,12 +55,6 @@
 @media (min-width: 768px) and (max-width: 1000px) {
   .home {
     min-height: 130vh;
-  }
-  .infoBoxes {
-    flex-direction: row;
-  }
-  .infoBoxes__card {
-    width: 100%;
   }
   .home__content {
     top: 25%;
