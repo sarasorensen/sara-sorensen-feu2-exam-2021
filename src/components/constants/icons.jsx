@@ -62,7 +62,7 @@ const LogedIn = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
-    className="icon icon__admin bi bi-person-check-fill"
+    className="icon icon__success bi bi-person-check-fill"
     viewBox="0 0 16 16"
   >
     <path

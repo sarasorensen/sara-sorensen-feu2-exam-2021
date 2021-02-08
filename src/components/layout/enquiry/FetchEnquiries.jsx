@@ -55,7 +55,7 @@ export default function Enquiries() {
                 <ul>
                   <li>
                     {" "}
-                    <h3>{item.name}</h3>
+                    <h3 className="admin__headings">{item.name}</h3>
                   </li>
                   <li>
                     {" "}

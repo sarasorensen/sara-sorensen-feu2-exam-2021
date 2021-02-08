@@ -25,9 +25,9 @@ function Footer() {
               <img
                 src={Logo}
                 className="footer__logo"
-                width="35px"
-                height="43px"
-                alt="company logo Holidaze"
+                width="150"
+                height="188"
+                alt="Company mini logo Holidaze"
               />
             </NavLink>
           </LazyLoad>

@@ -13,12 +13,14 @@ function Login() {
       <Container className="login">
         <Row>
           <Col>
-            <CheckMark />
-            <h2 className="main__title">Logged in</h2>
-            <p>You are logged in as {loginInfo}.</p>
-            <NavLink to="/" className="link">
-              Home
-            </NavLink>
+            <div>
+              <CheckMark />
+              <h2 className="main__title">Logged in</h2>
+              <p>You are logged in as {loginInfo}.</p>
+              <NavLink to="/" className="link">
+                Home
+              </NavLink>
+            </div>
           </Col>
         </Row>
       </Container>

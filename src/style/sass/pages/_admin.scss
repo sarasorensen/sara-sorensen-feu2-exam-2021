@@ -20,19 +20,6 @@
   width: 60%;
   padding: 1em;
 }
-.admin__logInfo {
-  width: 100%;
-  background-color: $color__white;
-  color: $color__grey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2.5em;
-  & p {
-    text-align: left;
-    font-size: 1.25rem;
-  }
-}
 .admin__box {
   width: 100%;
   text-align: left;
@@ -70,6 +57,9 @@
     margin-bottom: 0.5em;
   }
 }
+.admin__buttons {
+  margin-top: 2.5em;
+}
 .react-confirm-alert-body {
   @include flex__column;
   & h1 {
@@ -78,8 +68,15 @@
   }
 }
 @media (min-width: 200px) and (max-width: 568px) {
+  .admin__headings {
+    text-align: center;
+  }
   .admin__col {
     width: 100%;
+    text-align: center;
+  }
+  .admin__box {
+    text-align: center;
   }
   .admin__buttons {
     min-width: 100%;

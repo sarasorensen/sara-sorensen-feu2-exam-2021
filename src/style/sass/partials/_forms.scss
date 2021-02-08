@@ -5,6 +5,7 @@
   margin: 32px auto 37px;
   font-size: 1rem;
   margin-top: 5%;
+  margin-bottom: 5%;
   box-shadow: $box__shadow;
   @include flex__row;
 }
@@ -52,7 +53,7 @@ textarea::placeholder {
 .form__col--1 {
   background-color: $color__grey;
   text-align: center;
-  padding: 1em;
+  padding: 2em;
 }
 .form__col--2 {
   margin: 0 auto;
