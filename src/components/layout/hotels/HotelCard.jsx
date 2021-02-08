@@ -12,6 +12,8 @@ function HotelItem({ id, name, image, price, email }) {
           <Card.Img
             variant="top"
             className="hotel__img"
+            width="298px"
+            height="45px"
             src={image}
             alt={name}
           />

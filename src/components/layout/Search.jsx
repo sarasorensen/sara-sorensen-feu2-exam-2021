@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
-import { SearchIcon } from "../constants/icons";
 
 export default function Search({ handleSearch }) {
   return (
@@ -15,9 +14,6 @@ export default function Search({ handleSearch }) {
           aria-describedby="search-addon"
           onChange={(event) => handleSearch(event)}
         />{" "}
-        <div className="search__box">
-          <SearchIcon />
-        </div>
       </div>
     </Form>
   );

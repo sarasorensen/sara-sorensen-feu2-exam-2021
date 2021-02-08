@@ -57,7 +57,7 @@ function EditHotel() {
             const { id, name, image, price, email } = hotel;
 
             return (
-              <div className="admin__map col-sm-12 col-md-6 col-lg-4" key={id}>
+              <div className="col-sm-12 col-md-6 col-lg-4" key={id}>
                 <HotelCardDelete
                   id={id}
                   name={name}

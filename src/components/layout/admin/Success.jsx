@@ -14,10 +14,8 @@ export default function Success() {
           <div>
             <CheckMark />
             <h2 className="main__title">Success!</h2>
-            <p>
-              Your changes have been added to the main page. They can be viewed
-              now. Use the links below.
-            </p>
+            <p>Your changes have been added to the main page. </p>
+            <p> They can be viewed now. Use the links below.</p>
             <ul>
               <li>
                 {" "}

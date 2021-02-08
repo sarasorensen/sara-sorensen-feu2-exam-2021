@@ -49,11 +49,7 @@ const Layout = () => (
             <span className="sr-only">Log In</span>
             <Person />
           </NavLink>
-          <NavLink
-            to="/admin"
-            exact
-            className="navbar__link order-md-0 mx-auto"
-          >
+          <NavLink to="/admin" exact className="navbar__link ">
             Admin
           </NavLink>
         </Nav>

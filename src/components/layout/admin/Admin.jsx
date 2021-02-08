@@ -13,8 +13,6 @@ import SideNav from "./adminNav";
 export default function Admin() {
   <Heading title="Administrator dashboard" />;
 
-  console.log(React.version);
-
   // const loginInfo = localStorage.getItem("email");
   //This will be active, when development is finished.
   // if (loginInfo === null) {

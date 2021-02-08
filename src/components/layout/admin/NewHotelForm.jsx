@@ -110,7 +110,7 @@ function AddHotel() {
               type="number"
               id="price"
               className={`form__control ${errors.price ? "is-invalid" : ""}`}
-              placeholder="Enter an number"
+              placeholder="Enter a number"
               ref={register}
               required={true}
             />
@@ -127,7 +127,7 @@ function AddHotel() {
               className={`form__control ${
                 errors.maxGuests ? "is-invalid" : ""
               }`}
-              placeholder="Enter an number"
+              placeholder="Enter a number"
               ref={register}
               required={true}
             />

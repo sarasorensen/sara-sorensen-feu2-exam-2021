@@ -92,37 +92,39 @@ export default function HomeDropdown() {
   }
 
   return (
-    <div>
+    <>
       <Suspense fallback={renderLoader()}>
         <Search handleSearch={filterHotels} onChange={toggling} />
       </Suspense>
 
-      <div
-        ref={node}
-        className={
-          dropdown !== true && isSearched === false
-            ? "d-none "
-            : "d-block dropdown "
-        }
-      >
-        {filteredHotels.map((hotel) => {
-          const { id, name, image, price } = hotel;
-          return (
-            <Col className="col-sm-12 col-md-8 col-lg-6" key={id}>
-              {" "}
-              <Suspense fallback={renderLoader()}>
-                <HomeCard
-                  className="dropdown__card "
-                  id={id}
-                  image={image}
-                  name={name}
-                  price={price}
-                />{" "}
-              </Suspense>
-            </Col>
-          );
-        })}
+      <div className="dropdown">
+        <div
+          ref={node}
+          className={
+            dropdown !== true && isSearched === false
+              ? "d-none "
+              : "d-block dropdown__box "
+          }
+        >
+          {filteredHotels.map((hotel) => {
+            const { id, name, image, price } = hotel;
+            return (
+              <Col className="col-sm-12 col-md-8 col-lg-6" key={id}>
+                {" "}
+                <Suspense fallback={renderLoader()}>
+                  <HomeCard
+                    className="dropdown__card "
+                    id={id}
+                    image={image}
+                    name={name}
+                    price={price}
+                  />{" "}
+                </Suspense>
+              </Col>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

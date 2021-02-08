@@ -1,0 +1,24 @@
+.search {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.2em;
+  & .search__input {
+    width: 90%;
+    box-sizing: border-box;
+    height: 42px;
+    border: none;
+    padding: 5px;
+    border-radius: 0;
+  }
+  & .search__box {
+    height: 42px;
+    padding-left: 0.5em;
+    display: flex;
+    background-color: $color__white;
+    color: $color__main;
+  }
+  & :hover {
+    @include hover;
+  }
+}

@@ -47,7 +47,7 @@ export default function Enquiries() {
     } else {
       return (
         <div className="admin__col">
-          <h2>Enquiries</h2>
+          <h2>Enquiries from clients</h2>
 
           {enquiries.map((item) => {
             return (
