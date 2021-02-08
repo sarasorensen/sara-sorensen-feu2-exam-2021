@@ -6,7 +6,7 @@ function adminNav() {
   function clear(e) {
     e.preventDefault();
     localStorage.removeItem("loginInfo");
-    window.location.href = "/login";
+    window.location.href = "login";
   }
 
   return (

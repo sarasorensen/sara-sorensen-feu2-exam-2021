@@ -6,7 +6,6 @@ import Loader from "../Loader";
 
 const HomeDropdown = lazy(() => import("./HomeDropdown"));
 const Heading = lazy(() => import("../Heading"));
-const HomeHeader = lazy(() => import("./HomeHeader"));
 
 function Home() {
   <Heading title="Home" />;
@@ -15,9 +14,7 @@ function Home() {
 
   return (
     <Container>
-      <Suspense fallback={renderLoader()}>
-        <HomeHeader />
-      </Suspense>
+      <div className="header"></div>
       <Row className="home">
         <Col className="home__col">
           <h2 className="title__home">Find a place to stay</h2>

@@ -22,8 +22,8 @@ export default function Admin() {
           <Col className="admin__error">
             <div>
               <Access />
-              <h2 className="main__title">You don't have access!</h2>
-              <p>Sorry, you have to be logged in to view this page.</p>
+              <h2 className="main__title">No Access</h2>
+              <p>You have to be logged in to view this page.</p>
               <Link to="/login" className="success__link">
                 Log in Here
               </Link>

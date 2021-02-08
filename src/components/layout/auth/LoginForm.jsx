@@ -50,7 +50,7 @@ function LoginForm() {
             <Form.Control
               name="email"
               id="email"
-              type="text"
+              type="email"
               className={`form__control ${errors.email ? "is-invalid" : ""}`}
               placeholder="Enter an email address"
               ref={register}

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { CheckMark } from "../../constants/icons";
+import { CheckMark, Admin } from "../../constants/icons";
 export default function Success() {
   <Heading title="Submission success" />;
   return (
@@ -14,27 +14,11 @@ export default function Success() {
           <div>
             <CheckMark />
             <h2 className="main__title">Success!</h2>
-            <p>Your changes have been added to the main page. </p>
-            <p> They can be viewed now. Use the links below.</p>
-            <ul>
-              <li>
-                {" "}
-                <NavLink to="/hotels" className="link">
-                  Hotels
-                </NavLink>
-              </li>
-              <li>
-                {" "}
-                <NavLink to="/admin" className="link">
-                  Admin
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/" className="link">
-                  Homepage
-                </NavLink>
-              </li>
-            </ul>
+            <p>Your changes have been added.</p>
+            <p> They can be viewed now.</p>{" "}
+            <NavLink to="/admin" className="success__link">
+              <Admin /> Admin
+            </NavLink>
           </div>
         </Col>
       </Row>
