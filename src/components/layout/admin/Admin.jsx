@@ -2,8 +2,8 @@ import React from "react";
 //import { Access } from "../../constants/icons";
 //import { Link } from "react-router-dom";
 import Heading from "../Heading";
-import Messages from "../contact/FetchContact";
-import AllEnquiries from "../enquiry/FetchEnquiries";
+import Contacts from "../contact/FetchContact";
+import enquiries from "../enquiry/FetchEnquiries";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 //import Col from "react-bootstrap/Col";
@@ -56,12 +56,12 @@ export default function Admin() {
           </div>
         </div>
 
-        <div id="messages" className="admin__col">
-          <Messages />
+        <div id="Contacts" className="admin__col">
+          <Contacts />
         </div>
 
         <div id="enquiries" className="admin__col">
-          <AllEnquiries />
+          <enquiries />
         </div>
       </Row>
     </Container>

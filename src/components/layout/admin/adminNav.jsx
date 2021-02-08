@@ -15,7 +15,7 @@ function adminNav() {
         <House />
         Edit Hotels
       </Link>
-      <a href="#messages">
+      <a href="#Contacts">
         <Message />
         Messages
       </a>
