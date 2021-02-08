@@ -47,7 +47,7 @@ export default function Enquiries() {
     } else {
       return (
         <>
-          <h2>Enquiries from clients</h2>
+          <h2>Enquiries</h2>
 
           {enquiries.map((item) => {
             return (

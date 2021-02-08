@@ -8,15 +8,15 @@ function HotelItem({ id, name, image, price, email }) {
   return (
     <CardDeck>
       <Card className="hotel__card">
+        <Card.Img
+          variant="top"
+          className="hotel__img"
+          width="298px"
+          height="45px"
+          src={image}
+          alt={name}
+        />
         <Card.Body>
-          <Card.Img
-            variant="top"
-            className="hotel__img"
-            width="298px"
-            height="45px"
-            src={image}
-            alt={name}
-          />
           <ul className="hotel__ul">
             <li>
               <Card.Title className="hotel__title">{name}</Card.Title>{" "}

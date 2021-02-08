@@ -18,7 +18,6 @@ function HomeItem({ id, name, image, price, email }) {
               src={image}
               alt={name}
             />
-
             <ul>
               <li>
                 <Card.Title className="home__title">{name}</Card.Title>{" "}

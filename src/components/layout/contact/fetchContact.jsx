@@ -46,7 +46,7 @@ export default function Messages() {
     } else {
       return (
         <>
-          <h2 className="admin__h2">Messages from Clients</h2>
+          <h2 className="admin__h2">Messages</h2>
 
           {messages.map((item) => (
             <div key={item.id} className="admin__box">
