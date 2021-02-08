@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Heading from "../Heading";
 import { BASE_URL, headers } from "../../constants/api";
-import HotelCardDelete from "./EditHotelCard";
+import EditHotelCard from "./EditHotelCard";
 import NewHotelForm from "./NewHotelForm";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -57,8 +57,8 @@ function EditHotel() {
             const { id, name, image, price, email } = hotel;
 
             return (
-              <div className="col-sm-12 col-md-6 col-lg-4" key={id}>
-                <HotelCardDelete
+              <div className=" col-sm-12 col-md-6 col-lg-4" key={id}>
+                <EditHotelCard
                   id={id}
                   name={name}
                   image={image}
@@ -94,7 +94,7 @@ function EditHotel() {
             </a>
           </div>
         </div>
-        <div className="admin__hotels">
+        <div className="admin__col admin__col--hotels">
           <div className="admin__box text-center">
             <p>
               <span className="form__error"> NB!</span> All deletions are final.
@@ -102,6 +102,7 @@ function EditHotel() {
               not been authorized.{" "}
             </p>
           </div>
+
           <List hotels={hotels} fallback={"Loading..."} />
         </div>
         <div id="newHotel" className="admin__col">

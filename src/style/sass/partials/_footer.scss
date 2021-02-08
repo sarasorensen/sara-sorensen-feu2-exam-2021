@@ -13,11 +13,7 @@
 .footer__col {
   margin-top: 1.5em;
   width: 20rem;
-  min-width: 20rem;
-  margin-left: 3.5em;
-  margin-right: 3.5em;
   margin-bottom: 1em;
-  padding: 1em;
   & p {
     display: block;
     margin: 0;
@@ -72,7 +68,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    width: 100%;
+    min-width: 100%;
     & p {
       width: 80%;
     }

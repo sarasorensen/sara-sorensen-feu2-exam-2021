@@ -45,7 +45,7 @@ export default function Messages() {
       return fallback;
     } else {
       return (
-        <div id="messages" className="admin__col">
+        <>
           <h2 className="admin__h2">Messages from Clients</h2>
 
           {messages.map((item) => (
@@ -69,13 +69,15 @@ export default function Messages() {
                 </li>
               </ul>
 
-              <a className="btn" href={"mailto:" + item.email}>
-                Reply
-              </a>
-              <DeleteContact id={item.id} />
+              <div className="admin__buttons">
+                <a className="btn" href={"mailto:" + item.email}>
+                  Reply
+                </a>
+                <DeleteContact id={item.id} />
+              </div>
             </div>
           ))}
-        </div>
+        </>
       );
     }
   }

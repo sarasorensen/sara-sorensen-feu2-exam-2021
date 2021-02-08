@@ -46,7 +46,7 @@ export default function Enquiries() {
       return fallback;
     } else {
       return (
-        <div className="admin__col">
+        <>
           <h2>Enquiries from clients</h2>
 
           {enquiries.map((item) => {
@@ -69,13 +69,13 @@ export default function Enquiries() {
                   <li>
                     {" "}
                     <p>
-                      Check in:{" "}
+                      Check in date:{" "}
                       <Moment format="YYYY/MM/DD">{item.checkIn}</Moment>
                     </p>
                   </li>
                   <li>
                     <p>
-                      Check Out:{" "}
+                      Check Out date:{" "}
                       <Moment format="YYYY/MM/DD">{item.checkOut}</Moment>
                     </p>
                   </li>
@@ -84,15 +84,16 @@ export default function Enquiries() {
                   </li>
                 </ul>
 
-                <a className="btn" href={"mailto:" + item.email}>
-                  Reply
-                </a>
-
-                <DeleteEnquiry id={item.id} />
+                <div className="admin__buttons">
+                  <a className="btn" href={"mailto:" + item.email}>
+                    Reply
+                  </a>
+                  <DeleteEnquiry id={item.id} />
+                </div>
               </div>
             );
           })}
-        </div>
+        </>
       );
     }
   }

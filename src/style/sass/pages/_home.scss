@@ -22,7 +22,8 @@ $bg-img: url("../../../images/header2.jpg");
   margin-top: 10%;
 }
 .home__img {
-  border-radius: 50% !important;
   width: 100%;
-  height: 100%;
+  height: 250px;
+  margin: 0 auto;
+  object-fit: cover;
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import Col from "react-bootstrap/Col";
 import Loader from "../Loader";
 
 const HomeCard = lazy(() => import("./HomeCard"));
@@ -109,18 +108,12 @@ export default function HomeDropdown() {
           {filteredHotels.map((hotel) => {
             const { id, name, image, price } = hotel;
             return (
-              <Col className="col-sm-12 col-md-8 col-lg-6" key={id}>
+              <div key={id}>
                 {" "}
                 <Suspense fallback={renderLoader()}>
-                  <HomeCard
-                    className="dropdown__card "
-                    id={id}
-                    image={image}
-                    name={name}
-                    price={price}
-                  />{" "}
+                  <HomeCard id={id} image={image} name={name} price={price} />{" "}
                 </Suspense>
-              </Col>
+              </div>
             );
           })}
         </div>

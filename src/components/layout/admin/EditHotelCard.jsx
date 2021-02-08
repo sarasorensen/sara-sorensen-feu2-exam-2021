@@ -28,10 +28,12 @@ function HotelDelete({ id, name, image, price, email }) {
             </li>
           </ul>
 
-          <Link to={"hotelSpecific/" + id}>
-            <button className="btn btn__card">Details</button>
-          </Link>
-          <DeleteHotel id={id} />
+          <div className="admin__buttons">
+            <Link to={"hotelSpecific/" + id}>
+              <button className="btn btn__card">Details</button>
+            </Link>
+            <DeleteHotel id={id} />
+          </div>
         </Card.Body>
       </Card>
     </CardDeck>

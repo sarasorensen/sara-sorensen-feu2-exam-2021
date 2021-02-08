@@ -24,9 +24,7 @@ function HomeItem({ id, name, image, price, email }) {
                 <Card.Title className="home__title">{name}</Card.Title>{" "}
               </li>
               <li>
-                <p className="home__price">
-                  Price: <span className="hotel__price">{price}$</span>
-                </p>
+                <p className="home__price">Price: {price}$</p>
               </li>
               <li>
                 <p>{email}</p>

@@ -17,20 +17,20 @@ import Enquiry from "./enquiry/EnquiryForm";
 import Admin from "./admin/Admin";
 import EditHotels from "./admin/EditHotel";
 import Success from "./admin/Success";
-import Logo from "../../images/logo-y2.png";
+import Logo from "../../images/logo-y.png";
 import Footer from "./Footer";
 import { Person } from "../constants/icons";
 
 const Layout = () => (
   <Router>
     <Navbar expand="lg">
-      <NavLink className="left-align" to="/" exact>
+      <NavLink className="logo left-align" to="/" exact>
         <img
           src={Logo}
-          className="logo"
+          className="logo__img"
           alt="Holidaze Logo"
-          width="1946"
-          height="689"
+          width="1546"
+          height="362"
         />
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
@@ -49,7 +49,11 @@ const Layout = () => (
             <span className="sr-only">Log In</span>
             <Person />
           </NavLink>
-          <NavLink to="/admin" exact className="navbar__link ">
+          <NavLink
+            to="/admin"
+            exact
+            className="navbar__link order-md-0 mx-auto"
+          >
             Admin
           </NavLink>
         </Nav>
