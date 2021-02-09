@@ -27,7 +27,6 @@ $landscape-img: url("../../../images/landscape-header.jpg");
   margin-top: 10%;
   padding: 0;
 }
-
 @media (min-width: 200px) and (max-width: 812px) {
   .header {
     background-image: $small-img;

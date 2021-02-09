@@ -40,8 +40,9 @@
   }
 }
 @mixin button {
-  background-color: $color__blue;
+  background-color: $color__grey;
   color: $color__white;
+  border-radius: 0;
   padding: 0.5em;
   text-transform: uppercase;
   border: none;

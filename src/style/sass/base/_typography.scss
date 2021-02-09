@@ -5,22 +5,24 @@ h1 {
   color: $color__white;
   text-align: center;
   font-weight: 900;
+  font-size: 3rem;
   margin-bottom: 1em;
 }
 h2 {
   font-family: $main-heading;
   color: $color__blue;
   margin: 0.5em;
+  font-size: 2rem;
   font-weight: 900;
   text-align: center;
 }
 h3 {
   font-family: $main-heading;
   color: $color__grey;
+  font-size: 1.5rem;
   font-weight: 100;
 }
 .title__home {
-  font-size: 2.5rem;
   color: $color__white;
 }
 .home__sub {
@@ -30,7 +32,6 @@ h3 {
   margin-top: -1em;
   margin-bottom: 1.5em;
 }
-
 .main__title {
   color: $color__grey;
   margin-top: 1em;

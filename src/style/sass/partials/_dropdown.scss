@@ -22,13 +22,16 @@
       padding: 0;
       margin-left: 1em;
     }
-    & .home__img {
-      float: left;
+    & .home__box {
       width: 100px;
       height: 100px;
+      float: left;
+      margin: 1em;
+    }
+    & .home__img {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      margin-top: 1em;
-      margin-right: 1em;
       object-fit: cover;
     }
     & .home__title {

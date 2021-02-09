@@ -10,14 +10,14 @@ function HomeItem({ id, name, image, price, email }) {
       <Link className="link link__dropdown" to={"hotelSpecific/" + id}>
         <Card className="home__card">
           <Card.Body className="home__body">
-            <Card.Img
-              variant="top"
-              className="home__img"
-              width="298px"
-              height="45px"
-              src={image}
-              alt={name}
-            />
+            <div className="home__box">
+              <Card.Img
+                variant="top"
+                className="home__img"
+                src={image}
+                alt={name}
+              />
+            </div>
             <ul>
               <li>
                 <Card.Title className="home__title">{name}</Card.Title>{" "}
