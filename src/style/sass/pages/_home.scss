@@ -1,8 +1,9 @@
 $desktop-img: url("../../../images/header3.jpg");
-
+$small-img: url("../../../images/mobile-header.jpg");
+$landscape-img: url("../../../images/landscape-header.jpg");
 .header {
   background-image: $desktop-img;
-  background-color: $greyBack;
+  background-color: $color__grey;
   z-index: -1;
   position: absolute;
   right: 0;
@@ -28,15 +29,13 @@ $desktop-img: url("../../../images/header3.jpg");
 }
 @media (min-width: 200px) and (max-width: 812px) {
   .header {
-    background-image: none;
-    background: $greyBack;
+    background-image: $small-img;
   }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
   .header {
-    background-image: none;
-    background: $greyBack;
+    background-image: $landscape-img;
   }
   .home__col {
     margin-top: 0;
