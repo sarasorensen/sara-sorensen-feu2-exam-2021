@@ -1,7 +1,7 @@
 .form {
   width: 100%;
   background-color: $color__white;
-  color: $color__black;
+  color: $color__grey;
   margin: 32px auto 37px;
   font-size: 1rem;
   margin-top: 5%;
@@ -47,16 +47,15 @@
   }
 }
 .form__col--1 {
-  background-color: $color__grey;
   text-align: center;
-  padding: 5em;
+  padding: 1em;
+  min-height: 100%;
 }
 .form__col--2 {
   margin: 0 auto;
 }
 .form__info {
   font-size: 1em;
-  color: $color__white;
 }
 
 @media all and (max-width: 992px) {

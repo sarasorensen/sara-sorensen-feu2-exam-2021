@@ -19,7 +19,7 @@ $landscape-img: url("../../../images/landscape-header.jpg");
 }
 .home {
   width: 100%;
-  min-height: 89vh;
+  min-height: 85vh;
   text-align: center;
   margin: 0;
 }
@@ -30,7 +30,7 @@ $landscape-img: url("../../../images/landscape-header.jpg");
 @media (min-width: 200px) and (max-width: 812px) {
   .header {
     background-image: $small-img;
-    background-size: cover;
+    background-size: auto;
     background-position: center center;
   }
 }
@@ -45,6 +45,6 @@ $landscape-img: url("../../../images/landscape-header.jpg");
     margin-top: 0;
   }
   .home__sub {
-    margin-bottom: 0.2em;
+    margin-bottom: 0;
   }
 }

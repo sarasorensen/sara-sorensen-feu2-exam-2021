@@ -47,8 +47,11 @@
   .home__card {
     max-width: 100%;
   }
+  .home__box {
+    max-width: 60px;
+    max-height: 60px;
+  }
   .home__img {
-    max-width: 80px;
-    max-height: 80px;
+    margin-top: 1em;
   }
 }
