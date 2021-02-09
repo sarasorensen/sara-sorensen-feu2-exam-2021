@@ -1,7 +1,8 @@
-$bg-img: url("../../../images/header2.jpg");
-
+$desktop-img: url("../../../images/header3.jpg");
+$small-img: url("../../../images/mobile-header.jpg");
+$landscape-img: url("../../../images/landscape-header.jpg");
 .header {
-  background-image: $bg-img;
+  background-image: $desktop-img;
   background-color: $color__grey;
   z-index: -1;
   position: absolute;
@@ -30,4 +31,18 @@ $bg-img: url("../../../images/header2.jpg");
   border-radius: 50%;
   margin: 0 auto;
   object-fit: cover;
+}
+@media (min-width: 200px) and (max-width: 812px) {
+  .header {
+    background-image: $small-img;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .header {
+    background-image: $landscape-img;
+  }
+  .home {
+    min-height: 135vh;
+  }
 }
