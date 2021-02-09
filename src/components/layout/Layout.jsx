@@ -36,7 +36,7 @@ const Layout = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-0" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="navbar-nav ml-auto">
-          <NavLink to="/" exact className="navbar__link order-md-0 mx-auto">
+          <NavLink to="/" exact className="navbar__link order-md-0">
             Home
           </NavLink>
           <NavLink to="/hotels" className="navbar__link">
@@ -49,11 +49,7 @@ const Layout = () => (
             <span className="sr-only">Log In</span>
             <Person />
           </NavLink>
-          <NavLink
-            to="/admin"
-            exact
-            className="navbar__link order-md-0 mx-auto"
-          >
+          <NavLink to="/admin" exact className="navbar__link order-md-0">
             Admin
           </NavLink>
         </Nav>

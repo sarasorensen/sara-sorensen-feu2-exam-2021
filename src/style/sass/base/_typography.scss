@@ -21,8 +21,16 @@ h3 {
 }
 .title__home {
   font-size: 2.5rem;
-  color: $color__grey;
+  color: $color__white;
 }
+.home__sub {
+  color: $color__white;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+}
+
 .main__title {
   color: $color__grey;
   margin-top: 1em;
@@ -34,11 +42,4 @@ h3 {
 .footer__heading {
   color: $color__white;
   font-size: 1.25rem;
-}
-.home__sub {
-  color: $color__grey;
-  font-size: 1.35rem;
-  font-weight: 400;
-  margin-top: -1em;
-  margin-bottom: 1.5em;
 }
