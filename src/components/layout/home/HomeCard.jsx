@@ -9,7 +9,7 @@ function HomeItem({ id, name, image, price, email }) {
     <CardDeck>
       <Link className="link link__dropdown" to={"hotelSpecific/" + id}>
         <Card className="home__card">
-          <Card.Body>
+          <Card.Body className="home__body">
             <Card.Img
               variant="top"
               className="home__img"
@@ -21,9 +21,6 @@ function HomeItem({ id, name, image, price, email }) {
             <ul>
               <li>
                 <Card.Title className="home__title">{name}</Card.Title>{" "}
-              </li>
-              <li>
-                <p className="home__price">Price: {price}$</p>
               </li>
               <li>
                 <p>{email}</p>
@@ -39,7 +36,6 @@ function HomeItem({ id, name, image, price, email }) {
 HomeItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
 };
 
 export default HomeItem;
