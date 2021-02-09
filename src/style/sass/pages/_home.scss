@@ -30,15 +30,15 @@ $landscape-img: url("../../../images/landscape-header.jpg");
 @media (min-width: 200px) and (max-width: 812px) {
   .header {
     background-image: $small-img;
+    background-position-x: left;
   }
 }
-
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
   .header {
     background-image: $landscape-img;
   }
   .home__col {
-    margin-top: 0;
+    margin-top: 5%;
   }
   .home__sub {
     margin-bottom: 0;
