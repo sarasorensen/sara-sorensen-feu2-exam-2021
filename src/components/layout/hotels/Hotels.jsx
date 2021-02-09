@@ -65,10 +65,11 @@ function Hotels() {
   return (
     <Container>
       <h2 className="main__title">Our Hotels</h2>
-      <Suspense fallback={renderLoader()}>
-        <Search handleSearch={filterHotels} />
-      </Suspense>
       <Row className="hotel">
+        <Suspense fallback={renderLoader()}>
+          <Search handleSearch={filterHotels} />
+        </Suspense>
+
         {filteredHotels.map((hotel) => {
           const { id, name, image, price, email } = hotel;
 

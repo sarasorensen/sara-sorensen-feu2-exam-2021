@@ -4,21 +4,14 @@
   padding: 0;
   margin-bottom: 0.2em;
   & .search__input {
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
     height: 42px;
-    border: none;
+    border: 1px solid $color__lightGrey;
     padding: 5px;
     border-radius: 0;
   }
-  & .search__box {
-    height: 42px;
-    padding-left: 0.5em;
-    display: flex;
-    background-color: $color__white;
-    color: $color__main;
-  }
-  & :hover {
-    @include hover;
+  & .search__input:hover {
+    @include hover__search;
   }
 }
