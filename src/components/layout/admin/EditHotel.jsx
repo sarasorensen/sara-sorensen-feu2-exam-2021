@@ -75,7 +75,7 @@ function EditHotel() {
 
   return (
     <Container className="admin">
-      <h2 className="main__title">Edit Hotels</h2>
+      <h2 className="title__grey">Edit Hotels</h2>
       <Row>
         <div className="admin__col">
           <div className="adminNav">

@@ -24,8 +24,6 @@ function EnquiryForm() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    console.log(data);
-
     const enquiryInput = {
       name: data.name,
       email: data.email,
@@ -63,7 +61,7 @@ function EnquiryForm() {
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h2 className="main__title">Enquiry</h2>
+          <h2 className="title__grey">Enquiry</h2>
           <Form.Group>
             <Form.Label htmlFor="name" className="form__label">
               {" "}
@@ -75,7 +73,9 @@ function EnquiryForm() {
               id="name"
               type="text"
               ref={register}
-              className={`form__control ${errors.name ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.name ? "is-invalid" : ""
+              }`}
               placeholder="Enter a name"
               required={true}
             />
@@ -91,7 +91,9 @@ function EnquiryForm() {
               name="email"
               id="email"
               type="email"
-              className={`form__control ${errors.email ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.email ? "is-invalid" : ""
+              }`}
               placeholder="Enter an email address"
               ref={register}
               required={true}
@@ -109,7 +111,9 @@ function EnquiryForm() {
               type="date"
               defaultValue="2021-02-14"
               ref={register}
-              className={`form__control ${errors.checkIn ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.checkIn ? "is-invalid" : ""
+              }`}
               required={true}
             />
             <div className="invalid-feedback">{errors.checkIn?.message}</div>
@@ -125,7 +129,9 @@ function EnquiryForm() {
               type="date"
               defaultValue="2021-02-15"
               ref={register}
-              className={`form__control ${errors.checkOut ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.checkOut ? "is-invalid" : ""
+              }`}
               required={true}
             />
             <div className="invalid-feedback">{errors.checkOut?.message}</div>
@@ -142,7 +148,7 @@ function EnquiryForm() {
               value={id}
               readOnly
               ref={register}
-              className={`form__control ${
+              className={`form-control form__control ${
                 errors.establishmentId ? "is-invalid" : ""
               }`}
               required={true}

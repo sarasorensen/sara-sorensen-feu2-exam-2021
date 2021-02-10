@@ -40,7 +40,7 @@ function LoginForm() {
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h2 className="main__title">Log in</h2>
+          <h2 className="title__grey">Log in</h2>
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
               {" "}
@@ -51,7 +51,9 @@ function LoginForm() {
               name="email"
               id="email"
               type="email"
-              className={`form__control ${errors.email ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.email ? "is-invalid" : ""
+              }`}
               placeholder="Enter an email address"
               ref={register}
               required={true}
@@ -69,7 +71,9 @@ function LoginForm() {
               name="password"
               type="password"
               id="password"
-              className={`form__control ${errors.password ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.password ? "is-invalid" : ""
+              }`}
               placeholder="Enter a password"
               ref={register}
               required={true}

@@ -25,8 +25,6 @@ function AddHotel() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    console.log("data", data);
-
     const url = BASE_URL + "establishments";
 
     const options = { headers, method: "POST", body: JSON.stringify(data) };
@@ -50,7 +48,9 @@ function AddHotel() {
               type="text"
               id="name"
               ref={register}
-              className={`form__control ${errors.name ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.name ? "is-invalid" : ""
+              }`}
               placeholder="Enter a name for the hotel"
               required={true}
             />
@@ -65,7 +65,9 @@ function AddHotel() {
               type="text"
               id="imageurl"
               ref={register}
-              className={`form__control ${errors.imageurl ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.imageurl ? "is-invalid" : ""
+              }`}
               placeholder="http://example.com"
               required={true}
             />
@@ -79,7 +81,9 @@ function AddHotel() {
               name="email"
               type="email"
               id="email"
-              className={`form__control ${errors.email ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.email ? "is-invalid" : ""
+              }`}
               placeholder="Enter an email address"
               ref={register}
               required={true}
@@ -94,7 +98,9 @@ function AddHotel() {
               name="address"
               type="text"
               id="address"
-              className={`form__control ${errors.address ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.address ? "is-invalid" : ""
+              }`}
               placeholder="Enter an address"
               ref={register}
               required={true}
@@ -109,7 +115,9 @@ function AddHotel() {
               name="price"
               type="number"
               id="price"
-              className={`form__control ${errors.price ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.price ? "is-invalid" : ""
+              }`}
               placeholder="Enter a number"
               ref={register}
               required={true}
@@ -124,7 +132,7 @@ function AddHotel() {
               name="maxGuests"
               type="number"
               id="maxGuests"
-              className={`form__control ${
+              className={`form-control form__control ${
                 errors.maxGuests ? "is-invalid" : ""
               }`}
               placeholder="Enter a number"

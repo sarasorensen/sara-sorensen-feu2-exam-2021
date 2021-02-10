@@ -17,8 +17,8 @@ function Home() {
       <div className="header"></div>
       <Row className="home">
         <Col className="home__col">
-          <h2 className="title__home">Find a place to stay</h2>
-          <p className="home__sub">
+          <h2 className="title__white">Find a place to stay</h2>
+          <p className="home__info">
             Explore and discover our Hotels, Spa's and more!
           </p>
           <Suspense fallback={renderLoader()}>

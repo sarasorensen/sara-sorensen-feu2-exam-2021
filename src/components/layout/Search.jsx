@@ -9,7 +9,7 @@ export default function Search({ handleSearch }) {
         <input
           type="search"
           className="search__input form-control"
-          placeholder="Search hotels, B&B's..."
+          placeholder="Search hotels, spa's..."
           aria-label="Search"
           aria-describedby="search-addon"
           onChange={(event) => handleSearch(event)}

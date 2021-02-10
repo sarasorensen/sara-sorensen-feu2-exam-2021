@@ -11,7 +11,7 @@ function Footer() {
     <div className="footer">
       <Row>
         <Col className="footer__col">
-          <h2 className="footer__heading">About Us</h2>
+          <h2 className="title__white">About Us</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -37,7 +37,7 @@ function Footer() {
           <p className="name"> Holidaze &copy; 2021</p>
         </Col>
         <Col className="footer__col">
-          <h2 className="footer__heading">Links</h2>
+          <h2 className="title__white">Links</h2>
           <ul className="footer__menu">
             <li>
               <a href="home"> Home</a>

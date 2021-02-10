@@ -22,7 +22,7 @@ export default function Admin() {
           <Col className="admin__error">
             <div>
               <Access />
-              <h2 className="main__title">No Access</h2>
+              <h2 className="title__grey">No Access</h2>
               <p>You have to be logged in to view this page.</p>
               <Link to="/login" className="success__link">
                 Log in Here
@@ -36,7 +36,7 @@ export default function Admin() {
 
   return (
     <Container id="admin" className="admin">
-      <h2 className="main__title">Admin</h2>
+      <h2 className="title__grey">Admin</h2>
       <Row>
         <div className="admin__col">
           <SideNav />

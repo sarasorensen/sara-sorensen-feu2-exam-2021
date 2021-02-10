@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Loader from "../Loader";
 
-const HomeCard = lazy(() => import("./HomeCard"));
+const HomeCard = lazy(() => import("./DropCard"));
 const Search = lazy(() => import("../Search"));
 
 export default function HomeDropdown() {
@@ -64,10 +64,6 @@ export default function HomeDropdown() {
 
       if (searchValue.length === 0) {
         setIsSearched(false);
-      }
-
-      if (searchValue === undefined || searchValue === null) {
-        console.log("sorry no match");
       }
 
       if (lowerCaseName.includes(searchValue)) {

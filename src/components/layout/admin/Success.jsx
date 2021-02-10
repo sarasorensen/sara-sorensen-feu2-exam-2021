@@ -13,7 +13,7 @@ export default function Success() {
         <Col>
           <div>
             <CheckMark />
-            <h2 className="main__title">Success!</h2>
+            <h2 className="title__grey">Success!</h2>
             <p>Your changes have been added.</p>
             <p> They can be viewed now.</p>{" "}
             <NavLink to="/admin" className="success__link">

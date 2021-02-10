@@ -15,7 +15,7 @@ function Login() {
           <Col>
             <div>
               <CheckMark />
-              <h2 className="main__title">Logged in</h2>
+              <h2 className="title__grey">Logged in</h2>
               <p>You are logged in as {loginInfo}.</p>
               <NavLink to="/" className="link">
                 Home

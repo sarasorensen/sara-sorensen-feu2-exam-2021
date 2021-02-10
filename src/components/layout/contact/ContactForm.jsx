@@ -43,7 +43,7 @@ export default function ContactForm() {
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h2 className="main__title">Contact Us</h2>
+          <h2 className="title__grey">Contact Us</h2>
           <Form.Group>
             <Form.Label htmlFor="name" className="form__label">
               {" "}
@@ -54,7 +54,9 @@ export default function ContactForm() {
               name="name"
               id="name"
               type="text"
-              className={`form__control ${errors.name ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.name ? "is-invalid" : ""
+              }`}
               placeholder="Enter a name"
               ref={register}
               required={true}
@@ -72,7 +74,9 @@ export default function ContactForm() {
               name="email"
               type="email"
               id="email"
-              className={`form__control ${errors.email ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.email ? "is-invalid" : ""
+              }`}
               placeholder="Enter an email"
               ref={register}
               required={true}
@@ -89,7 +93,9 @@ export default function ContactForm() {
               name="message"
               id="message"
               type="text"
-              className={`form__control ${errors.message ? "is-invalid" : ""}`}
+              className={`form-control form__control ${
+                errors.message ? "is-invalid" : ""
+              }`}
               placeholder="Enter a message"
               ref={register}
               required={true}
