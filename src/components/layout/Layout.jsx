@@ -18,6 +18,7 @@ import Admin from "./admin/Admin";
 import EditHotels from "./admin/EditHotel";
 import Success from "./admin/Success";
 import Logo from "../../images/logo-y.png";
+import ScrollToTop from "./ScrollToTop";
 import Footer from "./Footer";
 import { Person } from "../constants/icons";
 
@@ -58,15 +59,17 @@ const Layout = () => (
 
     <Container>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/hotels" component={Hotels} />
-        <Route path="/login" component={Login} />
-        <Route path="/hotelSpecific/:id" component={HotelSpecific} />
-        <Route path="/enquiry/:id" component={Enquiry} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/editHotels" component={EditHotels} />
-        <Route path="/success" component={Success} />
+        <ScrollToTop>
+          <Route path="/" exact component={Home} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/hotels" component={Hotels} />
+          <Route path="/login" component={Login} />
+          <Route path="/hotelSpecific/:id" component={HotelSpecific} />
+          <Route path="/enquiry/:id" component={Enquiry} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/editHotels" component={EditHotels} />
+          <Route path="/success" component={Success} />
+        </ScrollToTop>
       </Switch>
     </Container>
     <Footer />
