@@ -5,7 +5,7 @@ import Loader from "../Loader";
 const HomeCard = lazy(() => import("./DropCard"));
 const Search = lazy(() => import("../Search"));
 
-export default function HomeDropdown() {
+function HomeDropdown() {
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
@@ -55,7 +55,7 @@ export default function HomeDropdown() {
     };
   }, [node]);
 
-  const filterHotels = function (e) {
+  const filterHotels = (e) => {
     setIsSearched(true);
     const searchValue = e.target.value.toLowerCase();
 
@@ -117,3 +117,5 @@ export default function HomeDropdown() {
     </>
   );
 }
+
+export default HomeDropdown;

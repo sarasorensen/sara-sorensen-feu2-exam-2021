@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, headers } from "../../constants/api";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Moment from "react-moment";
 import DeleteEnquiry from "./DeleteEnquiry";
 
-export default function Enquiries() {
+function Enquiries() {
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const url = BASE_URL + "enquiries";
-    const options = { headers };
-    fetch(url, options)
+    fetch(url, FETCH_OPTIONS)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -41,7 +40,7 @@ export default function Enquiries() {
     return <div className="error">{error}</div>;
   }
 
-  function List({ enquiries, fallback }) {
+  const List = ({ enquiries, fallback }) => {
     if (!enquiries || enquiries.length === 0) {
       return fallback;
     } else {
@@ -96,7 +95,7 @@ export default function Enquiries() {
         </>
       );
     }
-  }
+  };
 
   return (
     <List
@@ -105,3 +104,5 @@ export default function Enquiries() {
     />
   );
 }
+
+export default Enquiries;

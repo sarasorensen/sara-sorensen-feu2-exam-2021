@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 
-export default function Search({ handleSearch }) {
+function Search({ handleSearch }) {
   return (
-    <Form className="search">
+    <Form className="search search__home">
       <div className="input-group">
         <input
           type="search"
@@ -22,3 +22,5 @@ export default function Search({ handleSearch }) {
 Search.propTypes = {
   handleSearch: PropTypes.func.isRequired,
 };
+
+export default Search;

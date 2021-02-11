@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import Heading from "../Heading";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import Form from "react-bootstrap/Form";
-import { BASE_URL, headers } from "../../constants/api";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Row, Col, Form, Modal, Button } from "react-bootstrap";
+import { BASE_URL, headers, POST } from "../../constants/api";
 import { Person, Email, Message, Envelope } from "../../constants/icons";
 
-export default function ContactForm() {
+function ContactForm() {
+  const [showModal, setShowModal] = useState(false);
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
@@ -20,94 +20,116 @@ export default function ContactForm() {
     resolver: yupResolver(validationSchema),
   });
 
-  const history = useHistory();
-
   async function onSubmit(data) {
     const url = BASE_URL + "contacts";
 
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
+    const options = {
+      headers,
+      method: POST,
+      body: JSON.stringify(data),
+    };
 
     await fetch(url, options);
 
-    history.push("/admin/hotels");
+    handleShow();
   }
 
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const reload = () => window.location.reload();
+
   return (
-    <Row className="form">
-      <Col className="form__col--1 col-sm-11   col-lg-6">
-        <Envelope />
-        <p className="form__info">
-          If you have any questions or just want to get in touch, use the
-          contact form. We look forward to hearing from you!
-        </p>
-      </Col>
-      <Col className="form__col--2 col-sm-11 col-lg-6">
-        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h1 className="title__grey">Contact Us</h1>
-          <Form.Group>
-            <Form.Label htmlFor="name" className="form__label">
-              {" "}
-              <Person />
-              Name
-            </Form.Label>
-            <Form.Control
-              name="name"
-              id="name"
-              type="text"
-              className={`form-control form__control ${
-                errors.name ? "is-invalid" : ""
-              }`}
-              placeholder="Enter a name"
-              ref={register}
-              required={true}
-            />
-            <div className="invalid-feedback">{errors.name?.message}</div>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label htmlFor="email" className="form__label">
-              {" "}
-              <Email />
-              Email
-            </Form.Label>
-            <Form.Control
-              name="email"
-              type="email"
-              id="email"
-              className={`form-control form__control ${
-                errors.email ? "is-invalid" : ""
-              }`}
-              placeholder="Enter an email"
-              ref={register}
-              required={true}
-            />
-            <div className="invalid-feedback">{errors.email?.message}</div>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label htmlFor="message" className="form__label">
-              <Message />
-              Message:
-            </Form.Label>
-            <textarea
-              name="message"
-              id="message"
-              type="text"
-              className={`form-control form__control ${
-                errors.message ? "is-invalid" : ""
-              }`}
-              placeholder="Enter a message"
-              ref={register}
-              required={true}
-            />
-            <div className="invalid-feedback">{errors.message?.message}</div>
-          </Form.Group>
-
-          <button className="btn" type="submit">
-            Submit
-          </button>
-        </Form>
-      </Col>
-    </Row>
+    <>
+      <Modal show={showModal} onExit={reload}>
+        <Modal.Header closeButton>
+          <Modal.Title>Thank you for your message!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            We will get back to you shortly, please check your email for this.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Row className="form">
+        <Col className="form__col--1 col-sm-11   col-lg-6">
+          <Envelope />
+          <p className="form__info">
+            If you have any questions or just want to get in touch, use the
+            contact form. We look forward to hearing from you!
+          </p>
+        </Col>
+        <Col className="form__col--2 col-sm-11 col-lg-6">
+          <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+            <Heading title="Contact Us" />
+            <Form.Group>
+              <Form.Label htmlFor="name" className="form__label">
+                {" "}
+                <Person />
+                Name
+              </Form.Label>
+              <Form.Control
+                name="name"
+                id="name"
+                type="text"
+                className={`form-control form__control ${
+                  errors.name ? "is-invalid" : ""
+                }`}
+                placeholder="Enter a name"
+                ref={register}
+              />
+              <div className="invalid-feedback">{errors.name?.message}</div>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="email" className="form__label">
+                {" "}
+                <Email />
+                Email
+              </Form.Label>
+              <Form.Control
+                name="email"
+                type="email"
+                id="email"
+                className={`form-control form__control ${
+                  errors.email ? "is-invalid" : ""
+                }`}
+                placeholder="Enter an email"
+                ref={register}
+              />
+              <div className="invalid-feedback">{errors.email?.message}</div>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="message" className="form__label">
+                <Message />
+                Message:
+              </Form.Label>
+              <textarea
+                name="message"
+                id="message"
+                type="text"
+                className={`form-control form__control ${
+                  errors.message ? "is-invalid" : ""
+                }`}
+                placeholder="Enter a message"
+                ref={register}
+              />
+              <div className="invalid-feedback">{errors.message?.message}</div>
+            </Form.Group>
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </Form>
+        </Col>
+      </Row>
+    </>
   );
 }
+
+export default ContactForm;

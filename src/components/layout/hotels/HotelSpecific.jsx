@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { useParams, Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
 import { Wifi, Cup, Location } from "../../constants/icons";
 import Heading from "../Heading";
 
-export function HotelSpecific() {
-  <Heading title="Hotel Specific" />;
-
+function HotelSpecific() {
   const [detail, setDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -54,18 +50,14 @@ export function HotelSpecific() {
           <img src={detail.image} className="specific__img" alt={detail.name} />
         </Col>
         <Col className="specific__details col-sm-12 col-md-6 col-lg-4">
-          <h1 className="specific__title">{detail.name}</h1>
-
+          <Heading className="specific__title" title={detail.name} />
           <p>Max {detail.maxGuests} guests</p>
-
           <p>
             {" "}
             Price per night is{" "}
             <span className="hotel__price"> {detail.price}$</span>
           </p>
-
           <p>{detail.description}</p>
-
           <p>
             {" "}
             If you have any questions, please contact:{" "}

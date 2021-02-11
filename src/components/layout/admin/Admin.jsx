@@ -3,16 +3,12 @@ import Heading from "../Heading";
 import { Link } from "react-router-dom";
 import Contacts from "../contact/FetchContact";
 import Enquiries from "../enquiry/FetchEnquiries";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import LoginData from "../auth/LoginData";
 import SideNav from "./adminNav";
 import { Access } from "../../constants/icons";
 
-export default function Admin() {
-  <Heading title="Administrator dashboard" />;
-
+function Admin() {
   const loginInfo = localStorage.getItem("loginInfo");
 
   if (loginInfo === null) {
@@ -38,7 +34,7 @@ export default function Admin() {
     <Container id="admin" className="admin">
       <Row>
         <div className="admin__col">
-          <h1 className="title__grey">Admin</h1>
+          <Heading title="Admin" />
           <SideNav />
         </div>
 
@@ -67,3 +63,5 @@ export default function Admin() {
     </Container>
   );
 }
+
+export default Admin;

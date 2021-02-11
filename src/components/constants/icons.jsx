@@ -1,6 +1,6 @@
 import React from "react";
 
-const Envelope = () => (
+export const Envelope = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -11,9 +11,7 @@ const Envelope = () => (
   </svg>
 );
 
-export { Envelope };
-
-const PersonFill = () => (
+export const PersonFill = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -29,9 +27,7 @@ const PersonFill = () => (
   </svg>
 );
 
-export { PersonFill };
-
-const CheckMark = () => (
+export const CheckMark = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -42,9 +38,7 @@ const CheckMark = () => (
   </svg>
 );
 
-export { CheckMark };
-
-const Access = () => (
+export const Access = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -56,9 +50,7 @@ const Access = () => (
   </svg>
 );
 
-export { Access };
-
-const LogedIn = () => (
+export const LogedIn = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -73,9 +65,7 @@ const LogedIn = () => (
   </svg>
 );
 
-export { LogedIn };
-
-const Wifi = () => (
+export const Wifi = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -87,9 +77,7 @@ const Wifi = () => (
   </svg>
 );
 
-export { Wifi };
-
-const Cup = () => (
+export const Cup = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -100,9 +88,7 @@ const Cup = () => (
   </svg>
 );
 
-export { Cup };
-
-const Location = () => (
+export const Location = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -116,9 +102,7 @@ const Location = () => (
   </svg>
 );
 
-export { Location };
-
-const Admin = () => (
+export const Admin = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -129,9 +113,7 @@ const Admin = () => (
   </svg>
 );
 
-export { Admin };
-
-const Person = () => (
+export const Person = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -142,9 +124,7 @@ const Person = () => (
   </svg>
 );
 
-export { Person };
-
-const Map = () => (
+export const Map = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -155,9 +135,7 @@ const Map = () => (
   </svg>
 );
 
-export { Map };
-
-const Message = () => (
+export const Message = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -168,9 +146,7 @@ const Message = () => (
   </svg>
 );
 
-export { Message };
-
-const Pencil = () => (
+export const Pencil = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -181,9 +157,7 @@ const Pencil = () => (
   </svg>
 );
 
-export { Pencil };
-
-const Lock = () => (
+export const Lock = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -194,9 +168,7 @@ const Lock = () => (
   </svg>
 );
 
-export { Lock };
-
-const Email = () => (
+export const Email = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -207,9 +179,7 @@ const Email = () => (
   </svg>
 );
 
-export { Email };
-
-const Facebook = () => (
+export const Facebook = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -220,9 +190,7 @@ const Facebook = () => (
   </svg>
 );
 
-export { Facebook };
-
-const Twitter = () => (
+export const Twitter = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -233,9 +201,7 @@ const Twitter = () => (
   </svg>
 );
 
-export { Twitter };
-
-const LinkedIn = () => (
+export const LinkedIn = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -246,9 +212,7 @@ const LinkedIn = () => (
   </svg>
 );
 
-export { LinkedIn };
-
-const House = () => (
+export const House = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -265,5 +229,3 @@ const House = () => (
     />
   </svg>
 );
-
-export { House };

@@ -1,19 +1,17 @@
 import React from "react";
 import Heading from "../Heading";
 import { NavLink } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import { CheckMark, Admin } from "../../constants/icons";
-export default function Success() {
-  <Heading title="Submission success" />;
+
+function Success() {
   return (
     <Container className="success">
       <Row>
         <Col>
           <div>
             <CheckMark />
-            <h1 className="title__grey">Success!</h1>
+            <Heading title="Submission success" />
             <p>Your changes have been added.</p>
             <p> They can be viewed now.</p>{" "}
             <NavLink to="/admin" className="success__link">
@@ -25,3 +23,5 @@ export default function Success() {
     </Container>
   );
 }
+
+export default Success;

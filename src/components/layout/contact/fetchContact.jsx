@@ -4,7 +4,7 @@ import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import { Message } from "../../constants/icons";
 import DeleteContact from "./DeleteContact";
 
-export default function Messages() {
+function Messages() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -40,7 +40,7 @@ export default function Messages() {
     return <div className="error">{error}</div>;
   }
 
-  function List({ messages, fallback, id }) {
+  const List = ({ messages, fallback }) => {
     if (!messages || messages.length === 0) {
       return fallback;
     } else {
@@ -80,7 +80,7 @@ export default function Messages() {
         </>
       );
     }
-  }
+  };
 
   return (
     <List
@@ -89,3 +89,5 @@ export default function Messages() {
     />
   );
 }
+
+export default Messages;

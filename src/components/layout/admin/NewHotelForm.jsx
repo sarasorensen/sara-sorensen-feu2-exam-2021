@@ -4,14 +4,13 @@ import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers } from "../../constants/api";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { BASE_URL, headers, POST } from "../../constants/api";
+import { Row, Col } from "react-bootstrap";
 
 function AddHotel() {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
-    imageurl: Yup.string().required("Image Url is required"),
+    image: Yup.string().required("Image Url is required"),
     address: Yup.string().required("address is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     maxGuests: Yup.string().required("Max Guests is required"),
@@ -27,7 +26,11 @@ function AddHotel() {
   async function onSubmit(data) {
     const url = BASE_URL + "establishments";
 
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
+    const options = {
+      headers,
+      method: POST,
+      body: JSON.stringify(data),
+    };
 
     await fetch(url, options);
 
@@ -52,26 +55,24 @@ function AddHotel() {
                 errors.name ? "is-invalid" : ""
               }`}
               placeholder="Enter a name for the hotel"
-              required={true}
             />
             <div className="invalid-feedback">{errors.name?.message}</div>
           </Form.Group>
           <Form.Group>
-            <Form.Label htmlFor="imageurl" className="form__label">
+            <Form.Label htmlFor="image" className="form__label">
               Image Url
             </Form.Label>
             <Form.Control
-              name="imageurl"
+              name="image"
               type="text"
-              id="imageurl"
+              id="image"
               ref={register}
               className={`form-control form__control ${
-                errors.imageurl ? "is-invalid" : ""
+                errors.image ? "is-invalid" : ""
               }`}
               placeholder="http://example.com"
-              required={true}
             />
-            <div className="invalid-feedback">{errors.imageurl?.message}</div>
+            <div className="invalid-feedback">{errors.image?.message}</div>
           </Form.Group>
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
@@ -86,7 +87,6 @@ function AddHotel() {
               }`}
               placeholder="Enter an email address"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
           </Form.Group>
@@ -103,7 +103,6 @@ function AddHotel() {
               }`}
               placeholder="Enter an address"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.address?.message}</div>
           </Form.Group>
@@ -120,7 +119,6 @@ function AddHotel() {
               }`}
               placeholder="Enter a number"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.price?.message}</div>
           </Form.Group>
@@ -137,7 +135,6 @@ function AddHotel() {
               }`}
               placeholder="Enter a number"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.maxGuests?.message}</div>
           </Form.Group>

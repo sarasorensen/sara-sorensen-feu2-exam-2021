@@ -1,17 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import Heading from "../Heading";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
 
 const Search = lazy(() => import("../Search"));
 const HotelCard = lazy(() => import("./HotelCard"));
 
 function Hotels() {
-  <Heading title="Hotels" />;
-
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +33,7 @@ function Hotels() {
       .finally(() => setLoading(false));
   }, []);
 
-  const filterHotels = function (e) {
+  const filterHotels = (e) => {
     const searchValue = e.target.value.toLowerCase();
 
     const filteredArray = hotels.filter(function (h) {
@@ -64,7 +60,7 @@ function Hotels() {
 
   return (
     <Container>
-      <h1 className="title__grey">Our Hotels</h1>
+      <Heading title="Our Hotels" />
       <Row className="hotel">
         <Suspense fallback={renderLoader()}>
           <Search handleSearch={filterHotels} />
@@ -91,4 +87,5 @@ function Hotels() {
     </Container>
   );
 }
+
 export default Hotels;

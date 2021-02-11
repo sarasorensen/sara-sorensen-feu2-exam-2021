@@ -1,22 +1,16 @@
 .footer {
   background-color: $color__grey;
   color: $color__beige;
-  width: 100%;
-  height: 100%;
-  flex-wrap: wrap;
   text-align: center;
-  @include flex__column;
-}
-.footer .row {
-  max-width: 100%;
+  justify-content: space-between;
+  align-content: center;
+  @include flex__row;
 }
 .footer__col {
-  margin-top: 1.5em;
-  width: 20rem;
-  margin-bottom: 1em;
+  margin: 0 auto;
+  padding: 1.5em;
   & p {
-    display: block;
-    margin: 0;
+    margin: 0 auto;
     margin-top: 15px;
   }
   & a {
@@ -30,7 +24,7 @@
   }
 }
 .footer__logo {
-  width: 10%;
+  width: 15%;
   height: 100%;
 }
 .footer__icons {
@@ -55,9 +49,9 @@
   padding: 0;
   & a {
     color: $color__white;
-    margin-top: 15px;
-    display: inline-block;
     @include transition;
+    margin: 0;
+    padding: 0;
   }
   & a:hover {
     @include hover;

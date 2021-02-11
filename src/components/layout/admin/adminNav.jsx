@@ -1,14 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Message, Pencil, Lock, House } from "../../constants/icons";
+import { Message, Pencil, House } from "../../constants/icons";
 
 function adminNav() {
-  function clear(e) {
-    e.preventDefault();
-    localStorage.removeItem("loginInfo");
-    window.location.href = "login";
-  }
-
   return (
     <div className="adminNav">
       <Link to="/editHotels">
@@ -23,11 +17,6 @@ function adminNav() {
         {" "}
         <Pencil />
         Enquiries
-      </a>
-      <a href="/login" onClick={clear}>
-        {" "}
-        <Lock />
-        Log Out
       </a>
     </div>
   );

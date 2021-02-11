@@ -1,11 +1,11 @@
 import React from "react";
+import Heading from "../Heading";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Row, Col } from "react-bootstrap";
 import { Email, Lock, PersonFill } from "../../constants/icons";
 
 function LoginForm() {
@@ -40,7 +40,7 @@ function LoginForm() {
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h1 className="title__grey">Log in</h1>
+          <Heading title="Log In" />
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
               {" "}
@@ -56,7 +56,6 @@ function LoginForm() {
               }`}
               placeholder="Enter an email address"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
           </Form.Group>
@@ -76,7 +75,6 @@ function LoginForm() {
               }`}
               placeholder="Enter a password"
               ref={register}
-              required={true}
             />
             <div className="invalid-feedback">{errors.password?.message}</div>
           </Form.Group>

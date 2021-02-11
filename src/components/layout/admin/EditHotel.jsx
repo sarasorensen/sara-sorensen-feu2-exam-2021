@@ -2,23 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Heading from "../Heading";
-import { BASE_URL, headers } from "../../constants/api";
+import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import EditHotelCard from "./EditHotelCard";
 import NewHotelForm from "./NewHotelForm";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import { Container, Row } from "react-bootstrap";
 import { Lock, House, Admin } from "../../constants/icons";
 
 function EditHotel() {
-  <Heading title="Admin Edit Hotels" />;
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
-    const options = { headers };
-    fetch(url, options)
+
+    fetch(url, FETCH_OPTIONS)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -47,7 +45,7 @@ function EditHotel() {
     return <div className="error">{error}</div>;
   }
 
-  function List({ hotels, fallback }) {
+  const List = ({ hotels, fallback }) => {
     if (!hotels || hotels.length === 0) {
       return fallback;
     } else {
@@ -71,11 +69,11 @@ function EditHotel() {
         </>
       );
     }
-  }
+  };
 
   return (
     <Container className="admin">
-      <h1 className="title__grey">Edit Hotels</h1>
+      <Heading title="Edit Hotels" />
       <Row>
         <div className="admin__col">
           <div className="adminNav">

@@ -1,14 +1,10 @@
 import React from "react";
-import Heading from "../Heading";
 import { NavLink } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import { CheckMark } from "../../constants/icons";
 
 function Login() {
-  <Heading title="Log In" />;
   if (localStorage.getItem("loginInfo")) {
     const loginInfo = localStorage.getItem("loginInfo");
     return (

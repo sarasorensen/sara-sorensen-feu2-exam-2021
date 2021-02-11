@@ -1,8 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import Heading from "../Heading";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
 
 const HomeDropdown = lazy(() => import("./HomeDropdown"));
