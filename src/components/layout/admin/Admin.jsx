@@ -9,9 +9,10 @@ import SideNav from "./adminNav";
 import { Access } from "../../constants/icons";
 
 function Admin() {
-  const loginInfo = localStorage.getItem("loginInfo");
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
 
-  if (loginInfo === null) {
+  if (username === null && password === null) {
     return (
       <Container className="admin">
         <Row>

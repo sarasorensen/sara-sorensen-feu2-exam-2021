@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import { Message } from "../../constants/icons";
 import DeleteContact from "./DeleteContact";
+import Loader from "../Loader";
 
 function Messages() {
   const [messages, setMessages] = useState([]);
@@ -11,7 +11,8 @@ function Messages() {
 
   useEffect(() => {
     const url = BASE_URL + "contacts";
-    fetch(url, FETCH_OPTIONS)
+    const options = { headers };
+    fetch(url, options)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -28,12 +29,7 @@ function Messages() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {

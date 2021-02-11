@@ -1,10 +1,19 @@
 .link {
   @include link;
 }
+.link__blue {
+  color: $color__blue;
+  text-transform: capitalize;
+}
 .link__dropdown:hover {
   text-decoration: none;
 }
 .link__admin {
   text-decoration: underline;
   text-transform: lowercase;
+}
+.login__link {
+  display: block;
+  text-transform: capitalize;
+  margin-top: 1em;
 }

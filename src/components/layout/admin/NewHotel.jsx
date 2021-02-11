@@ -1,11 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import Form from "react-bootstrap/Form";
 import { BASE_URL, headers, POST } from "../../constants/api";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 
 function AddHotel() {
   const validationSchema = Yup.object().shape({
@@ -15,13 +13,14 @@ function AddHotel() {
     email: Yup.string().required("Email is required").email("Email is invalid"),
     maxGuests: Yup.string().required("Max Guests is required"),
     price: Yup.string().required("Price is required"),
+    description: Yup.string()
+      .min(20, "Description must contain 20 characters or more")
+      .required("Description is required"),
   });
 
   const { register, handleSubmit, reset, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
-  const history = useHistory();
 
   async function onSubmit(data) {
     const url = BASE_URL + "establishments";
@@ -34,8 +33,10 @@ function AddHotel() {
 
     await fetch(url, options);
 
-    history.push("/success");
+    reload();
   }
+
+  const reload = () => window.location.reload();
 
   return (
     <Row className="form form__newHotel">
@@ -138,12 +139,32 @@ function AddHotel() {
             />
             <div className="invalid-feedback">{errors.maxGuests?.message}</div>
           </Form.Group>
-          <button className="btn" type="submit">
-            Submit
-          </button>
-          <button className="btn" type="reset">
-            Reset
-          </button>
+          <Form.Group>
+            <Form.Label htmlFor="description" className="form__label">
+              Description
+            </Form.Label>
+            <Form.Control
+              name="description"
+              type="text"
+              id="description"
+              className={`form-control form__control ${
+                errors.description ? "is-invalid" : ""
+              }`}
+              placeholder="Enter a description"
+              ref={register}
+            />
+            <div className="invalid-feedback">
+              {errors.description?.message}
+            </div>
+          </Form.Group>
+          <div className="admin__buttons">
+            <button className="btn" type="submit">
+              Submit
+            </button>
+            <button className="btn" type="reset">
+              Reset
+            </button>
+          </div>
         </Form>
       </Col>
     </Row>

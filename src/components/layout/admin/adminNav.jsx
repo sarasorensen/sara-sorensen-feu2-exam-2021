@@ -5,7 +5,7 @@ import { Message, Pencil, House } from "../../constants/icons";
 function adminNav() {
   return (
     <div className="adminNav">
-      <Link to="/editHotels">
+      <Link to="/adminHotel">
         <House />
         Edit Hotels
       </Link>

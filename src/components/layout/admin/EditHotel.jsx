@@ -1,22 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
-import Heading from "../Heading";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
-import EditHotelCard from "./EditHotelCard";
-import NewHotelForm from "./NewHotelForm";
-import { Container, Row } from "react-bootstrap";
-import { Lock, House, Admin } from "../../constants/icons";
+import Loader from "../Loader";
+import { useForm } from "react-hook-form";
+import { useHistory, useParams } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { BASE_URL, headers, PATCH } from "../../constants/api";
+import { Row, Col, Form } from "react-bootstrap";
 
-function EditHotel() {
-  const [hotels, setHotels] = useState([]);
+function AddHotel() {
+  const defaultState = {
+    name: "",
+    image: "",
+    address: "",
+    email: "",
+    maxGuests: "",
+    price: "",
+    description: "",
+  };
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Hotel Name is required"),
+    image: Yup.string().required("Image Url is required"),
+    address: Yup.string().required("address is required"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    maxGuests: Yup.string().required("Max Guests is required"),
+    price: Yup.string().required("Price is required"),
+    description: Yup.string()
+      .min(20, "Description must contain 20 characters or more")
+      .required("Description is required"),
+  });
+
+  const history = useHistory();
+
+  const { register, handleSubmit, reset, errors } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
+  let { id } = useParams();
+
+  const [hotel, sethotel] = useState(defaultState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = BASE_URL + "establishments";
-
-    fetch(url, FETCH_OPTIONS)
+    const url = BASE_URL + "establishments/" + id;
+    const options = { headers };
+    fetch(url, options)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -25,90 +54,173 @@ function EditHotel() {
         }
       })
       .then((json) => {
-        setHotels(json);
+        sethotel(json);
         setError(null);
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id]);
 
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
     return <div className="error">{error}</div>;
   }
 
-  const List = ({ hotels, fallback }) => {
-    if (!hotels || hotels.length === 0) {
-      return fallback;
-    } else {
-      return (
-        <>
-          {hotels.map((hotel) => {
-            const { id, name, image, price, email } = hotel;
+  async function onSubmit(data) {
+    const url = BASE_URL + "establishments/" + id;
 
-            return (
-              <div className=" col-sm-12 col-md-6 col-lg-4" key={id}>
-                <EditHotelCard
-                  id={id}
-                  name={name}
-                  image={image}
-                  price={price}
-                  email={email}
-                />
-              </div>
-            );
-          })}
-        </>
-      );
-    }
-  };
+    const options = {
+      headers,
+      method: PATCH,
+      body: JSON.stringify(data),
+    };
+
+    await fetch(url, options);
+
+    history.push("/adminHotel");
+  }
 
   return (
-    <Container className="admin">
-      <Heading title="Edit Hotels" />
-      <Row>
-        <div className="admin__col">
-          <div className="adminNav">
-            <Link to="/admin">
-              <Admin />
-              Admin
-            </Link>
-            <a href="#newHotel">
-              <House />
-              Create New Hotel
-            </a>
-            <a href="/login">
-              {" "}
-              <Lock />
-              Log Out
-            </a>
+    <Row className="form form__newHotel">
+      <Col className="form__col--2 col-sm-11 col-lg-6">
+        <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+          <h2>Edit Hotel</h2>
+          <Form.Group>
+            <Form.Label htmlFor="name" className="form__label">
+              Hotel Name
+            </Form.Label>
+            <Form.Control
+              name="name"
+              type="text"
+              id="name"
+              defaultValue={hotel.name}
+              ref={register}
+              className={`form-control form__control ${
+                errors.name ? "is-invalid" : ""
+              }`}
+              placeholder="Enter a name for the hotel"
+            />
+            <div className="invalid-feedback">{errors.name?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="image" className="form__label">
+              Image Url
+            </Form.Label>
+            <Form.Control
+              name="image"
+              type="text"
+              id="image"
+              defaultValue={hotel.image}
+              ref={register}
+              className={`form-control form__control ${
+                errors.image ? "is-invalid" : ""
+              }`}
+              placeholder="http://example.com"
+            />
+            <div className="invalid-feedback">{errors.image?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="email" className="form__label">
+              Email
+            </Form.Label>
+            <Form.Control
+              name="email"
+              type="email"
+              id="email"
+              defaultValue={hotel.email}
+              className={`form-control form__control ${
+                errors.email ? "is-invalid" : ""
+              }`}
+              placeholder="Enter an email address"
+              ref={register}
+            />
+            <div className="invalid-feedback">{errors.email?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="address" className="form__label">
+              Adress
+            </Form.Label>
+            <Form.Control
+              name="address"
+              type="text"
+              id="address"
+              defaultValue={hotel.address}
+              className={`form-control form__control ${
+                errors.address ? "is-invalid" : ""
+              }`}
+              placeholder="Enter an address"
+              ref={register}
+            />
+            <div className="invalid-feedback">{errors.address?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="price" className="form__label">
+              Price per night
+            </Form.Label>
+            <Form.Control
+              name="price"
+              type="number"
+              id="price"
+              defaultValue={hotel.price}
+              className={`form-control form__control ${
+                errors.price ? "is-invalid" : ""
+              }`}
+              placeholder="Enter a number"
+              ref={register}
+            />
+            <div className="invalid-feedback">{errors.price?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="maxGuests" className="form__label">
+              Max Guests
+            </Form.Label>
+            <Form.Control
+              name="maxGuests"
+              type="number"
+              id="maxGuests"
+              defaultValue={hotel.maxGuests}
+              className={`form-control form__control ${
+                errors.maxGuests ? "is-invalid" : ""
+              }`}
+              placeholder="Enter a number"
+              ref={register}
+            />
+            <div className="invalid-feedback">{errors.maxGuests?.message}</div>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="description" className="form__label">
+              Description
+            </Form.Label>
+            <Form.Control
+              name="description"
+              type="text"
+              id="description"
+              defaultValue={hotel.description}
+              className={`form-control form__control ${
+                errors.description ? "is-invalid" : ""
+              }`}
+              placeholder="Enter a description"
+              ref={register}
+            />
+            <div className="invalid-feedback">
+              {errors.description?.message}
+            </div>
+          </Form.Group>
+          <div className="admin__buttons">
+            <button className="btn" type="submit">
+              Update
+            </button>
+            <button className="btn" type="reset">
+              Reset
+            </button>
           </div>
-        </div>
-        <div className="admin__col admin__col--hotels">
-          <div className="admin__box">
-            <p className="admin__text">
-              <span className="form__error"> NB!</span> All deletions are final.
-              To ensure a good user experience, do not delete hotels that have
-              not been authorized.{" "}
-            </p>
-          </div>
-
-          <List hotels={hotels} fallback={"Loading..."} />
-        </div>
-        <div id="newHotel" className="admin__col">
-          <NewHotelForm />
-        </div>
-      </Row>
-    </Container>
+        </Form>
+      </Col>
+    </Row>
   );
 }
 
-export default EditHotel;
+export default AddHotel;

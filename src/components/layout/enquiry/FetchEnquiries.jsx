@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Spinner from "react-bootstrap/Spinner";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import Moment from "react-moment";
 import DeleteEnquiry from "./DeleteEnquiry";
+import Loader from "../Loader";
 
 function Enquiries() {
   const [enquiries, setEnquiries] = useState([]);
@@ -11,7 +11,9 @@ function Enquiries() {
 
   useEffect(() => {
     const url = BASE_URL + "enquiries";
-    fetch(url, FETCH_OPTIONS)
+    const options = { headers };
+
+    fetch(url, options)
       .then(function (response) {
         if (response.status === 200) {
           return response.json();
@@ -28,12 +30,7 @@ function Enquiries() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="spinner">
-        <Spinner role="status" className="spinner__animation" />
-        <span className="sr-only">Loading content...</span>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {

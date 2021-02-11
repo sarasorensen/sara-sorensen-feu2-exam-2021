@@ -7,6 +7,10 @@
   float: right;
   @include transition;
 }
+.btn__logout {
+  float: none;
+  margin: 0 auto;
+}
 .btn__danger {
   background-color: $error;
   margin-right: 0.5em;

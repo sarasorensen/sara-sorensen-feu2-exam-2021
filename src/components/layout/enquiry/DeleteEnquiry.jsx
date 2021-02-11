@@ -1,12 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { BASE_URL, headers, DELETE } from "../../constants/api";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 function DeleteEnquiry(props) {
-  const history = useHistory();
-
   function deleteBtn() {
     confirmAlert({
       title: "Confirm deletion",
@@ -28,8 +25,10 @@ function DeleteEnquiry(props) {
     const options = { headers, method: DELETE };
     await fetch(url, options);
 
-    history.push("/success");
+    reload();
   }
+
+  const reload = () => window.location.reload();
 
   return (
     <button className="btn btn__danger" onClick={deleteBtn}>

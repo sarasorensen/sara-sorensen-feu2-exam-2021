@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import Loader from "../Loader";
 
 const HomeCard = lazy(() => import("./DropCard"));
@@ -15,7 +15,9 @@ function HomeDropdown() {
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
-    fetch(url, FETCH_OPTIONS)
+    const options = { headers };
+
+    fetch(url, options)
       .then((response) => {
         if (response.status === 200) {
           return response.json();

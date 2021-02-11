@@ -1,12 +1,18 @@
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
 import { LogedIn, Lock } from "../../constants/icons";
 
 function LogIn() {
-  const loginInfo = localStorage.getItem("loginInfo");
+  const username = localStorage.getItem("username");
+
+  const { logout } = useContext(AuthContext);
+  const history = useHistory();
 
   function clear(e) {
     e.preventDefault();
-    localStorage.removeItem("loginInfo");
-    window.location.href = "login";
+    logout();
+    history.push("/");
   }
 
   return (
@@ -14,7 +20,7 @@ function LogIn() {
       <div>
         <LogedIn />
         <p>You are logged in as:</p>
-        <p>{loginInfo}</p>
+        <p>{username}</p>
       </div>
       <button className="btn" onClick={clear}>
         {" "}

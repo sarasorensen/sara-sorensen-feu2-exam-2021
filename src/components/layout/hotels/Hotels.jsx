@@ -1,6 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import Heading from "../Heading";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
 
@@ -15,8 +15,8 @@ function Hotels() {
 
   useEffect(() => {
     const url = BASE_URL + "establishments";
-
-    fetch(url, FETCH_OPTIONS)
+    const options = { headers };
+    fetch(url, options)
       .then((response) => {
         if (response.status === 200) {
           return response.json();

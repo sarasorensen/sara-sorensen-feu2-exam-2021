@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
+import { BASE_URL, headers } from "../../constants/api";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
@@ -7,7 +7,7 @@ import { Wifi, Cup, Location } from "../../constants/icons";
 import Heading from "../Heading";
 
 function HotelSpecific() {
-  const [detail, setDetail] = useState(null);
+  const [hotel, sethotel] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,8 +15,9 @@ function HotelSpecific() {
 
   useEffect(() => {
     const url = BASE_URL + "establishments/" + id;
+    const options = { headers };
 
-    fetch(url, FETCH_OPTIONS)
+    fetch(url, options)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -25,7 +26,7 @@ function HotelSpecific() {
         }
       })
       .then((json) => {
-        setDetail(json);
+        sethotel(json);
         setError(null);
       })
       .catch((error) => console.log(error))
@@ -40,29 +41,29 @@ function HotelSpecific() {
     return <div className="error">{error}</div>;
   }
 
-  localStorage.setItem("name", detail.name);
-  localStorage.setItem("image", detail.image);
+  localStorage.setItem("name", hotel.name);
+  localStorage.setItem("image", hotel.image);
 
   return (
     <Container className="specific">
       <Row>
         <Col className="specific__col col-sm-12 col-md-6 col-lg-4">
-          <img src={detail.image} className="specific__img" alt={detail.name} />
+          <img src={hotel.image} className="specific__img" alt={hotel.name} />
         </Col>
-        <Col className="specific__details col-sm-12 col-md-6 col-lg-4">
-          <Heading className="specific__title" title={detail.name} />
-          <p>Max {detail.maxGuests} guests</p>
+        <Col className="specific__hotels col-sm-12 col-md-6 col-lg-4">
+          <Heading className="specific__title" title={hotel.name} />
+          <p>Max {hotel.maxGuests} guests</p>
           <p>
             {" "}
             Price per night is{" "}
-            <span className="hotel__price"> {detail.price}$</span>
+            <span className="hotel__price"> {hotel.price}$</span>
           </p>
-          <p>{detail.description}</p>
+          <p>{hotel.description}</p>
           <p>
             {" "}
             If you have any questions, please contact:{" "}
-            <a className="link" href={"mailto:" + detail.email}>
-              {detail.email}
+            <a className="link" href={"mailto:" + hotel.email}>
+              {hotel.email}
             </a>
           </p>
           <Row className="d-flex jc-center text-center specific__icons">

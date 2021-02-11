@@ -12,11 +12,12 @@ import Home from "./home/Home";
 import Hotels from "./hotels/Hotels";
 import Contact from "./contact/Contact";
 import Login from "./auth/Login";
+import Register from "./auth/Register";
 import HotelSpecific from "./hotels/HotelSpecific";
 import Enquiry from "./enquiry/EnquiryForm";
 import Admin from "./admin/Admin";
-import EditHotels from "./admin/EditHotel";
-import Success from "./admin/Success";
+import AdminHotel from "./admin/AdminHotel";
+import EditHotel from "./admin/EditHotel";
 import Logo from "../../images/logo-y.png";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "./Footer";
@@ -65,11 +66,12 @@ function Layout() {
             <Route path="/contact" component={Contact} />
             <Route path="/hotels" component={Hotels} />
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
             <Route path="/hotelSpecific/:id" component={HotelSpecific} />
             <Route path="/enquiry/:id" component={Enquiry} />
             <Route path="/admin" component={Admin} />
-            <Route path="/editHotels" component={EditHotels} />
-            <Route path="/success" component={Success} />
+            <Route path="/adminHotel" component={AdminHotel} />
+            <Route path="/editHotel:id" component={EditHotel} />
           </ScrollToTop>
         </Switch>
       </Container>
