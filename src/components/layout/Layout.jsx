@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
+import { AuthContext } from "../../context/AuthContext";
+import Logout from "../layout/auth/Logout";
 import Nav from "react-bootstrap/Nav";
 import {
   BrowserRouter as Router,
@@ -24,6 +26,7 @@ import Footer from "./Footer";
 import { Person } from "../constants/icons";
 
 function Layout() {
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Navbar expand="lg">
@@ -48,13 +51,23 @@ function Layout() {
             <NavLink to="/contact" className="navbar__link ">
               Contact
             </NavLink>
-            <NavLink to="/login" className="navbar__link">
-              <span className="sr-only">Log In</span>
-              <Person />
-            </NavLink>
-            <NavLink to="/admin" exact className="navbar__link order-md-0">
-              Admin
-            </NavLink>
+
+            {user ? (
+              <>
+                <NavLink
+                  to="/admin"
+                  className="navbar__link"
+                  activeClassName="active"
+                >
+                  Admin
+                </NavLink>
+                <Logout />
+              </>
+            ) : (
+              <NavLink to="/login" className="navbar__link">
+                Log In <Person />
+              </NavLink>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -40,6 +40,7 @@ function LoginForm() {
     if (userName === data.email && password === data.password) {
       loginInput(data.username, data.password);
       history.push("/admin");
+      history.go(0);
     } else {
       handleShow();
     }

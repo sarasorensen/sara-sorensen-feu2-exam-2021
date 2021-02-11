@@ -91,7 +91,9 @@ function HomeDropdown() {
   return (
     <>
       <Suspense fallback={renderLoader()}>
-        <Search handleSearch={filterHotels} onChange={toggling} />
+        <div className="search__home">
+          <Search handleSearch={filterHotels} onChange={toggling} />
+        </div>
       </Suspense>
 
       <div className="dropdown">

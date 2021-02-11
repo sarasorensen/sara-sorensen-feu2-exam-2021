@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import Contacts from "../contact/FetchContact";
 import Enquiries from "../enquiry/FetchEnquiries";
 import { Container, Row, Col } from "react-bootstrap";
-import LoginData from "../auth/LoginData";
+import LogOut from "../auth/Logout";
 import SideNav from "./adminNav";
-import { Access } from "../../constants/icons";
+import { Access, LogedIn, Lock } from "../../constants/icons";
 
 function Admin() {
   const username = localStorage.getItem("username");
@@ -40,7 +40,17 @@ function Admin() {
         </div>
 
         <div id="user" className="admin__col">
-          <LoginData />
+          <div className="admin__login">
+            <div>
+              <LogedIn />
+              <p>You are logged in as:</p>
+              <p>{username}</p>
+            </div>
+            <LogOut>
+              {" "}
+              <Lock />
+            </LogOut>
+          </div>
         </div>
 
         <div className="admin__col">

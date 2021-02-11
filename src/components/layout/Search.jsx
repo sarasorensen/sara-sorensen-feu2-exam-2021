@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 
 function Search({ handleSearch }) {
   return (
-    <Form className="search search__home">
+    <Form className="search ">
       <div className="input-group">
         <input
           type="search"
