@@ -27,13 +27,6 @@ $landscape-img: url("../../../images/landscape-header.jpg");
   margin-top: 10%;
   padding: 0;
 }
-.home__info {
-  color: $color__white;
-  font-size: 1.35rem;
-  font-weight: 400;
-  margin-top: -1em;
-  margin-bottom: 1.5em;
-}
 @media (min-width: 200px) and (max-width: 812px) {
   .header {
     background-image: $small-img;
@@ -43,6 +36,7 @@ $landscape-img: url("../../../images/landscape-header.jpg");
 @media only screen and (min-device-width: 280px) and (max-device-width: 667px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
   .header {
     background-image: $landscape-img;
+    min-height: 100%;
   }
   .home {
     min-height: 100vh;
@@ -54,6 +48,7 @@ $landscape-img: url("../../../images/landscape-header.jpg");
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
   .header {
     background-image: $landscape-img;
+    min-height: 100%;
   }
   .home {
     min-height: 100vh;

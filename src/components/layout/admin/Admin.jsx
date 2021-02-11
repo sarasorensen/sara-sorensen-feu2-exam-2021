@@ -36,9 +36,9 @@ export default function Admin() {
 
   return (
     <Container id="admin" className="admin">
-      <h2 className="title__grey">Admin</h2>
       <Row>
         <div className="admin__col">
+          <h1 className="title__grey">Admin</h1>
           <SideNav />
         </div>
 

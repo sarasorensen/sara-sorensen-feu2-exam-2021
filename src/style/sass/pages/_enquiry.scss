@@ -1,8 +1,10 @@
 .enquiry__name {
+  font-family: $import-heading;
   margin-top: 1em;
   color: $color__grey;
 }
 .enquiry__hotel {
   width: 100%;
   padding: 2em;
+  padding-top: 0;
 }

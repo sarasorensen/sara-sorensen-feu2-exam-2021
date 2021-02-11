@@ -55,7 +55,7 @@ export function HotelSpecific() {
           <img src={detail.image} className="specific__img" alt={detail.name} />
         </Col>
         <Col className="specific__details col-sm-12 col-md-6 col-lg-4">
-          <h2 className="specific__title">{detail.name}</h2>
+          <h1 className="specific__title">{detail.name}</h1>
 
           <p>Max {detail.maxGuests} guests</p>
 

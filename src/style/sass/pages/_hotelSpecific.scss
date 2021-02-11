@@ -23,6 +23,7 @@
 }
 .specific__title {
   color: $color__blue;
+  margin-top: 0;
   @include line;
 }
 .specific__icons {

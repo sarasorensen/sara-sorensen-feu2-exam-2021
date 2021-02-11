@@ -17,10 +17,10 @@ function Home() {
       <div className="header"></div>
       <Row className="home">
         <Col className="home__col">
-          <h2 className="title__white">Find a place to stay</h2>
-          <p className="home__info">
-            Explore and discover our Hotels, Spa's and more!
-          </p>
+          <h1 className="title__white">Find a place to stay</h1>
+          <h2 className="home__info">
+            Discover Bergen's hotels, B&Bs and more
+          </h2>
           <Suspense fallback={renderLoader()}>
             <HomeDropdown />
           </Suspense>

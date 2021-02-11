@@ -64,7 +64,7 @@ function Hotels() {
 
   return (
     <Container>
-      <h2 className="title__grey">Our Hotels</h2>
+      <h1 className="title__grey">Our Hotels</h1>
       <Row className="hotel">
         <Suspense fallback={renderLoader()}>
           <Search handleSearch={filterHotels} />

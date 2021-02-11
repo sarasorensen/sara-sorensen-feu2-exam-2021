@@ -43,7 +43,7 @@ export default function ContactForm() {
       </Col>
       <Col className="form__col--2 col-sm-11 col-lg-6">
         <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-          <h2 className="title__grey">Contact Us</h2>
+          <h1 className="title__grey">Contact Us</h1>
           <Form.Group>
             <Form.Label htmlFor="name" className="form__label">
               {" "}

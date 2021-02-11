@@ -3,7 +3,6 @@ export const headers = {
   "Content-Type": "application/json",
   key: KEY,
 };
-export const PATCH = "PATCH";
 export const POST = "POST";
 export const DELETE = "DELETE";
 export const BASE_URL =
