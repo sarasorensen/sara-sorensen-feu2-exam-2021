@@ -48,7 +48,7 @@ export default function Admin() {
 
         <div className="admin__col">
           <div className="admin__box text-center">
-            <p>
+            <p className="admin__text">
               <span className="form__error"> NB!</span> All deletions are final.
               To ensure a good user experience, do not delete anything that have
               not been authorized.{" "}

@@ -6,14 +6,15 @@ import "./style/sass/styles.scss";
 function App() {
   return (
     <HelmetProvider>
-      <Helmet>
-        <meta
-          name="description"
-          content="Discover our hotels, B&B's, guesthouses and more in Bergen!"
-        />
-        <title>Holidaze Hotel Booking</title>
-      </Helmet>
       <div className="App">
+        <Helmet>
+          <meta
+            name="description"
+            content="Discover our hotels, B&B's, guesthouses and more in Bergen!"
+            data-rh={true}
+          />
+          <title>Holidaze Hotel Booking</title>
+        </Helmet>
         <header className="App-header">
           <Layout></Layout>
         </header>

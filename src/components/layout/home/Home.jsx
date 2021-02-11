@@ -1,11 +1,11 @@
 import React, { lazy, Suspense } from "react";
+import Heading from "../Heading";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loader from "../Loader";
 
 const HomeDropdown = lazy(() => import("./HomeDropdown"));
-const Heading = lazy(() => import("../Heading"));
 
 function Home() {
   <Heading title="Home" />;

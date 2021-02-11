@@ -1,6 +1,12 @@
 import React from "react";
+import Heading from "../Heading";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
-  return <ContactForm />;
+  return (
+    <>
+      <Heading title="Contact Us" />;
+      <ContactForm />
+    </>
+  );
 }

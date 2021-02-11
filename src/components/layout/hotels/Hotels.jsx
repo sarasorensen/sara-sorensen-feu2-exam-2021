@@ -1,11 +1,11 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
+import Heading from "../Heading";
 import { BASE_URL, FETCH_OPTIONS } from "../../constants/api";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Loader from "../Loader";
 
-const Heading = lazy(() => import("../Heading"));
 const Search = lazy(() => import("../Search"));
 const HotelCard = lazy(() => import("./HotelCard"));
 

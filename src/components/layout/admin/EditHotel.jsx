@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import { Lock, House, Admin } from "../../constants/icons";
 
 function EditHotel() {
-  <Heading title="Admin Delete and Add Hotel" />;
+  <Heading title="Admin Edit Hotels" />;
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -95,8 +95,8 @@ function EditHotel() {
           </div>
         </div>
         <div className="admin__col admin__col--hotels">
-          <div className="admin__box text-center">
-            <p>
+          <div className="admin__box">
+            <p className="admin__text">
               <span className="form__error"> NB!</span> All deletions are final.
               To ensure a good user experience, do not delete hotels that have
               not been authorized.{" "}
