@@ -10,7 +10,6 @@ import { Person, Email } from "../../constants/icons";
 
 function EnquiryForm() {
   const { id } = useParams();
-  const [showModal, setShowModal] = useState(false);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
@@ -60,7 +59,10 @@ function EnquiryForm() {
     handleShow();
   }
 
+  const [showModal, setShowModal] = useState(false);
+
   const handleShow = () => setShowModal(true);
+
   const handleClose = () => {
     setShowModal(false);
   };

@@ -30,7 +30,7 @@ function HotelDelete({ id, name, image, price, email }) {
             </li>
           </ul>
 
-          <div className="admin__buttons">
+          <div className="admin__edit">
             <Link to={"editHotel/" + id}>
               <button className="btn btn__card">Edit Hotel</button>
             </Link>

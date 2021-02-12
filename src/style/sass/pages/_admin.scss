@@ -61,6 +61,13 @@
 .admin__buttons {
   margin-top: 2.5em;
 }
+
+.admin__edit {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .react-confirm-alert-body {
   @include flex__column;
   & h1 {

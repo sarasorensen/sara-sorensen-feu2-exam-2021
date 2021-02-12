@@ -88,38 +88,65 @@ function HomeDropdown() {
     return <div className="error">{error}</div>;
   }
 
-  return (
-    <>
-      <Suspense fallback={renderLoader()}>
-        <div className="search__home">
-          <Search handleSearch={filterHotels} onChange={toggling} />
+  if (filteredHotels === undefined || filteredHotels.length === 0) {
+    return (
+      <>
+        <Suspense fallback={renderLoader()}>
+          <div className="search__home">
+            <Search handleSearch={filterHotels} onChange={toggling} />
+          </div>
+        </Suspense>
+        <div className="dropdown">
+          <div
+            ref={node}
+            className={
+              dropdown !== true && isSearched === false
+                ? "d-none "
+                : "d-block dropdown__box "
+            }
+          >
+            <div className="dropdown__error">
+              <p>No match</p>
+              <p>Try typing something else</p>
+            </div>
+          </div>
         </div>
-      </Suspense>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Suspense fallback={renderLoader()}>
+          <div className="search__home">
+            <Search handleSearch={filterHotels} onChange={toggling} />
+          </div>
+        </Suspense>
 
-      <div className="dropdown">
-        <div
-          ref={node}
-          className={
-            dropdown !== true && isSearched === false
-              ? "d-none "
-              : "d-block dropdown__box "
-          }
-        >
-          {filteredHotels.map((hotel) => {
-            const { id, name, image, price } = hotel;
-            return (
-              <div key={id}>
-                {" "}
-                <Suspense fallback={renderLoader()}>
-                  <HomeCard id={id} image={image} name={name} price={price} />{" "}
-                </Suspense>
-              </div>
-            );
-          })}
+        <div className="dropdown">
+          <div
+            ref={node}
+            className={
+              dropdown !== true && isSearched === false
+                ? "d-none "
+                : "d-block dropdown__box "
+            }
+          >
+            {filteredHotels.map((hotel) => {
+              const { id, name, image, price } = hotel;
+              return (
+                <div key={id}>
+                  {" "}
+                  <Suspense fallback={renderLoader()}>
+                    <HomeCard id={id} image={image} name={name} price={price} />{" "}
+                  </Suspense>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default HomeDropdown;

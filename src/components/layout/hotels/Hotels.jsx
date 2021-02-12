@@ -35,7 +35,6 @@ function Hotels() {
 
   const filterHotels = (e) => {
     const searchValue = e.target.value.toLowerCase();
-
     const filteredArray = hotels.filter(function (h) {
       const lowerCaseName = h.name.toLowerCase();
 
@@ -58,34 +57,50 @@ function Hotels() {
     return <div className="error">{error}</div>;
   }
 
-  return (
-    <Container>
-      <Heading title="Our Hotels" />
-      <Row className="hotel">
-        <Suspense fallback={renderLoader()}>
-          <Search handleSearch={filterHotels} />
-        </Suspense>
+  if (filteredHotels === undefined || filteredHotels.length === 0) {
+    return (
+      <Container>
+        <Heading title="No Match" />
+        <Row className="hotel">
+          <Suspense fallback={renderLoader()}>
+            <Search handleSearch={filterHotels} />
+          </Suspense>
+          <Col className="hotel__error">
+            <p>Your search didn't match any hotel names</p>
+            <p>Please try something else</p>
+          </Col>
+        </Row>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <Heading title="Our Hotels" />
+        <Row className="hotel">
+          <Suspense fallback={renderLoader()}>
+            <Search handleSearch={filterHotels} />
+          </Suspense>
 
-        {filteredHotels.map((hotel) => {
-          const { id, name, image, price, email } = hotel;
+          {filteredHotels.map((hotel) => {
+            const { id, name, image, price, email } = hotel;
 
-          return (
-            <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
-              <Suspense fallback={renderLoader()}>
-                <HotelCard
-                  id={id}
-                  name={name}
-                  image={image}
-                  price={price}
-                  email={email}
-                />
-              </Suspense>
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
-  );
+            return (
+              <Col className="col-sm-12 col-md-6 col-lg-4" key={id}>
+                <Suspense fallback={renderLoader()}>
+                  <HotelCard
+                    id={id}
+                    name={name}
+                    image={image}
+                    price={price}
+                    email={email}
+                  />
+                </Suspense>
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    );
+  }
 }
-
 export default Hotels;
