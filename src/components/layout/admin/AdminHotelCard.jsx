@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -31,9 +31,9 @@ function HotelDelete({ id, name, image, price, email }) {
           </ul>
 
           <div className="admin__buttons">
-            <NavLink id={id} className="btn" to={`/editHotel/${id}`}>
-              Edit
-            </NavLink>
+            <Link to={"editHotel/" + id}>
+              <button className="btn btn__card">Edit Hotel</button>
+            </Link>
             <DeleteHotel id={id} />
           </div>
         </Card.Body>

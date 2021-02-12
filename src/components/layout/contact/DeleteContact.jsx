@@ -21,7 +21,7 @@ function DeleteContact(props) {
   }
 
   async function deleteContact() {
-    const url = BASE_URL + "enquiries/" + props.id;
+    const url = BASE_URL + "contacts/" + props.id;
     const options = { headers, method: DELETE };
     await fetch(url, options);
 

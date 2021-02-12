@@ -87,7 +87,7 @@ function Layout() {
             <Route path="/enquiry/:id" component={Enquiry} />
             <Route path="/admin" component={Admin} />
             <Route path="/adminHotel" component={AdminHotel} />
-            <Route path="/editHotel:id" component={EditHotel} />
+            <Route path="/editHotel/:id" component={EditHotel} />
           </ScrollToTop>
         </Switch>
       </Container>

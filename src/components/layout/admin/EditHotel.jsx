@@ -6,7 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { BASE_URL, headers, PATCH } from "../../constants/api";
 import { Row, Col, Form } from "react-bootstrap";
-
 function AddHotel() {
   const defaultState = {
     name: "",
@@ -17,7 +16,6 @@ function AddHotel() {
     price: "",
     description: "",
   };
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     image: Yup.string().required("Image Url is required"),
@@ -29,15 +27,11 @@ function AddHotel() {
       .min(20, "Description must contain 20 characters or more")
       .required("Description is required"),
   });
-
   const history = useHistory();
-
   const { register, handleSubmit, reset, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
   let { id } = useParams();
-
   const [hotel, sethotel] = useState(defaultState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -60,29 +54,24 @@ function AddHotel() {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   }, [id]);
-
   if (loading) {
     return <Loader />;
   }
-
   if (error) {
     return <div className="error">{error}</div>;
   }
-
   async function onSubmit(data) {
     const url = BASE_URL + "establishments/" + id;
-
-    const options = {
+    const updateOptions = {
       headers,
       method: PATCH,
       body: JSON.stringify(data),
     };
-
-    await fetch(url, options);
-
+    fetch(url, updateOptions)
+      .then((r) => r.json())
+      .then((j) => console.log(j));
     history.push("/adminHotel");
   }
-
   return (
     <Row className="form form__newHotel">
       <Col className="form__col--2 col-sm-11 col-lg-6">
@@ -222,5 +211,4 @@ function AddHotel() {
     </Row>
   );
 }
-
 export default AddHotel;
