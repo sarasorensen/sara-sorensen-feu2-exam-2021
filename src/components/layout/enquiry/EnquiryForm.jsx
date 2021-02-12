@@ -73,7 +73,15 @@ function EnquiryForm() {
 
   return (
     <>
-      <Modal show={showModal} onExit={reload}>
+      <Modal
+        className="modal fade"
+        role="dialog"
+        centered
+        aria-labelledby="Modal"
+        aria-hidden="true"
+        show={showModal}
+        onExit={reload}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Thank you for your enquiry!</Modal.Title>
         </Modal.Header>

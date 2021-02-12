@@ -50,7 +50,7 @@ function HotelSpecific() {
         <Col className="specific__col col-sm-12 col-md-6 col-lg-4">
           <img src={hotel.image} className="specific__img" alt={hotel.name} />
         </Col>
-        <Col className="specific__hotels col-sm-12 col-md-6 col-lg-4">
+        <Col className="specific__details col-sm-12 col-md-6 col-lg-4">
           <Heading className="specific__title" title={hotel.name} />
           <p>Max {hotel.maxGuests} guests</p>
           <p>

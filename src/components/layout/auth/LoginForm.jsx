@@ -60,7 +60,15 @@ function LoginForm() {
 
   return (
     <>
-      <Modal show={runModal} onExit={relocate}>
+      <Modal
+        className="modal fade"
+        role="dialog"
+        centered
+        aria-labelledby="Modal"
+        aria-hidden="true"
+        show={runModal}
+        onExit={relocate}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Log in Success!</Modal.Title>
         </Modal.Header>
