@@ -22,13 +22,6 @@ function LoginForm() {
     resolver: yupResolver(validationSchema),
   });
 
-  const [showModal, setShowModal] = useState(false);
-
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => {
-    setShowModal(false);
-  };
-
   const history = useHistory();
 
   async function onSubmit(data, e) {
@@ -39,17 +32,48 @@ function LoginForm() {
 
     if (userName === data.email && password === data.password) {
       loginInput(data.username, data.password);
-      history.push("/admin");
-      history.go(0);
+      handleModal();
     } else {
       handleShow();
     }
   }
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+  const [runModal, setRunModal] = useState(false);
+  const handleModal = () => setRunModal(true);
+  const handleModalClose = () => {
+    setRunModal(false);
+  };
+
+  const relocate = () => {
+    history.push("/admin");
+    history.go(0);
+  };
+
   const reload = () => window.location.reload();
 
   return (
     <>
+      <Modal show={runModal} onExit={relocate}>
+        <Modal.Header closeButton>
+          <Modal.Title>Log in Success!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Admin Dashboard will show once you close this window.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleModalClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Modal show={showModal} onExit={reload}>
         <Modal.Header closeButton>
           <Modal.Title>Somethint went wrong!</Modal.Title>

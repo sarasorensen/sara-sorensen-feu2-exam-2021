@@ -51,6 +51,9 @@ function Layout() {
             <NavLink to="/contact" className="navbar__link ">
               Contact
             </NavLink>
+            <NavLink to="/editHotel" className="navbar__link ">
+              edit
+            </NavLink>
 
             {user ? (
               <>
