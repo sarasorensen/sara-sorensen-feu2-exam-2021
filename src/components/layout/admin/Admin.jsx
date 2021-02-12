@@ -1,34 +1,19 @@
 import React from "react";
 import Heading from "../Heading";
-import { Link } from "react-router-dom";
 import Contacts from "../contact/FetchContact";
 import Enquiries from "../enquiry/FetchEnquiries";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import LogOut from "../auth/Logout";
 import SideNav from "./adminNav";
-import { Access, LogedIn, Lock } from "../../constants/icons";
+import AccessMsg from "./AccessMsg";
+import { LogedIn, Lock } from "../../constants/icons";
 
 function Admin() {
   const username = localStorage.getItem("username");
   const password = localStorage.getItem("password");
 
   if (username === null && password === null) {
-    return (
-      <Container className="admin">
-        <Row>
-          <Col className="admin__error">
-            <div>
-              <Access />
-              <h2 className="title__grey">No Access</h2>
-              <p>You have to be logged in to view this page.</p>
-              <Link to="/login" className="success__link">
-                Log in Here
-              </Link>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    );
+    return <AccessMsg />;
   }
 
   return (

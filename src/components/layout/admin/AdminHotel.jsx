@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Loader from "../Loader";
 import Heading from "../Heading";
+import AccessMsg from "./AccessMsg";
 import { BASE_URL, headers } from "../../constants/api";
 import AdminHotelCard from "./AdminHotelCard";
 import NewHotelForm from "./NewHotel";
@@ -38,6 +39,13 @@ function AdminHotel() {
 
   if (error) {
     return <div className="error">{error}</div>;
+  }
+
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
+
+  if (username === null && password === null) {
+    return <AccessMsg />;
   }
 
   const List = ({ hotels, fallback }) => {

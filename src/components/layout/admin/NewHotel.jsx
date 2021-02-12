@@ -161,7 +161,7 @@ function AddHotel() {
             <button className="btn" type="submit">
               Submit
             </button>
-            <button className="btn" type="reset">
+            <button className="btn btn__reset" type="reset">
               Reset
             </button>
           </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../Loader";
+import AccessMsg from "./AccessMsg";
+import DeleteHotel from "./DeleteHotel";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -72,6 +74,14 @@ function AddHotel() {
       .then((j) => console.log(j));
     history.push("/adminHotel");
   }
+
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
+
+  if (username === null && password === null) {
+    return <AccessMsg />;
+  }
+
   return (
     <Row className="form form__newHotel">
       <Col className="form__col--2 col-sm-11 col-lg-6">
@@ -202,9 +212,7 @@ function AddHotel() {
             <button className="btn" type="submit">
               Update
             </button>
-            <button className="btn" type="reset">
-              Reset
-            </button>
+            <DeleteHotel id={id} />
           </div>
         </Form>
       </Col>

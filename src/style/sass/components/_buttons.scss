@@ -11,6 +11,9 @@
   float: none;
   margin: 0 auto;
 }
+.btn__reset {
+  background-color: $color__blue;
+}
 .btn__danger {
   background-color: $error;
   margin-right: 0.5em;
