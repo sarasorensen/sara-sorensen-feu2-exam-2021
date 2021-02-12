@@ -55,6 +55,9 @@
   }
 }
 @media (min-width: 200px) and (max-width: 568px) {
+  .dropdown {
+    min-width: 100%;
+  }
   .drop__card {
     max-width: 100%;
   }

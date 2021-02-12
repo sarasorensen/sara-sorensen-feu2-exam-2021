@@ -38,7 +38,11 @@
 }
 .hotel__error {
   width: 100%;
+  z-index: 1;
+  text-align: center;
+  min-height: 25vh;
   margin-top: 10%;
+  margin-bottom: 5%;
   @include flex__column;
   & p {
     margin: 1em;
@@ -57,5 +61,8 @@
       min-height: 35vh !important;
       max-height: 45vh !important;
     }
+  }
+  .hotel__error {
+    min-height: 25vh;
   }
 }
