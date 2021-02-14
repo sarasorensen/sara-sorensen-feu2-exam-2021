@@ -6,6 +6,9 @@
   align-content: center;
   @include flex__row;
 }
+.footer__link {
+  display: block;
+}
 .footer__col {
   margin: 0 auto;
   padding: 1.5em;

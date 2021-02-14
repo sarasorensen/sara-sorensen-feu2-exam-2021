@@ -1,5 +1,6 @@
 import React from "react";
 import { confirmAlert } from "react-confirm-alert";
+import { useHistory } from "react-router-dom";
 import { BASE_URL, headers, DELETE } from "../../constants/api";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
@@ -27,7 +28,9 @@ function DeleteHotel(props) {
 
     reload();
   }
-  const reload = () => window.location.reload();
+
+  const History = useHistory();
+  const reload = () => History.go(0);
 
   return (
     <button className="btn btn__danger" onClick={checkDelete}>

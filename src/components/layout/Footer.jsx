@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import Logout from "../layout/auth/Logout";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/rel-icon.png";
 import LazyLoad from "react-lazyload";
-import { Facebook, Twitter, Linkedin } from "react-bootstrap-icons";
+import { Facebook, Twitter, Linkedin, PersonFill } from "react-bootstrap-icons";
 
 function Footer() {
+  const { user } = useContext(AuthContext);
   return (
     <footer className="footer">
       <div className="footer__col">
@@ -56,9 +59,22 @@ function Footer() {
           <li>
             <NavLink to="/contact">Contact</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Log In</NavLink>
-          </li>
+          {user ? (
+            <>
+              <NavLink
+                to="/admin"
+                className="footer__link"
+                activeClassName="active"
+              >
+                Admin
+              </NavLink>
+              <Logout className="footer__link" />
+            </>
+          ) : (
+            <NavLink to="/login">
+              Log In <PersonFill />
+            </NavLink>
+          )}
         </ul>
       </div>
     </footer>

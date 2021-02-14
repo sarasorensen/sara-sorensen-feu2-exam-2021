@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Heading from "../Heading";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { BASE_URL, POST, headers } from "../../constants/api";
@@ -61,7 +61,9 @@ function EnquiryForm() {
   const handleClose = () => {
     setShowModal(false);
   };
-  const reload = () => window.location.reload();
+
+  const History = useHistory();
+  const reload = () => History.go(0);
 
   const name = localStorage.getItem("name");
   const image = localStorage.getItem("image");
@@ -82,7 +84,8 @@ function EnquiryForm() {
         </Modal.Header>
         <Modal.Body>
           <p>
-            We will get back to you shortly, please check your email for this.
+            We will get back to you shortly, please check your email for
+            confirmation.
           </p>
         </Modal.Body>
         <Modal.Footer>

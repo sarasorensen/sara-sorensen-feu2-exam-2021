@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Heading from "../Heading";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form, Modal, Button } from "react-bootstrap";
@@ -44,7 +45,8 @@ function ContactForm() {
     setShowModal(false);
   };
 
-  const reload = () => window.location.reload();
+  const History = useHistory();
+  const reload = () => History.go(0);
 
   return (
     <>
@@ -62,7 +64,8 @@ function ContactForm() {
         </Modal.Header>
         <Modal.Body>
           <p>
-            We will get back to you shortly, please check your email for this.
+            We will get back to you shortly, please check your email for
+            confirmation.
           </p>
         </Modal.Body>
         <Modal.Footer>

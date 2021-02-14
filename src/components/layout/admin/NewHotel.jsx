@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { BASE_URL, headers, POST } from "../../constants/api";
@@ -35,7 +36,8 @@ function AddHotel() {
     reload();
   }
 
-  const reload = () => window.location.reload();
+  const History = useHistory();
+  const reload = () => History.go(0);
 
   return (
     <Row className="form form__newHotel">
