@@ -9,7 +9,6 @@ function AddHotel() {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     image: Yup.string().required("Image Url is required"),
-    address: Yup.string().required("address is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     maxGuests: Yup.string().required("Max Guests is required"),
     price: Yup.string().required("Price is required"),
@@ -90,22 +89,6 @@ function AddHotel() {
               ref={register}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="address" className="form__label">
-              Adress
-            </Form.Label>
-            <Form.Control
-              name="address"
-              type="text"
-              id="address"
-              className={`form-control form__control ${
-                errors.address ? "is-invalid" : ""
-              }`}
-              placeholder="Enter an address"
-              ref={register}
-            />
-            <div className="invalid-feedback">{errors.address?.message}</div>
           </Form.Group>
           <Form.Group>
             <Form.Label htmlFor="price" className="form__label">

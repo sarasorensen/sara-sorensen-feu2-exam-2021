@@ -7,7 +7,7 @@ import { BASE_URL, headers } from "../../constants/api";
 import AdminHotelCard from "./AdminHotelCard";
 import NewHotelForm from "./NewHotel";
 import { Container, Row } from "react-bootstrap";
-import { Lock, House, Admin } from "../../constants/icons";
+import { FileBarGraphFill, HouseFill, LockFill } from "react-bootstrap-icons";
 
 function AdminHotel() {
   const [hotels, setHotels] = useState([]);
@@ -81,16 +81,16 @@ function AdminHotel() {
         <div className="admin__col">
           <div className="adminNav">
             <NavLink to="/admin">
-              <Admin />
+              <FileBarGraphFill className="icon" />
               Admin
             </NavLink>
             <a href="#newHotel">
-              <House />
+              <HouseFill className="icon" />
               Create New Hotel
             </a>
             <a href="/login">
               {" "}
-              <Lock />
+              <LockFill className="icon" />
               Log Out
             </a>
           </div>

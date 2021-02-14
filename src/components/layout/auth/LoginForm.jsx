@@ -6,10 +6,9 @@ import { useHistory, Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form, Modal, Button } from "react-bootstrap";
-import { Email, Lock, PersonFill } from "../../constants/icons";
+import { PersonFill, InboxFill, LockFill } from "react-bootstrap-icons";
 
 function LoginForm() {
-  const { loginInput } = useContext(AuthContext);
   const validationSchema = Yup.object().shape({
     password: Yup.string()
       .min(8, "Password is too short - should be 8 chars minimum.")
@@ -23,6 +22,7 @@ function LoginForm() {
   });
 
   const history = useHistory();
+  const { loginInput } = useContext(AuthContext);
 
   async function onSubmit(data, e) {
     e.preventDefault();
@@ -32,31 +32,27 @@ function LoginForm() {
 
     if (userName === data.email && password === data.password) {
       loginInput(data.username, data.password);
-      handleModal();
+      handleSuccess();
     } else {
-      handleShow();
+      handleError();
     }
   }
 
-  const [showModal, setShowModal] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [runSuccess, setRunSuccess] = useState(false);
 
-  const handleShow = () => setShowModal(true);
-  const handleClose = () => {
-    setShowModal(false);
-  };
+  const handleError = () => setShowError(true);
+  const closeError = () => setShowError(false);
 
-  const [runModal, setRunModal] = useState(false);
-  const handleModal = () => setRunModal(true);
-  const handleModalClose = () => {
-    setRunModal(false);
-  };
+  const handleSuccess = () => setRunSuccess(true);
+  const closeSuccess = () => setRunSuccess(false);
 
-  const relocate = () => {
+  const admin = () => {
     history.push("/admin");
     history.go(0);
   };
 
-  const reload = () => window.location.reload();
+  const reload = () => history.go(0);
 
   return (
     <>
@@ -66,8 +62,8 @@ function LoginForm() {
         centered
         aria-labelledby="Modal"
         aria-hidden="true"
-        show={runModal}
-        onExit={relocate}
+        show={runSuccess}
+        onExit={admin}
       >
         <Modal.Header closeButton>
           <Modal.Title>Log in Success!</Modal.Title>
@@ -76,13 +72,21 @@ function LoginForm() {
           <p>Admin Dashboard will show once you close this window.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleModalClose}>
+          <Button variant="secondary" onClick={closeSuccess}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <Modal show={showModal} onExit={reload}>
+      <Modal
+        className="modal fade"
+        role="dialog"
+        centered
+        aria-labelledby="Modal"
+        aria-hidden="true"
+        show={showError}
+        onExit={reload}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Somethint went wrong!</Modal.Title>
         </Modal.Header>
@@ -96,14 +100,15 @@ function LoginForm() {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={closeError}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
+
       <Row className="form">
         <Col className="form__col--1 col-sm-11   col-lg-6">
-          <PersonFill />
+          <PersonFill size={100} className="icon__form" />
           <p className="form__info">
             Don't have an account?{" "}
             <Link to="/register" className="link link__blue">
@@ -117,7 +122,7 @@ function LoginForm() {
             <Form.Group>
               <Form.Label htmlFor="email" className="form__label">
                 {" "}
-                <Email />
+                <InboxFill className="icon" />
                 Email
               </Form.Label>
               <Form.Control
@@ -136,7 +141,7 @@ function LoginForm() {
             <Form.Group>
               <Form.Label htmlFor="password" className="form__label">
                 {" "}
-                <Lock />
+                <LockFill className="icon" />
                 Password
               </Form.Label>
               <Form.Control

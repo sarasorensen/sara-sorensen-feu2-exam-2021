@@ -23,7 +23,7 @@ import EditHotel from "./admin/EditHotel";
 import Logo from "../../images/logo-y.png";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "./Footer";
-import { Person } from "../constants/icons";
+import { PersonFill } from "react-bootstrap-icons";
 
 function Layout() {
   const { user } = useContext(AuthContext);
@@ -65,7 +65,7 @@ function Layout() {
               </>
             ) : (
               <NavLink to="/login" className="navbar__link">
-                Log In <Person />
+                Log In <PersonFill />
               </NavLink>
             )}
           </Nav>

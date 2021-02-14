@@ -6,11 +6,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { BASE_URL, POST, headers } from "../../constants/api";
 import { Row, Col, Form, Modal, Button } from "react-bootstrap";
-import { Person, Email } from "../../constants/icons";
+import {
+  PersonFill,
+  InboxFill,
+  CalendarCheckFill,
+} from "react-bootstrap-icons";
 
 function EnquiryForm() {
-  const { id } = useParams();
-
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
@@ -36,23 +38,16 @@ function EnquiryForm() {
     resolver: yupResolver(validationSchema),
   });
 
-  async function onSubmit(data) {
-    const enquiryInput = {
-      name: data.name,
-      email: data.email,
-      checkIn: data.checkIn,
-      checkOut: data.checkOut,
-      establishmentId: data.establishmentId,
-    };
+  const { id } = useParams();
 
+  async function onSubmit(data) {
     const url = BASE_URL + "enquiries";
 
     const options = {
       headers,
       method: POST,
+      body: JSON.stringify(data),
     };
-
-    options.body = JSON.stringify(enquiryInput);
 
     await fetch(url, options);
 
@@ -113,7 +108,7 @@ function EnquiryForm() {
             <Form.Group>
               <Form.Label htmlFor="name" className="form__label">
                 {" "}
-                <Person />
+                <PersonFill className="icon" />
                 Name
               </Form.Label>
               <Form.Control
@@ -131,7 +126,7 @@ function EnquiryForm() {
             <Form.Group>
               <Form.Label htmlFor="email" className="form__label">
                 {" "}
-                <Email />
+                <InboxFill className="icon" />
                 Email
               </Form.Label>
               <Form.Control
@@ -148,6 +143,7 @@ function EnquiryForm() {
             </Form.Group>
             <Form.Group>
               <Form.Label htmlFor="checkIn" className="form__label">
+                <CalendarCheckFill className="icon" />
                 Check In
               </Form.Label>
               <Form.Control
@@ -164,6 +160,7 @@ function EnquiryForm() {
             </Form.Group>
             <Form.Group>
               <Form.Label htmlFor="checkOut" className="form__label">
+                <CalendarCheckFill className="icon" />
                 Check Out
               </Form.Label>
               <Form.Control

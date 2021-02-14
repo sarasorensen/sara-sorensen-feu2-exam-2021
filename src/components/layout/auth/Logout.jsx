@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { LockFill } from "react-bootstrap-icons";
 
 function LogOut() {
   function checkLogOut() {
@@ -33,6 +34,7 @@ function LogOut() {
   return (
     <button onClick={checkLogOut} className="btn btn__logout">
       Log out
+      <LockFill />
     </button>
   );
 }

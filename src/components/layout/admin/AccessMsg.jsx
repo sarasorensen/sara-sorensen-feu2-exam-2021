@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { Access } from "../../constants/icons";
+import { EyeFill } from "react-bootstrap-icons";
 
 function AccessMsg() {
   return (
@@ -8,7 +8,7 @@ function AccessMsg() {
       <Row>
         <Col className="admin__error">
           <div>
-            <Access />
+            <EyeFill size={70} className="icon__access" />
             <h2 className="title__grey">No Access</h2>
             <p>You have to be logged in to view this page.</p>
             <Link to="/login" className="success__link">

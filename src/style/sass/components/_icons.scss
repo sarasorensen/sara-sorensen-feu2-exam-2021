@@ -1,25 +1,21 @@
 .icon {
-  width: 1.2em;
-  margin-right: 0.5em;
+  margin-right: 0.2em;
 }
 .icon__form {
-  width: 10em;
   color: $color__grey;
   margin-top: 2em !important;
   margin-bottom: 2em !important;
 }
-.icon__search {
-  width: 1.5em;
-  margin-right: 0.5em;
-}
 .icon__success {
-  width: 4em;
   color: $color__grey;
   margin: 0;
   margin-top: 1em;
 }
+.icon__access {
+  color: $color__grey;
+  margin: 1em;
+}
 .icon__spec {
-  width: 2em;
   margin-bottom: 0.5em;
   color: $color__main;
 }

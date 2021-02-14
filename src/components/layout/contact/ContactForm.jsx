@@ -5,7 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form, Modal, Button } from "react-bootstrap";
 import { BASE_URL, headers, POST } from "../../constants/api";
-import { Person, Email, Message, Envelope } from "../../constants/icons";
+import {
+  PersonFill,
+  InboxFill,
+  Envelope,
+  ChatDotsFill,
+} from "react-bootstrap-icons";
 
 function ContactForm() {
   const [showModal, setShowModal] = useState(false);
@@ -68,7 +73,7 @@ function ContactForm() {
       </Modal>
       <Row className="form">
         <Col className="form__col--1 col-sm-11   col-lg-6">
-          <Envelope />
+          <Envelope size={100} className="icon__form" />
           <p className="form__info">
             If you have any questions or just want to get in touch, use the
             contact form. We look forward to hearing from you!
@@ -80,7 +85,7 @@ function ContactForm() {
             <Form.Group>
               <Form.Label htmlFor="name" className="form__label">
                 {" "}
-                <Person />
+                <PersonFill className="icon" />
                 Name
               </Form.Label>
               <Form.Control
@@ -98,7 +103,7 @@ function ContactForm() {
             <Form.Group>
               <Form.Label htmlFor="email" className="form__label">
                 {" "}
-                <Email />
+                <InboxFill className="icon" />
                 Email
               </Form.Label>
               <Form.Control
@@ -115,7 +120,7 @@ function ContactForm() {
             </Form.Group>
             <Form.Group>
               <Form.Label htmlFor="message" className="form__label">
-                <Message />
+                <ChatDotsFill className="icon" />
                 Message:
               </Form.Label>
               <textarea

@@ -15,14 +15,6 @@ const AuthContextProvider = ({ children }) => {
     setPassword(userPassword);
   }
 
-  function registerUser(username, userPassword) {
-    localStorage.setItem("newUsername", JSON.stringify(username));
-    localStorage.setItem("newPassword", JSON.stringify(password));
-
-    setUser(username);
-    setPassword(userPassword);
-  }
-
   function logout() {
     setUser(null);
     setPassword(null);
@@ -31,9 +23,7 @@ const AuthContextProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider
-      value={{ user, password, loginInput, registerUser, logout }}
-    >
+    <AuthContext.Provider value={{ user, password, loginInput, logout }}>
       {children}
     </AuthContext.Provider>
   );

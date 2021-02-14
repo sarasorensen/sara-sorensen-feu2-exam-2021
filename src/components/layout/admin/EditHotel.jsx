@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { BASE_URL, headers, PATCH } from "../../constants/api";
 import { Row, Col, Form } from "react-bootstrap";
+
 function AddHotel() {
   const defaultState = {
     name: "",
@@ -18,6 +19,7 @@ function AddHotel() {
     price: "",
     description: "",
   };
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Hotel Name is required"),
     image: Yup.string().required("Image Url is required"),
@@ -56,12 +58,22 @@ function AddHotel() {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
   }, [id]);
+
   if (loading) {
     return <Loader />;
   }
+
   if (error) {
     return <div className="error">{error}</div>;
   }
+
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
+
+  if (username === null && password === null) {
+    return <AccessMsg />;
+  }
+
   async function onSubmit(data) {
     const url = BASE_URL + "establishments/" + id;
     const updateOptions = {
@@ -73,13 +85,6 @@ function AddHotel() {
       .then((r) => r.json())
       .then((j) => console.log(j));
     history.push("/adminHotel");
-  }
-
-  const username = localStorage.getItem("username");
-  const password = localStorage.getItem("password");
-
-  if (username === null && password === null) {
-    return <AccessMsg />;
   }
 
   return (

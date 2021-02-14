@@ -12,7 +12,7 @@
     border-radius: 0;
   }
   & .search__input:hover {
-    @include hover__search;
+    border: 1px solid $color__main;
   }
 }
 .search__home {

@@ -1,21 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Message, Pencil, House } from "../../constants/icons";
+import { PencilFill, HouseFill, ChatDotsFill } from "react-bootstrap-icons";
 
 function adminNav() {
   return (
     <div className="adminNav">
       <Link to="/adminHotel">
-        <House />
+        <HouseFill className="icon" />
         Edit Hotels
       </Link>
       <a href="#Contacts">
-        <Message />
+        <ChatDotsFill className="icon" />
         Messages
       </a>
       <a href="#enquiries">
         {" "}
-        <Pencil />
+        <PencilFill className="icon" />
         Enquiries
       </a>
     </div>

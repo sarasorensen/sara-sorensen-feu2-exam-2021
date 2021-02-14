@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/rel-icon.png";
-import { Facebook, Twitter, LinkedIn } from "../constants/icons";
 import LazyLoad from "react-lazyload";
+import { Facebook, Twitter, Linkedin } from "react-bootstrap-icons";
 
 function Footer() {
   return (
@@ -23,7 +23,7 @@ function Footer() {
           <a href="https://www.linkedin.com/feed/">
             {" "}
             <span className="sr-only">LinkedIn Logo</span>
-            <LinkedIn />
+            <Linkedin />
           </a>
         </div>
       </div>

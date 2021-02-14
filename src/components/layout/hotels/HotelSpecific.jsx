@@ -3,7 +3,7 @@ import { BASE_URL, headers } from "../../constants/api";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Loader from "../Loader";
-import { Wifi, Cup, Location } from "../../constants/icons";
+import { Wifi, Cup, Geo } from "react-bootstrap-icons";
 import Heading from "../Heading";
 
 function HotelSpecific() {
@@ -68,15 +68,15 @@ function HotelSpecific() {
           </p>
           <Row className="d-flex jc-center text-center specific__icons">
             <Col>
-              <Wifi />
+              <Wifi size={40} className="icon__spec" />
               <p>Wifi included</p>
             </Col>
             <Col>
-              <Cup />
+              <Cup size={40} className="icon__spec" />
               <p>Breakfast included</p>
             </Col>
             <Col>
-              <Location />
+              <Geo size={40} className="icon__spec" />
               <p>Central Location</p>
             </Col>
           </Row>

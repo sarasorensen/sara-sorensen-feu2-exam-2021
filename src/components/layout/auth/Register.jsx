@@ -5,7 +5,7 @@ import { useHistory, Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form } from "react-bootstrap";
-import { Email, Lock, PersonFill } from "../../constants/icons";
+import { PersonFill, InboxFill, LockFill } from "react-bootstrap-icons";
 
 function Register() {
   const validationSchema = Yup.object().shape({
@@ -32,7 +32,7 @@ function Register() {
   return (
     <Row className="form">
       <Col className="form__col--1 col-sm-11   col-lg-6">
-        <PersonFill />
+        <PersonFill size={100} className="icon__form" />
         <p className="form__info">
           Do you have an existing account?{" "}
           <Link to="/login" className="link link__blue">
@@ -46,7 +46,7 @@ function Register() {
           <Form.Group>
             <Form.Label htmlFor="email" className="form__label">
               {" "}
-              <Email />
+              <InboxFill className="icon" />
               Email
             </Form.Label>
             <Form.Control
@@ -56,7 +56,7 @@ function Register() {
               className={`form-control form__control ${
                 errors.email ? "is-invalid" : ""
               }`}
-              placeholder="Enter an email address"
+              placeholder="Create an email address"
               ref={register}
             />
             <div className="invalid-feedback">{errors.email?.message}</div>
@@ -65,7 +65,7 @@ function Register() {
           <Form.Group>
             <Form.Label htmlFor="password" className="form__label">
               {" "}
-              <Lock />
+              <LockFill className="icon" />
               Password
             </Form.Label>
             <Form.Control
@@ -75,7 +75,7 @@ function Register() {
               className={`form-control form__control ${
                 errors.password ? "is-invalid" : ""
               }`}
-              placeholder="Enter a password"
+              placeholder="Create a password"
               ref={register}
             />
             <div className="invalid-feedback">{errors.password?.message}</div>

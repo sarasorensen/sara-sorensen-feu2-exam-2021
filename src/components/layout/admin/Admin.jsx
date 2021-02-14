@@ -6,7 +6,7 @@ import { Container, Row } from "react-bootstrap";
 import LogOut from "../auth/Logout";
 import SideNav from "./adminNav";
 import AccessMsg from "./AccessMsg";
-import { LogedIn, Lock } from "../../constants/icons";
+import { PersonCheckFill } from "react-bootstrap-icons";
 
 function Admin() {
   const username = localStorage.getItem("username");
@@ -27,14 +27,11 @@ function Admin() {
         <div id="user" className="admin__col">
           <div className="admin__login">
             <div>
-              <LogedIn />
+              <PersonCheckFill size={50} className="icon__success" />
               <p>You are logged in as:</p>
               <p>{username}</p>
             </div>
-            <LogOut>
-              {" "}
-              <Lock />
-            </LogOut>
+            <LogOut />
           </div>
         </div>
 

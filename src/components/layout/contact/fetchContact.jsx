@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL, headers } from "../../constants/api";
-import { Message } from "../../constants/icons";
+import { ChatDotsFill } from "react-bootstrap-icons";
 import DeleteContact from "./DeleteContact";
 import Loader from "../Loader";
 
@@ -60,7 +60,7 @@ function Messages() {
                 <li>
                   {" "}
                   <p>
-                    <Message /> {item.message}
+                    <ChatDotsFill className="icon" /> {item.message}
                   </p>
                 </li>
               </ul>
