@@ -120,12 +120,15 @@ function LoginForm() {
       <Row className="form">
         <Col className="form__col--1 col-sm-11   col-lg-6">
           <PersonFill size={100} className="icon__form" />
-          <p className="form__info">
-            Don't have an account?{" "}
-            <Link to="/register" className="link link__blue">
-              Register here
-            </Link>
-          </p>
+          <ul>
+            <li className="form__info">Don't have an account? </li>
+            <li>
+              {" "}
+              <Link to="/register" className="link link__blue">
+                Register here
+              </Link>
+            </li>
+          </ul>
         </Col>
         <Col className="form__col--2 col-sm-11 col-lg-6">
           <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>

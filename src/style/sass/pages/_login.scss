@@ -1,6 +1,6 @@
 .login {
   min-width: 100%;
-  min-height: 55vh;
+  min-height: 85vh;
   background-color: transparent;
   margin: 32px auto 37px;
   padding: 1em;
@@ -18,4 +18,20 @@
   position: relative;
   display: flex;
   margin-bottom: 14px;
+}
+
+@media (min-width: 200px) and (max-width: 812px) {
+  .login {
+    min-height: 100vh;
+  }
+}
+@media only screen and (min-device-width: 280px) and (max-device-width: 667px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
+  .login {
+    min-height: 100vh;
+  }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (min-aspect-ratio: 1/1) and (orientation: landscape) {
+  .login {
+    min-height: 100vh;
+  }
 }

@@ -45,12 +45,15 @@ function Register() {
       <Row className="form">
         <Col className="form__col--1 col-sm-11   col-lg-6">
           <PersonPlusFill size={100} className="icon__form" />
-          <p className="form__info">
-            Do you have an existing account?{" "}
-            <Link to="/login" className="link link__blue">
-              Log in here
-            </Link>
-          </p>
+          <ul>
+            <li className="form__info"> Do you have an existing account?</li>
+            <li>
+              {" "}
+              <Link to="/login" className="link link__blue">
+                Log in here
+              </Link>
+            </li>
+          </ul>
         </Col>
         <Col className="form__col--2 col-sm-11 col-lg-6">
           <Form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
