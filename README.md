@@ -1,11 +1,12 @@
 # How to start the project
 
-###npm install
+### npm install
 
-###npm run build
+### npm run build
 
-###npm start
+### npm start
 
-##Accessing admin
+### Accessing admin
 
-Create a login account.
+- Register a login account.
+- Log In.
