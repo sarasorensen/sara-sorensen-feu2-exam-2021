@@ -61,19 +61,28 @@ function Footer() {
           </li>
           {user ? (
             <>
-              <NavLink
-                to="/admin"
-                className="footer__link"
-                activeClassName="active"
-              >
-                Admin
-              </NavLink>
-              <Logout className="footer__link" />
+              <li>
+                {" "}
+                <NavLink
+                  to="/admin"
+                  className="footer__link"
+                  activeClassName="active"
+                >
+                  Admin
+                </NavLink>
+              </li>
+              <li>
+                {" "}
+                <Logout className="footer__link" />
+              </li>
             </>
           ) : (
-            <NavLink to="/login">
-              Log In <PersonFill />
-            </NavLink>
+            <li>
+              {" "}
+              <NavLink to="/login">
+                Log In <PersonFill />
+              </NavLink>
+            </li>
           )}
         </ul>
       </div>
