@@ -53,7 +53,7 @@ function Messages() {
                 </li>
                 <li>
                   {" "}
-                  <a className="link link__admin" href={"mailto:" + item.email}>
+                  <a className="link link__blue" href={"mailto:" + item.email}>
                     {item.email}
                   </a>
                 </li>

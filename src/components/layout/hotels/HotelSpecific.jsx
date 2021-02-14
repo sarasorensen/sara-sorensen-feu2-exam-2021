@@ -62,7 +62,7 @@ function HotelSpecific() {
           <p>
             {" "}
             If you have any questions, please contact:{" "}
-            <a className="link" href={"mailto:" + hotel.email}>
+            <a className="link link__blue" href={"mailto:" + hotel.email}>
               {hotel.email}
             </a>
           </p>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loader from "../Loader";
 import Heading from "../Heading";
 import AccessMsg from "./AccessMsg";
@@ -80,10 +80,10 @@ function AdminHotel() {
       <Row>
         <div className="admin__col">
           <div className="adminNav">
-            <NavLink to="/admin">
+            <Link to="/admin">
               <FileBarGraphFill className="icon" />
               Admin
-            </NavLink>
+            </Link>
             <a href="#newHotel">
               <HouseFill className="icon" />
               Create New Hotel

@@ -56,7 +56,7 @@ function Enquiries() {
                   <li>
                     {" "}
                     <a
-                      className="link link__admin"
+                      className="link link__blue"
                       href={"mailto:" + item.email}
                     >
                       {item.email}

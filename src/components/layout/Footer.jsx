@@ -56,6 +56,9 @@ function Footer() {
           <li>
             <NavLink to="/contact">Contact</NavLink>
           </li>
+          <li>
+            <NavLink to="/login">Log In</NavLink>
+          </li>
         </ul>
       </div>
     </footer>

@@ -6,7 +6,12 @@ import { useHistory, Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form, Modal, Button } from "react-bootstrap";
-import { PersonFill, InboxFill, LockFill } from "react-bootstrap-icons";
+import {
+  PersonFill,
+  InboxFill,
+  LockFill,
+  EyeFill,
+} from "react-bootstrap-icons";
 
 function LoginForm() {
   const validationSchema = Yup.object().shape({
@@ -23,6 +28,12 @@ function LoginForm() {
 
   const history = useHistory();
   const { loginInput } = useContext(AuthContext);
+
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   async function onSubmit(data, e) {
     e.preventDefault();
@@ -144,16 +155,23 @@ function LoginForm() {
                 <LockFill className="icon" />
                 Password
               </Form.Label>
-              <Form.Control
-                name="password"
-                type="password"
-                id="password"
-                className={`form-control form__control ${
-                  errors.password ? "is-invalid" : ""
-                }`}
-                placeholder="Enter a password"
-                ref={register}
-              />
+              <div className="password__wrapper">
+                <Form.Control
+                  name="password"
+                  type={passwordShown ? "text" : "password"}
+                  id="password"
+                  autoComplete="on"
+                  className={`form-control form__control ${
+                    errors.password ? "is-invalid" : ""
+                  }`}
+                  placeholder="Enter a password"
+                  ref={register}
+                />
+                <EyeFill
+                  className="icon icon__password"
+                  onClick={togglePasswordVisiblity}
+                />
+              </div>
               <div className="invalid-feedback">{errors.password?.message}</div>
             </Form.Group>
 

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../Heading";
 import { useForm } from "react-hook-form";
 import { useHistory, Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { Row, Col, Form } from "react-bootstrap";
-import { PersonFill, InboxFill, LockFill } from "react-bootstrap-icons";
+import {
+  PersonFill,
+  InboxFill,
+  LockFill,
+  EyeFill,
+} from "react-bootstrap-icons";
 
 function Register() {
   const validationSchema = Yup.object().shape({
@@ -19,6 +24,12 @@ function Register() {
   const { register, handleSubmit, reset, errors } = useForm({
     resolver: yupResolver(validationSchema),
   });
+
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const history = useHistory();
 
@@ -68,16 +79,23 @@ function Register() {
               <LockFill className="icon" />
               Password
             </Form.Label>
-            <Form.Control
-              name="password"
-              type="password"
-              id="password"
-              className={`form-control form__control ${
-                errors.password ? "is-invalid" : ""
-              }`}
-              placeholder="Create a password"
-              ref={register}
-            />
+            <div className="password__wrapper">
+              <Form.Control
+                name="password"
+                type={passwordShown ? "text" : "password"}
+                id="password"
+                autoComplete="on"
+                className={`form-control form__control ${
+                  errors.password ? "is-invalid" : ""
+                }`}
+                placeholder="Create a password"
+                ref={register}
+              />
+              <EyeFill
+                className="icon icon__password"
+                onClick={togglePasswordVisiblity}
+              />
+            </div>
             <div className="invalid-feedback">{errors.password?.message}</div>
           </Form.Group>
 
