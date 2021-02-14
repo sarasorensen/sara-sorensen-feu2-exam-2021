@@ -23,7 +23,11 @@ function Login() {
       </Container>
     );
   } else {
-    return <LoginForm />;
+    return (
+      <div className="login">
+        <LoginForm />
+      </div>
+    );
   }
 }
 export default Login;
