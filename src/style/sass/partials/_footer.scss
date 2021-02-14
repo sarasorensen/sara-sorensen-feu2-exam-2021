@@ -8,6 +8,7 @@
 }
 .footer__link {
   display: block;
+  padding: 0.5em;
 }
 .footer__col {
   margin: 0 auto;
@@ -19,6 +20,7 @@
   & a {
     color: $color__white;
     @include transition;
+    padding: 0.5em;
   }
   & a:hover {
     color: $color__main;
@@ -54,7 +56,7 @@
     color: $color__white;
     @include transition;
     margin: 0;
-    padding: 0;
+    padding: 0.5em;
   }
   & a:hover {
     @include hover;
