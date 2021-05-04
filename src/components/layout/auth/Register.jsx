@@ -10,13 +10,13 @@ import {
   InboxFill,
   LockFill,
   EyeFill,
+  EyeSlashFill,
 } from "react-bootstrap-icons";
 
 function Register() {
   const validationSchema = Yup.object().shape({
     password: Yup.string()
-      .min(8, "Password is too short - should be 8 chars minimum.")
-      .matches(/(?=.*[0-9])/, "Password must contain a number.")
+      .min(8, "Password must be at least 8 characters")
       .required("Password is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
   });
@@ -83,22 +83,25 @@ function Register() {
                 <LockFill className="icon" />
                 Password
               </Form.Label>
-              <div className="password__wrapper">
-                <Form.Control
-                  name="password"
-                  type={passwordShown ? "text" : "password"}
-                  id="password"
-                  autoComplete="on"
-                  className={`form-control form__control ${
-                    errors.password ? "is-invalid" : ""
-                  }`}
-                  placeholder="Create a password"
-                  ref={register}
-                />
-                <EyeFill
-                  className="icon icon__password"
+
+              <Form.Control
+                name="password"
+                type={passwordShown ? "text" : "password"}
+                id="password"
+                className={`form-control form__control  ${
+                  errors.password ? "is-invalid" : ""
+                }`}
+                placeholder="Create a password"
+                ref={register}
+              />
+              <div className={"password__wrapper"}>
+                <p
                   onClick={togglePasswordVisiblity}
-                />
+                  tabIndex={0}
+                  className={"showPassword"}
+                >
+                  {passwordShown ? <EyeSlashFill /> : <EyeFill />}
+                </p>
               </div>
               <div className="invalid-feedback">{errors.password?.message}</div>
             </Form.Group>

@@ -15,11 +15,28 @@
   }
 }
 .password__wrapper {
+  float: right;
   position: relative;
-  display: flex;
-  margin-bottom: 14px;
+  z-index: 2;
+  margin: auto;
 }
+.showPassword {
+  margin-left: -55px;
+  margin-top: -45px;
+  padding: 0.5em;
+  background-color: transparent !important;
+  color: $color__grey;
+  border: none;
 
+  &:hover {
+    cursor: pointer;
+    color: $color__blue;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
 @media (min-width: 200px) and (max-width: 812px) {
   .login {
     min-height: 100vh;
